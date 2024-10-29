@@ -22,7 +22,11 @@ classifiers = [
 ]
 dependencies = [
   "junitparser",
+  "typer",
 ]
+
+[project.scripts]
+pytestresultsdiff = "pytestresultsdiff.diff:main"
 
 [project.urls]
 Documentation = "https://github.com/zacharyburnett/pytestresultsdiff#readme"
