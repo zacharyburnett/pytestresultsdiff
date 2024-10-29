@@ -19,6 +19,7 @@ jobs:
         with:
           version: "0.4.28"
           enable-cache: true
-      - run: uv pip install .[test] pytest-xdist
-      - run: uv run pytest -n auto .
+      - run: uv venv
+      - run: uv pip install .[test]
+      - run: uv run pytest .
       - run: uv cache prune --ci

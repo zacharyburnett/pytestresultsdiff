@@ -25,6 +25,9 @@ dependencies = [
   "typer",
 ]
 
+[project.optional-dependencies]
+test = ["pytest"]
+
 [project.scripts]
 pytestresultsdiff = "pytestresultsdiff.diff:main"
 
