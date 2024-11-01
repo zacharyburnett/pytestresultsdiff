@@ -7,11 +7,21 @@ use clap::Parser;
 struct PytestResultsDiffCommand {
     /// filenames of `results.xml` to compare
     results_xmls: Vec<std::path::PathBuf>,
+    /// fractional tolerance for time deviation
+    #[clap(long, short = 'r', default_value_t = 0.1)]
+    time_relative_tolerance: f64,
+    /// absolute tolerance (in seconds) for time deviation
+    #[clap(long, short = 'a', default_value_t = 0.1)]
+    time_absolute_tolerance: f64,
 }
 
 fn main() {
     let arguments = PytestResultsDiffCommand::parse();
-    let test_case_differences = diff_results(arguments.results_xmls);
+    let test_case_differences = diff_results(
+        arguments.results_xmls,
+        Some(arguments.time_relative_tolerance),
+        Some(arguments.time_absolute_tolerance),
+    );
     println!(
         "{}",
         serde_json::to_string_pretty(&test_case_differences).unwrap()

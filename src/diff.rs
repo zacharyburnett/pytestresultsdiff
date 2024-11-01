@@ -15,7 +15,14 @@ enum TestCaseProperty {
     SystemOut,
 }
 
-pub fn diff_results(results_xmls: Vec<std::path::PathBuf>) -> HashMap<String, serde_json::Value> {
+pub fn diff_results(
+    results_xmls: Vec<std::path::PathBuf>,
+    time_relative_tolerance: Option<f64>,
+    time_absolute_tolerance: Option<f64>,
+) -> HashMap<String, serde_json::Value> {
+    let time_relative_tolerance = time_relative_tolerance.unwrap_or(0.1);
+    let time_absolute_tolerance = time_absolute_tolerance.unwrap_or(0.1);
+
     for filename in &results_xmls {
         if !filename.exists() {
             panic!("No such file: \"{}\"", filename.to_str().unwrap());
@@ -51,7 +58,9 @@ pub fn diff_results(results_xmls: Vec<std::path::PathBuf>) -> HashMap<String, se
             .collect::<Vec<f64>>();
         let reference_time = &times[0];
         for time in &times {
-            if time != reference_time {
+            if (time - reference_time).abs()
+                > time * time_relative_tolerance + time_absolute_tolerance
+            {
                 difference.insert(String::from("time"), json!(times));
                 break;
             }
@@ -161,10 +170,14 @@ mod tests {
         .unwrap();
 
         assert_eq!(
-            diff_results(vec![
-                data_directory.join("romancal_24Q4_B15.0.0_results-Linux-x64-py3.11.xml"),
-                data_directory.join("romancal_nightly_results-Linux-x64-py3.11.xml")
-            ]),
+            diff_results(
+                vec![
+                    data_directory.join("romancal_24Q4_B15.0.0_results-Linux-x64-py3.11.xml"),
+                    data_directory.join("romancal_nightly_results-Linux-x64-py3.11.xml")
+                ],
+                Some(0.1),
+                Some(0.1),
+            ),
             reference_diff
         );
     }

@@ -1,362 +1,26 @@
 {
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_2x[match-False]": {
-    "time": [
-      2.147,
-      1.45
+  "romancal.regtest.test_wfi_pipeline::test_level2_image_processing_pipeline": {
+    "status": [
+      "Success",
+      {
+        "Failure": {
+          "failure_type": "",
+          "message": "AssertionError: \n  Diff report for:\n      result file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf\n          model type: ImageModel\n      truth file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/truth/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf\n          model type: ImageModel\n  \n  {'arrays_differ': {\"root['roman']['data']\": {'abs_diff': <Quantity 32778.504 DN / s>,\n                                               'n_diffs': 471,\n                                               'worst_abs_diff': {'index': (2955,\n                                                                            3321),\n                                                                  'value': <Quantity 7411.377 DN / s>},\n                                               'worst_fractional_diff': {'index': (2492,\n                                                                                   1865),\n                                                                         'value': <Quantity 863315.94>}},\n                     \"root['roman']['dq']\": {'abs_diff': 12884901877,\n                                             'n_diffs': 4,\n                                             'worst_abs_diff': {'index': (2951,\n                                                                          3317),\n                                                                'value': 4294967292},\n                                             'worst_fractional_diff': {'index': (2952,\n                                                                                 3320),\n                                                                       'value': inf}},\n                     \"root['roman']['err']\": {'abs_diff': <Quantity 1347.6384 DN / s>,\n                                              'n_diffs': 7,\n                                              'worst_abs_diff': {'index': (2952,\n                                                                           3320),\n                                                                 'value': <Quantity 577.6964 DN / s>},\n                                              'worst_fractional_diff': {'index': (2492,\n                                                                                  1865),\n                                                                        'value': <Quantity 947606.2>}},\n                     \"root['roman']['var_flat']\": {'abs_diff': <Quantity 494019.94 DN2 / s2>,\n                                                   'n_diffs': 7,\n                                                   'worst_abs_diff': {'index': (2952,\n                                                                                3320),\n                                                                      'value': <Quantity 333064.88 DN2 / s2>},\n                                                   'worst_fractional_diff': {'index': (2492,\n                                                                                       1865),\n                                                                             'value': <Quantity 7.453108e+11>}},\n                     \"root['roman']['var_poisson']\": {'abs_diff': <Quantity 3126.605 DN2 / s2>,\n                                                      'n_diffs': 7,\n                                                      'worst_abs_diff': {'index': (2955,\n                                                                                   3321),\n                                                                         'value': <Quantity 675.62225 DN2 / s2>},\n                                                      'worst_fractional_diff': {'index': (1828,\n                                                                                          711),\n                                                                                'value': <Quantity inf>}},\n                     \"root['roman']['var_rnoise']\": {'abs_diff': <Quantity 12.500684 DN2 / s2>,\n                                                     'n_diffs': 7,\n                                                     'worst_abs_diff': {'index': (2952,\n                                                                                  3320),\n                                                                        'value': <Quantity 3.4215055 DN2 / s2>},\n                                                     'worst_fractional_diff': {'index': (1828,\n                                                                                         711),\n                                                                               'value': <Quantity inf>}}},\n   'values_changed': {\"root['roman']['meta']['wcs_fit_results']['<rot>']\": {'new_value': -8.284282814118433e-05,\n                                                                            'old_value': -5.9008763525942403e-05},\n                      \"root['roman']['meta']['wcs_fit_results']['center'][0]\": {'new_value': -249.45443937059298,\n                                                                                'old_value': -249.45421319021025},\n                      \"root['roman']['meta']['wcs_fit_results']['center'][1]\": {'new_value': 109.61109764361109,\n                                                                                'old_value': 109.61122052869052},\n                      \"root['roman']['meta']['wcs_fit_results']['mae']\": {'new_value': 0.003221932838851946,\n                                                                          'old_value': 0.002684014626406904},\n                      \"root['roman']['meta']['wcs_fit_results']['matrix'][0][1]\": {'new_value': -1.4458801127269767e-06,\n                                                                                   'old_value': -1.0298972110582511e-06},\n                      \"root['roman']['meta']['wcs_fit_results']['matrix'][1][0]\": {'new_value': 1.4458801127269767e-06,\n                                                                                   'old_value': 1.0298972110582511e-06},\n                      \"root['roman']['meta']['wcs_fit_results']['proper_rot']\": {'new_value': -8.284282814118433e-05,\n                                                                                 'old_value': -5.9008763525942403e-05},\n                      \"root['roman']['meta']['wcs_fit_results']['rmse']\": {'new_value': 0.004752892068723334,\n                                                                           'old_value': 0.003440309699826702},\n                      \"root['roman']['meta']['wcs_fit_results']['rot'][0]\": {'new_value': -8.284282814118433e-05,\n                                                                             'old_value': -5.9008763525942403e-05},\n                      \"root['roman']['meta']['wcs_fit_results']['rot'][1]\": {'new_value': -8.284282814118433e-05,\n                                                                             'old_value': -5.9008763525942403e-05},\n                      \"root['roman']['meta']['wcs_fit_results']['shift'][0]\": {'new_value': -0.00849888422641429,\n                                                                               'old_value': -0.008499128453755975},\n                      \"root['roman']['meta']['wcs_fit_results']['shift'][1]\": {'new_value': 0.014497927842124192,\n                                                                               'old_value': 0.014101158752967921}}}\nassert False\n +  where False = <romancal.regtest.regtestdata.DiffResult object at 0x7f37e715d310>.identical",
+          "text": "rtdata = {'input': '/runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/r0000101001001001001_01101_00...nt.asdf',\n 'truth_remote': 'roman-pipeline/dev/truth/WFI/image/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf'}\nignore_asdf_paths = {'ignore': ['asdf_library', 'history', 'roman.meta.ref_file.crds.sw_version', 'roman.meta.calibration_software_version', 'roman.cal_logs', 'roman.meta.date', ...]}\n\n    @pytest.mark.bigdata\n    @pytest.mark.soctests\n    def test_level2_image_processing_pipeline(rtdata, ignore_asdf_paths):\n        \"\"\"Tests for flat field imaging processing requirements DMS86 & DMS 87\"\"\"\n        input_data = \"r0000101001001001001_01101_0001_WFI01_uncal.asdf\"\n        rtdata.get_data(f\"WFI/image/{input_data}\")\n        rtdata.input = input_data\n    \n        # Test Pipeline\n        output = \"r0000101001001001001_01101_0001_WFI01_cal.asdf\"\n        rtdata.output = output\n        args = [\n            \"roman_elp\",\n            rtdata.input,\n        ]\n        ExposurePipeline.from_cmdline(args)\n        rtdata.get_truth(f\"truth/WFI/image/{output}\")\n        diff = compare_asdf(rtdata.output, rtdata.truth, **ignore_asdf_paths)\n        assert diff.identical, diff.report()\n    \n        # Perform DMS tests\n        # Initial prep\n        model = rdm.open(rtdata.output)\n        pipeline = ExposurePipeline()\n    \n        # DMS280 result is an ImageModel\n        pipeline.log.info(\n            \"DMS280 MSG: Testing that result is a Level 2 model.......\"\n            + passfail(isinstance(model, rdm.datamodels.ImageModel))\n        )\n    \n        # DMS86 instrument artifact correction tests\n        pipeline.log.info(\n            \"Status of the step:             assign_wcs    \"\n            + str(model.meta.cal_step.assign_wcs)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of wcs assignment inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.assign_wcs == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.assign_wcs == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             flat_field    \"\n            + str(model.meta.cal_step.flat_field)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of flat fielding inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.flat_field == \"PASS\")\n        )\n        assert model.meta.cal_step.flat_field == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             dark          \" + str(model.meta.cal_step.dark)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of dark correction inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.dark == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.dark == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             dq_init       \"\n            + str(model.meta.cal_step.dq_init)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of data quality correction in Level 2 image\"\n            \" output.......\" + passfail(model.meta.cal_step.dq_init == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.dq_init == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             jump          \" + str(model.meta.cal_step.jump)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of jump detection inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.jump == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.jump == \"COMPLETE\"\n        uneven = len({len(x) for x in model.meta.exposure.read_pattern}) > 1\n        pipeline.log.info(\n            \"DMS361: Testing that jump detection detected jumps in uneven ramp in \"\n            \"Level 2 image output.......\"\n            + passfail(uneven & np.any(model.dq & pixel.JUMP_DET))\n        )\n        assert uneven & np.any(model.dq & pixel.JUMP_DET)\n        pipeline.log.info(\n            \"Status of the step:             linearity     \"\n            + str(model.meta.cal_step.linearity)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of linearity correction in Level 2 image\"\n            \" output.......\" + passfail(model.meta.cal_step.linearity == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.linearity == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             ramp_fit      \"\n            + str(model.meta.cal_step.ramp_fit)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of ramp fitting inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.ramp_fit == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.ramp_fit == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             saturation    \"\n            + str(model.meta.cal_step.saturation)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of saturation detection in Level 2 image\"\n            \" output.......\" + passfail(model.meta.cal_step.saturation == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.saturation == \"COMPLETE\"\n    \n        # DMS-129 tests\n        # check if assign_wcs step is complete\n        pipeline.log.info(\n            \"DMS-129 MSG: Status of the step:             assign_wcs    \"\n            + str(model.meta.cal_step.assign_wcs)\n        )\n        pipeline.log.info(\n            \"DMS-129 MSG: Testing completion of WCS assignment inLevel 2 image\"\n            \" output.......\" + passfail(model.meta.cal_step.assign_wcs == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.assign_wcs == \"COMPLETE\"\n        # check if WCS exists\n        pipeline.log.info(\"DMS-129 MSG: Testing that a WCS object exists    \")\n        pipeline.log.info(\n            \"DMS-129 MSG: Testing that WCS exists inLevel 2 image output.......\"\n            + passfail(model.meta.wcs is not None)\n        )\n        assert model.meta.wcs is not None\n        pipeline.log.info(\n            \"DMS-129 MSG: Testing that geometric distortion information is available\"\n            \" inLevel 2 image output.......\"\n            + passfail(\"v2v3\" in model.meta.wcs.available_frames)\n        )\n        assert \"v2v3\" in model.meta.wcs.available_frames\n        # compare coordinates before and after distortion correction has been applied\n        # 1 - get new image array based on the model\n        x0, y0 = grid_from_bounding_box(model.meta.wcs.bounding_box)\n        # 2 - apply the distortion-corrected WCS solution to new image array\n        corrected_coords = model.meta.wcs(x0, y0)\n        # 3 - apply the transformation from 'v2v3' to 'world' without distortion correction\n        original_coords = model.meta.wcs.get_transform(\"v2v3\", \"world\")(x0, y0)\n        # compare both results to make sure they don't match\n        # (which means the distortion correction was actually applied to the model)\n        pipeline.log.info(\n            \"DMS-129 MSG: Testing that distortion correction was applied toLevel 2 image\"\n            \" output.......\"\n            + passfail(\n                (corrected_coords[0] != original_coords[0]).all()\n                & (corrected_coords[1] != original_coords[1]).all()\n            )\n        )\n        assert (corrected_coords[0] != original_coords[0]).all()\n        assert (corrected_coords[1] != original_coords[1]).all()\n    \n        # DMS87 data quality tests\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of data quality array (dq) in Level 2 image\"\n            \" output.......\" + passfail(\"dq\" in model.keys())\n        )\n        assert \"dq\" in model.keys()\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of general error array (err) in Level 2 image\"\n            \" output.......\" + passfail(\"err\" in model.keys())\n        )\n        assert \"err\" in model.keys()\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of Poisson noise variancearray (var_poisson) in\"\n            \" Level 2 image output.......\" + passfail(\"var_poisson\" in model.keys())\n        )\n        assert \"var_poisson\" in model.keys()\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of read noise variance array (var_rnoise) in\"\n            \" level 2 image output.......\" + passfail(\"var_rnoise\" in model.keys())\n        )\n        assert \"var_rnoise\" in model.keys()\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of flatfield uncertainty variance array\"\n            \" (var_flat) in Level 2 image output....\" + passfail(\"var_flat\" in model.keys())\n        )\n        assert \"var_flat\" in model.keys()\n    \n        # DMS88 total exposure time test\n        pipeline.log.info(\n            \"DMS88 MSG: Testing existence of total exposure time (exposure_time) in Level 2\"\n            \" image output.......\" + passfail(\"exposure_time\" in model.meta.exposure)\n        )\n        assert \"exposure_time\" in model.meta.exposure\n    \n        # DMS-136 PSF tests\n        pipeline.log.info(\n            \"DMS-136 MSG: Testing existence of  detector and \"\n            \"optical element (detector & optical_element) in Level 2 \"\n            \"image output.......\" + passfail(\"exposure_time\" in model.meta.exposure)\n        )\n        assert \"detector\" in model.meta.instrument\n        assert \"optical_element\" in model.meta.instrument\n    \n        # DMS89 WCS tests\n        pipeline.log.info(\n            \"DMS89 MSG: Testing that the wcs boundingbox was generated.......\"\n            + passfail(len(model.meta.wcs.bounding_box) == 2)\n        )\n        assert len(model.meta.wcs.bounding_box) == 2\n    \n        # Save original wcs information\n        orig_wcs = copy.deepcopy(model.meta.wcs)\n        del model.meta[\"wcs\"]\n    \n        # Create new pointing for the model\n        # RA & Dec are each shifted + 10 degrees, unless they are near\n        # the upper limit, in which case they are shifted -10 degrees.\n        delta = [10.0, 10.0]\n        if model.meta.wcsinfo.ra_ref >= 350.0:\n            delta[0] *= -1.0\n    \n        if model.meta.wcsinfo.dec_ref >= 80.0:\n            delta[1] *= -1.0\n    \n        model.meta.wcsinfo.ra_ref += delta[0]\n        model.meta.wcsinfo.dec_ref += delta[1]\n    \n        # Create new wcs object for the new pointing\n        model = AssignWcsStep.call(model)\n    \n        rtdata.output = output.rsplit(\".\", 1)[0] + \"_repoint.asdf\"\n        model.to_asdf(rtdata.output)\n    \n        # Test that repointed file matches truth\n        rtdata.get_truth(\"truth/WFI/image/\" + output.rsplit(\".\", 1)[0] + \"_repoint.asdf\")\n        diff = compare_asdf(rtdata.output, rtdata.truth, **ignore_asdf_paths)\n>       assert diff.identical, diff.report()\nE       AssertionError: \nE         Diff report for:\nE             result file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf\nE                 model type: ImageModel\nE             truth file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/truth/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf\nE                 model type: ImageModel\nE         \nE         {'arrays_differ': {\"root['roman']['data']\": {'abs_diff': <Quantity 32778.504 DN / s>,\nE                                                      'n_diffs': 471,\nE                                                      'worst_abs_diff': {'index': (2955,\nE                                                                                   3321),\nE                                                                         'value': <Quantity 7411.377 DN / s>},\nE                                                      'worst_fractional_diff': {'index': (2492,\nE                                                                                          1865),\nE                                                                                'value': <Quantity 863315.94>}},\nE                            \"root['roman']['dq']\": {'abs_diff': 12884901877,\nE                                                    'n_diffs': 4,\nE                                                    'worst_abs_diff': {'index': (2951,\nE                                                                                 3317),\nE                                                                       'value': 4294967292},\nE                                                    'worst_fractional_diff': {'index': (2952,\nE                                                                                        3320),\nE                                                                              'value': inf}},\nE                            \"root['roman']['err']\": {'abs_diff': <Quantity 1347.6384 DN / s>,\nE                                                     'n_diffs': 7,\nE                                                     'worst_abs_diff': {'index': (2952,\nE                                                                                  3320),\nE                                                                        'value': <Quantity 577.6964 DN / s>},\nE                                                     'worst_fractional_diff': {'index': (2492,\nE                                                                                         1865),\nE                                                                               'value': <Quantity 947606.2>}},\nE                            \"root['roman']['var_flat']\": {'abs_diff': <Quantity 494019.94 DN2 / s2>,\nE                                                          'n_diffs': 7,\nE                                                          'worst_abs_diff': {'index': (2952,\nE                                                                                       3320),\nE                                                                             'value': <Quantity 333064.88 DN2 / s2>},\nE                                                          'worst_fractional_diff': {'index': (2492,\nE                                                                                              1865),\nE                                                                                    'value': <Quantity 7.453108e+11>}},\nE                            \"root['roman']['var_poisson']\": {'abs_diff': <Quantity 3126.605 DN2 / s2>,\nE                                                             'n_diffs': 7,\nE                                                             'worst_abs_diff': {'index': (2955,\nE                                                                                          3321),\nE                                                                                'value': <Quantity 675.62225 DN2 / s2>},\nE                                                             'worst_fractional_diff': {'index': (1828,\nE                                                                                                 711),\nE                                                                                       'value': <Quantity inf>}},\nE                            \"root['roman']['var_rnoise']\": {'abs_diff': <Quantity 12.500684 DN2 / s2>,\nE                                                            'n_diffs': 7,\nE                                                            'worst_abs_diff': {'index': (2952,\nE                                                                                         3320),\nE                                                                               'value': <Quantity 3.4215055 DN2 / s2>},\nE                                                            'worst_fractional_diff': {'index': (1828,\nE                                                                                                711),\nE                                                                                      'value': <Quantity inf>}}},\nE          'values_changed': {\"root['roman']['meta']['wcs_fit_results']['<rot>']\": {'new_value': -8.284282814118433e-05,\nE                                                                                   'old_value': -5.9008763525942403e-05},\nE                             \"root['roman']['meta']['wcs_fit_results']['center'][0]\": {'new_value': -249.45443937059298,\nE                                                                                       'old_value': -249.45421319021025},\nE                             \"root['roman']['meta']['wcs_fit_results']['center'][1]\": {'new_value': 109.61109764361109,\nE                                                                                       'old_value': 109.61122052869052},\nE                             \"root['roman']['meta']['wcs_fit_results']['mae']\": {'new_value': 0.003221932838851946,\nE                                                                                 'old_value': 0.002684014626406904},\nE                             \"root['roman']['meta']['wcs_fit_results']['matrix'][0][1]\": {'new_value': -1.4458801127269767e-06,\nE                                                                                          'old_value': -1.0298972110582511e-06},\nE                             \"root['roman']['meta']['wcs_fit_results']['matrix'][1][0]\": {'new_value': 1.4458801127269767e-06,\nE                                                                                          'old_value': 1.0298972110582511e-06},\nE                             \"root['roman']['meta']['wcs_fit_results']['proper_rot']\": {'new_value': -8.284282814118433e-05,\nE                                                                                        'old_value': -5.9008763525942403e-05},\nE                             \"root['roman']['meta']['wcs_fit_results']['rmse']\": {'new_value': 0.004752892068723334,\nE                                                                                  'old_value': 0.003440309699826702},\nE                             \"root['roman']['meta']['wcs_fit_results']['rot'][0]\": {'new_value': -8.284282814118433e-05,\nE                                                                                    'old_value': -5.9008763525942403e-05},\nE                             \"root['roman']['meta']['wcs_fit_results']['rot'][1]\": {'new_value': -8.284282814118433e-05,\nE                                                                                    'old_value': -5.9008763525942403e-05},\nE                             \"root['roman']['meta']['wcs_fit_results']['shift'][0]\": {'new_value': -0.00849888422641429,\nE                                                                                      'old_value': -0.008499128453755975},\nE                             \"root['roman']['meta']['wcs_fit_results']['shift'][1]\": {'new_value': 0.014497927842124192,\nE                                                                                      'old_value': 0.014101158752967921}}}\nE       assert False\nE        +  where False = <romancal.regtest.regtestdata.DiffResult object at 0x7f37e715d310>.identical\n\n/runner/_work/RegressionTests/RegressionTests/romancal/regtest/test_wfi_pipeline.py:256: AssertionError"
+        }
+      }
     ]
   },
-  "romancal.stpipe.tests.test_integration::test_entry_point": {
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10-10-0.1-GAIADR1]": {
     "time": [
-      0.026,
-      0.029
+      0.106,
+      0.274
     ]
   },
-  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.6265404784005448--0.1546255576046831-3727.593720314938]": {
+  "romancal.regtest.test_resample::test_resample_single_file": {
     "time": [
-      58.622,
-      56.666
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_using_epoch[GAIADR2-2010]": {
-    "time": [
-      0.443,
-      0.386
-    ]
-  },
-  "romancal.photom.tests.test_photom::test_apply_photom2": {
-    "time": [
-      0.263,
-      0.278
-    ]
-  },
-  "romancal.regtest.test_regtestdata::test_n_diffs[1]": {
-    "time": [
-      0.117,
-      0.105
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog[10-10-7-False]": {
-    "time": [
-      70.568,
-      57.451
-    ]
-  },
-  "romancal.regtest.test_ramp_fitting::test_rampfit_step[image_trunc]": {
-    "time": [
-      41.982,
-      50.938
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_build_driz_weight_multiple_good_bits[8192+65536-dq_array6-expected_output6]": {
-    "time": [
-      0.121,
-      0.12
-    ]
-  },
-  "romancal.regtest.test_dark_current::test_dark_current_output": {
-    "time": [
-      46.66,
-      48.439
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[10-10-2030]": {
-    "time": [
-      0.752,
-      0.252
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_set_good_bits_in_resample_meta[~DO_NOT_USE+NON_SCIENCE]": {
-    "time": [
-      1.066,
-      0.992
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_set_good_bits_in_resample_meta[~513]": {
-    "time": [
-      0.875,
-      0.844
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_invalid_parameters[10-100-0.1-GAIADR3]": {
-    "time": [
-      0.067,
-      0.038
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_skips_step_on_exposure_type_different_from_wfi_image": {
-    "time": [
-      0.753,
-      0.446
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_resample_variance_array[var_flat]": {
-    "time": [
-      0.895,
-      1.104
-    ]
-  },
-  "romancal.patch_match.test.test_patch_match::test_corners[pars1-expected1]": {
-    "time": [
-      0.098,
-      0.091
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_2x[global-True]": {
-    "time": [
-      1.06,
-      1.09
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_check_list_pars[vals5-test-min_vals5-expected5]": {
-    "time": [
-      0.003,
-      0.002
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_update_phot_keywords[1.0-1.0-0.0-0.0-0.0]": {
-    "time": [
-      0.003,
-      0.002
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_overlap[local-True-mean]": {
-    "time": [
-      0.951,
-      0.961
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-True-midpt-True]": {
-    "time": [
-      1.04,
-      1.33
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[0-0-0.01-GAIADR2]": {
-    "time": [
-      0.09,
-      0.147
-    ]
-  },
-  "romancal.regtest.test_regtestdata::test_compare_asdf[small]": {
-    "time": [
-      1.266,
-      1.153
-    ]
-  },
-  "romancal.patch_match.test.test_patch_match::test_corners[pars5-expected5]": {
-    "time": [
-      0.061,
-      0.057
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_2x[global+match-True]": {
-    "time": [
-      1.462,
-      1.478
-    ]
-  },
-  "romancal.jump.tests.test_jump_step::test_two_CRs[quarter]": {
-    "time": [
-      3.116,
-      2.967
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog[35-10-1-False]": {
-    "time": [
-      55.648,
-      53.79
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_variable_num_sources[GAIADR3-15]": {
-    "time": [
-      1.078,
-      0.435
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestChannelView::test_fft_interpolate": {
-    "time": [
-      0.004,
-      0.003
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_using_epoch[GAIADR3-J2000]": {
-    "time": [
-      0.956,
-      0.439
-    ]
-  },
-  "romancal.regtest.test_wfi_16resultants::test_16resultants_image_processing": {
-    "time": [
-      190.087,
-      202.753
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_find_outliers": {
-    "time": [
-      5.187,
-      3.327
-    ]
-  },
-  "romancal.ramp_fitting.tests.test_ramp_fit_cas22::test_fits[extranoise-jump-data]": {
-    "time": [
-      0.411,
-      0.421
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog[3-50-5-False]": {
-    "time": [
-      62.664,
-      53.992
-    ]
-  },
-  "romancal.regtest.test_regtestdata::test_compare_asdf_tables[small_meta]": {
-    "time": [
-      0.139,
-      0.123
-    ]
-  },
-  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[-0.9945229996597038-0.994419871578422-37275.93720314938]": {
-    "time": [
-      62.368,
-      65.042
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestStandardView::test_offset_roundtrip": {
-    "time": [
-      0.01,
-      0.005
-    ]
-  },
-  "romancal.refpix.tests.test_step::test_refpix_step[True-True-True-False]": {
-    "time": [
-      0.931,
-      0.849
-    ]
-  },
-  "romancal.dq_init.tests.test_dq_init::test_dqinit_getbestref[WFI-WFI_IMAGE]": {
-    "time": [
-      0.464,
-      0.45
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog_keywords[10-10-7-False-True-ImageModel-expected_outputs2]": {
-    "time": [
-      52.423,
-      62.989
-    ]
-  },
-  "romancal.dq_init.tests.test_dq_init::test_groupdq": {
-    "time": [
-      0.131,
-      0.139
-    ]
-  },
-  "romancal.regtest.test_ramp_fitting::test_rampfit_step[spec_full]": {
-    "time": [
-      42.548,
-      48.934
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog_keywords[10-10-7-False-True-MosaicModel-expected_outputs2]": {
-    "time": [
-      51.417,
-      49.715
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-True-mean-False]": {
-    "time": [
-      0.916,
-      0.966
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_set_good_bits_in_resample_meta[8192+65536]": {
-    "time": [
-      0.88,
-      0.857
-    ]
-  },
-  "romancal.regtest.test_tweakreg::test_tweakreg": {
-    "time": [
-      43.417,
-      47.823
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_check_list_pars_exception[vals2-test-min_vals2]": {
-    "time": [
-      0.003,
-      0.002
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_build_driz_weight_different_weight_type[exptime]": {
-    "time": [
-      0.126,
-      0.121
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_2x[match-True]": {
-    "time": [
-      1.743,
-      1.64
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-False-median-False]": {
-    "time": [
-      0.759,
-      0.752
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_updates_cal_step": {
-    "time": [
-      1.035,
-      0.934
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-False-mean-True]": {
-    "time": [
-      0.678,
-      0.673
-    ]
-  },
-  "romancal.assign_wcs.tests.test_wcs::test_wcs[assign_wcs_step-distortion0]": {
-    "time": [
-      7.009,
-      5.59
-    ]
-  },
-  "romancal.regtest.test_regtestdata::test_compare_asdf[large]": {
-    "time": [
-      1.226,
-      1.246
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_update_phot_keywords[1.0-1.0-2.0-4.0-4.0]": {
-    "time": [
-      0.003,
-      0.002
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_overlap[match-False-mean]": {
-    "time": [
-      2.626,
-      2.512
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-True-midpt-False]": {
-    "time": [
-      1.043,
-      1.115
-    ]
-  },
-  "romancal.associations.lib.tests.test_asn_from_list_lib::test_base_roundtrip": {
-    "time": [
-      0.002,
-      0.001
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_update_exposure_times_same_sca_different_exposures": {
-    "time": [
-      1.678,
-      1.853
+      219.842,
+      254.279
     ]
   },
   "romancal.regtest.test_wfi_pipeline::test_level2_grism_processing_pipeline": {
@@ -369,214 +33,6 @@
           "text": "rtdata = {'input': '/runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_grism_processing_p0/r0000201001001001001_01101_00...nt.asdf',\n 'truth_remote': 'roman-pipeline/dev/truth/WFI/grism/r0000201001001001001_01101_0001_WFI01_cal_repoint.asdf'}\nignore_asdf_paths = {'ignore': ['asdf_library', 'history', 'roman.meta.ref_file.crds.sw_version', 'roman.meta.calibration_software_version', 'roman.cal_logs', 'roman.meta.date', ...]}\n\n    @pytest.mark.bigdata\n    @pytest.mark.soctests\n    def test_level2_grism_processing_pipeline(rtdata, ignore_asdf_paths):\n        \"\"\"Tests for flat field grism processing requirements DMS90, DMS91 and DMS 278\"\"\"\n        input_data = \"r0000201001001001001_01101_0001_WFI01_uncal.asdf\"\n        rtdata.get_data(f\"WFI/grism/{input_data}\")\n        rtdata.input = input_data\n    \n        # Test Pipeline\n        output = \"r0000201001001001001_01101_0001_WFI01_cal.asdf\"\n        rtdata.output = output\n        args = [\n            \"roman_elp\",\n            rtdata.input,\n        ]\n        ExposurePipeline.from_cmdline(args)\n        rtdata.get_truth(f\"truth/WFI/grism/{output}\")\n        diff = compare_asdf(rtdata.output, rtdata.truth, **ignore_asdf_paths)\n        assert diff.identical, diff.report()\n    \n        # Perform DMS tests\n        # Initial prep\n        model = rdm.open(rtdata.output)\n        pipeline = ExposurePipeline()\n    \n        # DMS90 instrument artifact correction tests\n        pipeline.log.info(\n            \"Status of the step:             assign_wcs    \"\n            + str(model.meta.cal_step.assign_wcs)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing completion of wcs assignment in Level 2 spectroscopic\"\n            \" output.......\" + passfail(model.meta.cal_step.assign_wcs == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.assign_wcs == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             flat_field    \"\n            + str(model.meta.cal_step.flat_field)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing expected skip of flat fielding in Level 2 spectroscopic\"\n            \" output.......\" + passfail(model.meta.cal_step.flat_field == \"SKIPPED\")\n        )\n        assert model.meta.cal_step.flat_field == \"SKIPPED\"\n        pipeline.log.info(\n            \"Status of the step:             dark          \" + str(model.meta.cal_step.dark)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing completion of dark correction in Level 2 spectroscopic\"\n            \" output.......\" + passfail(model.meta.cal_step.dark == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.dark == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             dq_init       \"\n            + str(model.meta.cal_step.dq_init)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing completion of data quality correction in Level 2\"\n            \" spectroscopic output.......\"\n            + passfail(model.meta.cal_step.dq_init == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.dq_init == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             jump          \" + str(model.meta.cal_step.jump)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing completion of jump detection in Level 2 spectroscopic\"\n            \" output.......\" + passfail(model.meta.cal_step.jump == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.jump == \"COMPLETE\"\n        uneven = len({len(x) for x in model.meta.exposure.read_pattern}) > 1\n        pipeline.log.info(\n            \"DMS365: Testing that jump detection detected jumps in uneven ramp in \"\n            \"Level 2 image output.......\"\n            + passfail(uneven & np.any(model.dq & pixel.JUMP_DET))\n        )\n        assert uneven & np.any(model.dq & pixel.JUMP_DET)\n        pipeline.log.info(\n            \"Status of the step:             linearity     \"\n            + str(model.meta.cal_step.assign_wcs)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing completion of linearity correction in Level 2 spectroscopic\"\n            \" output.......\" + passfail(model.meta.cal_step.linearity == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.linearity == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             ramp_fit      \"\n            + str(model.meta.cal_step.ramp_fit)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing completion of ramp fitting in Level 2 spectroscopic\"\n            \" output.......\" + passfail(model.meta.cal_step.ramp_fit == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.ramp_fit == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             saturation    \"\n            + str(model.meta.cal_step.saturation)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing completion of saturation detection in Level 2 spectroscopic\"\n            \" output.......\" + passfail(model.meta.cal_step.saturation == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.saturation == \"COMPLETE\"\n    \n        pipeline.log.info(\n            \"DMS278 MSG: Testing WFI Level 2 Data Generation - Spectroscopy in Level 2 spectroscopic\"\n            \" output.......\"\n            + passfail(model.meta.cal_step.dq_init == \"COMPLETE\")\n            + passfail(model.meta.cal_step.saturation == \"COMPLETE\")\n            + passfail(model.meta.cal_step.refpix == \"COMPLETE\")\n            + passfail(model.meta.cal_step.linearity == \"COMPLETE\")\n            + passfail(model.meta.cal_step.jump == \"COMPLETE\")\n            + passfail(model.meta.cal_step.ramp_fit == \"COMPLETE\")\n            + passfail(model.meta.cal_step.assign_wcs == \"COMPLETE\")\n            + passfail(model.meta.cal_step.flat_field == \"SKIPPED\")\n            + passfail(model.meta.cal_step.photom == \"SKIPPED\")\n            + passfail(model.meta.cal_step.source_detection == \"SKIPPED\")\n            + passfail(model.meta.cal_step.tweakreg == \"SKIPPED\")\n        )\n        assert model.meta.cal_step.dq_init == \"COMPLETE\"\n        assert model.meta.cal_step.saturation == \"COMPLETE\"\n        assert model.meta.cal_step.refpix == \"COMPLETE\"\n        assert model.meta.cal_step.linearity == \"COMPLETE\"\n        assert model.meta.cal_step.jump == \"COMPLETE\"\n        assert model.meta.cal_step.ramp_fit == \"COMPLETE\"\n        assert model.meta.cal_step.assign_wcs == \"COMPLETE\"\n        assert model.meta.cal_step.flat_field == \"SKIPPED\"\n        assert model.meta.cal_step.photom == \"SKIPPED\"\n        assert model.meta.cal_step.source_detection == \"SKIPPED\"\n        assert model.meta.cal_step.tweakreg == \"SKIPPED\"\n    \n        # DMS91 data quality tests\n        pipeline.log.info(\n            \"DMS91 MSG: Testing existence of data quality array (dq) in Level 2\"\n            \" spectroscopic output.......\" + passfail(\"dq\" in model.keys())\n        )\n        assert \"dq\" in model.keys()\n        pipeline.log.info(\n            \"DMS91 MSG: Testing existence of general error array (err) in Level 2\"\n            \" spectroscopic output.......\" + passfail(\"err\" in model.keys())\n        )\n        assert \"err\" in model.keys()\n        pipeline.log.info(\n            \"DMS91 MSG: Testing existence of Poisson noise variance array (var_poisson) in\"\n            \" Level 2 spectroscopic output..\" + passfail(\"var_poisson\" in model.keys())\n        )\n        assert \"var_poisson\" in model.keys()\n        pipeline.log.info(\n            \"DMS91 MSG: Testing existence of read noise variance array (var_rnoise) in\"\n            \" Level 2 spectroscopic output...\" + passfail(\"var_rnoise\" in model.keys())\n        )\n        assert \"var_rnoise\" in model.keys()\n    \n        # DMS88 total exposure time test\n        pipeline.log.info(\n            \"DMS88 MSG: Testing existence of total exposure time (exposure_time) in Level 2\"\n            \" spectroscopic output.\" + passfail(\"exposure_time\" in model.meta.exposure)\n        )\n        assert \"exposure_time\" in model.meta.exposure\n    \n        # DMS93 WCS tests\n        pipeline.log.info(\n            \"DMS93 MSG: Testing that the wcs boundingbox was generated.......\"\n            + passfail(len(model.meta.wcs.bounding_box) == 2)\n        )\n        assert len(model.meta.wcs.bounding_box) == 2\n    \n        # Save original wcs information\n        orig_wcs = copy.deepcopy(model.meta.wcs)\n        del model.meta[\"wcs\"]\n    \n        # Create new pointing for the model\n        # RA & Dec are each shifted + 10 degrees, unless they are near\n        # the upper limit, in which case they are shifted -10 degrees.\n        delta = [10.0, 10.0]\n        if model.meta.wcsinfo.ra_ref >= 350.0:\n            delta[0] *= -1.0\n    \n        if model.meta.wcsinfo.dec_ref >= 80.0:\n            delta[1] *= -1.0\n    \n        model.meta.wcsinfo.ra_ref += delta[0]\n        model.meta.wcsinfo.dec_ref += delta[1]\n    \n        # Create new wcs object for the new pointing\n        model = AssignWcsStep.call(model)\n    \n        rtdata.output = output.rsplit(\".\", 1)[0] + \"_repoint.asdf\"\n        model.to_asdf(rtdata.output)\n    \n        # Test that repointed file matches truth\n        rtdata.get_truth(\"truth/WFI/grism/\" + output.rsplit(\".\", 1)[0] + \"_repoint.asdf\")\n        diff = compare_asdf(rtdata.output, rtdata.truth, **ignore_asdf_paths)\n>       assert diff.identical, diff.report()\nE       AssertionError: \nE         Diff report for:\nE             result file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_grism_processing_p0/r0000201001001001001_01101_0001_WFI01_cal_repoint.asdf\nE                 model type: ImageModel\nE             truth file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_grism_processing_p0/truth/r0000201001001001001_01101_0001_WFI01_cal_repoint.asdf\nE                 model type: ImageModel\nE         \nE         {'arrays_differ': {\"root['roman']['data']\": {'abs_diff': <Quantity 32694.467 DN / s>,\nE                                                      'n_diffs': 7,\nE                                                      'worst_abs_diff': {'index': (2955,\nE                                                                                   3321),\nE                                                                         'value': <Quantity 7344.989 DN / s>},\nE                                                      'worst_fractional_diff': {'index': (2492,\nE                                                                                          1865),\nE                                                                                'value': <Quantity 1534202.2>}},\nE                            \"root['roman']['dq']\": {'abs_diff': 12884901877,\nE                                                    'n_diffs': 4,\nE                                                    'worst_abs_diff': {'index': (2951,\nE                                                                                 3317),\nE                                                                       'value': 4294967292},\nE                                                    'worst_fractional_diff': {'index': (2952,\nE                                                                                        3320),\nE                                                                              'value': inf}},\nE                            \"root['roman']['err']\": {'abs_diff': <Quantity 137.45984 DN / s>,\nE                                                     'n_diffs': 7,\nE                                                     'worst_abs_diff': {'index': (2955,\nE                                                                                  3321),\nE                                                                        'value': <Quantity 25.843216 DN / s>},\nE                                                     'worst_fractional_diff': {'index': (1828,\nE                                                                                         711),\nE                                                                               'value': <Quantity inf>}},\nE                            \"root['roman']['var_poisson']\": {'abs_diff': <Quantity 3116.3271 DN2 / s2>,\nE                                                             'n_diffs': 7,\nE                                                             'worst_abs_diff': {'index': (2955,\nE                                                                                          3321),\nE                                                                                'value': <Quantity 666.07654 DN2 / s2>},\nE                                                             'worst_fractional_diff': {'index': (1828,\nE                                                                                                 711),\nE                                                                                       'value': <Quantity inf>}},\nE                            \"root['roman']['var_rnoise']\": {'abs_diff': <Quantity 11.796576 DN2 / s2>,\nE                                                            'n_diffs': 7,\nE                                                            'worst_abs_diff': {'index': (2492,\nE                                                                                         1865),\nE                                                                               'value': <Quantity 3.1492276 DN2 / s2>},\nE                                                            'worst_fractional_diff': {'index': (1828,\nE                                                                                                711),\nE                                                                                      'value': <Quantity inf>}}}}\nE       assert False\nE        +  where False = <romancal.regtest.regtestdata.DiffResult object at 0x7f37e6214310>.identical\n\n/runner/_work/RegressionTests/RegressionTests/romancal/regtest/test_wfi_pipeline.py:466: AssertionError"
         }
       }
-    ],
-    "time": [
-      173.309,
-      185.479
-    ]
-  },
-  "romancal.dq_init.tests.test_dq_init::test_err": {
-    "time": [
-      0.037,
-      0.046
-    ]
-  },
-  "romancal.stpipe.tests.test_core::test_log_messages": {
-    "time": [
-      0.3,
-      0.319
-    ]
-  },
-  "romancal.stpipe.tests.test_integration::test_get_steps": {
-    "time": [
-      0.001,
-      0.002
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[0-0-0.01-GAIADR3]": {
-    "time": [
-      0.087,
-      0.123
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-True-median-False]": {
-    "time": [
-      0.943,
-      0.959
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_check_list_pars_exception[vals4-test-min_vals4]": {
-    "time": [
-      0.002,
-      0.003
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_always_returns_modellibrary_with_updated_datamodels[ASNFile]": {
-    "time": [
-      4.659,
-      5.0
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_always_returns_modellibrary_with_updated_datamodels[DataModelList]": {
-    "time": [
-      1.975,
-      1.792
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-False-median-True]": {
-    "time": [
-      0.788,
-      0.774
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_invalid_parameters[-10-10-0.1-GAIADR3]": {
-    "time": [
-      0.032,
-      0.03
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_update_phot_keywords[2.0-2.0-0.5-0.5-0.5]": {
-    "time": [
-      0.003,
-      0.002
-    ]
-  },
-  "romancal.regtest.test_wfi_pipeline::test_elp_input_dm": {
-    "time": [
-      174.251,
-      189.243
-    ]
-  },
-  "romancal.photom.tests.test_photom::test_no_photom_match": {
-    "time": [
-      0.269,
-      0.267
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_save_valid_abs_refcat[GAIADR1]": {
-    "time": [
-      0.848,
-      0.828
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-False-mode-True]": {
-    "time": [
-      0.764,
-      0.765
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-False-midpt-False]": {
-    "time": [
-      0.754,
-      0.863
-    ]
-  },
-  "romancal.photom.tests.test_photom::test_photom_step_interface_spectroscopic[WFI-WFI_PRISM]": {
-    "time": [
-      0.405,
-      0.341
-    ]
-  },
-  "romancal.regtest.test_linearity::test_linearity_outfile_step": {
-    "time": [
-      88.221,
-      92.873
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-False-mode-False]": {
-    "time": [
-      0.69,
-      0.666
-    ]
-  },
-  "docs.roman.datamodels.datamodels_asdf.rst::datamodels_asdf.rst": {
-    "time": [
-      0.003,
-      0.002
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_detection_always_returns_modelcontainer_with_updated_datamodels[ASNFile]": {
-    "time": [
-      2.866,
-      2.491
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-True-mean-False]": {
-    "time": [
-      0.689,
-      0.674
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[10--10-2000]": {
-    "time": [
-      0.686,
-      0.25
-    ]
-  },
-  "romancal.saturation.tests.test_saturation::test_ad_floor_flagging": {
-    "time": [
-      0.006,
-      0.007
-    ]
-  },
-  "romancal.regtest.test_resample::test_resample_single_file": {
-    "time": [
-      219.842,
-      254.279
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_timeout": {
-    "time": [
-      12.762,
-      12.245
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog_return_updated_model_attribute[True-ImageModel]": {
-    "time": [
-      51.182,
-      47.857
-    ]
-  },
-  "romancal.flux.tests.test_flux_step::test_attributes[input_modellibrary-data-1]": {
-    "time": [
-      1.091,
-      0.737
-    ]
-  },
-  "romancal.regtest.test_wfi_flat_field::test_flat_field_grism_step": {
-    "time": [
-      13.683,
-      16.979
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-True-midpt-False]": {
-    "time": [
-      0.684,
-      0.691
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_raises_error_on_invalid_input_models[input_models0]": {
-    "time": [
-      0.225,
-      0.216
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_resampledata_do_drizzle_many_to_one_default_no_rotation_multiple_exposures": {
-    "time": [
-      2.018,
-      2.009
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_skips_step_on_invalid_number_of_elements_in_input": {
-    "time": [
-      0.477,
-      0.608
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_rotated_plane[theta6-0-1]": {
-    "time": [
-      1.105,
-      1.183
     ]
   },
   "romancal.source_catalog.tests.test_source_catalog::test_l3_input_model_unchanged": {
@@ -585,460 +41,10 @@
       62.074
     ]
   },
-  "romancal.stpipe.tests.test_core::test_get_reference_file[RomanStep]": {
+  "romancal.tweakreg.tests.test_tweakreg::test_parse_catfile_valid_catalog": {
     "time": [
-      0.2,
-      0.179
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-False-midpt-True]": {
-    "time": [
-      0.962,
-      0.972
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_do_psf_photometry_column_names[False]": {
-    "time": [
-      0.657,
-      0.752
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_raises_error_on_invalid_input[-error_type3]": {
-    "time": [
-      0.122,
-      0.121
-    ]
-  },
-  "romancal.associations.tests.test_level2_candidates::test_candidate_observation[partial_args3-0]": {
-    "time": [
-      0.426,
-      0.335
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_populate_mosaic_basic_different_observations[input_models_data1-expected_output1]": {
-    "time": [
-      1.801,
-      1.832
-    ]
-  },
-  "romancal.ramp_fitting.tests.test_ramp_fit_cas22::test_fits[extranoise-data]": {
-    "time": [
-      0.502,
-      0.417
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestStandardView::test_construct_from_datamodel": {
-    "time": [
-      0.088,
-      0.084
-    ]
-  },
-  "romancal.ramp_fitting.tests.test_ramp_fit_cas22::test_bad_readpattern": {
-    "time": [
-      0.733,
-      0.547
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-False-mode-False]": {
-    "time": [
-      0.975,
-      0.952
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_2x[local-True]": {
-    "time": [
-      1.12,
-      1.18
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestChannelView::test_apply_correction_channels_regression": {
-    "time": [
-      0.018,
-      0.017
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_resampledata_do_drizzle_default_single_exposure_weight_array[ivm]": {
-    "time": [
-      1.851,
-      1.897
-    ]
-  },
-  "romancal.resample.tests.test_gwcs_drizzle::test_gwcs_drizzle_init_happy_path[product1-CustomWCS-exptime-0.5-gaussian-0-None]": {
-    "time": [
-      0.002,
-      0.001
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_rotated_plane[theta9-1-0]": {
-    "time": [
-      1.127,
-      1.115
-    ]
-  },
-  "romancal.jump.tests.test_jump_step::test_one_CR[none]": {
-    "time": [
-      0.523,
-      0.495
-    ]
-  },
-  "romancal.jump.tests.test_jump_step::test_one_CR[quarter]": {
-    "time": [
-      3.522,
-      3.243
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-True-mode-True]": {
-    "time": [
-      2.065,
-      1.74
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_build_driz_weight_multiple_good_bits[~1,512-dq_array3-expected_output3]": {
-    "time": [
-      0.123,
-      0.121
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_detection_always_returns_modelcontainer_with_updated_datamodels[ModelLibrary]": {
-    "time": [
-      2.039,
-      1.77
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestChannelView::test_apply_correction_standard_regression": {
-    "time": [
-      0.021,
-      0.018
-    ]
-  },
-  "romancal.dark_current.tests.test_dark::test_dark_step_output_dark_file[WFI-WFI_IMAGE]": {
-    "time": [
-      0.45,
-      0.466
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_check_list_pars_exception[vals1-test-min_vals1]": {
-    "time": [
-      0.003,
-      0.002
-    ]
-  },
-  "romancal.regtest.test_refpix::test_refpix_step": {
-    "time": [
-      58.847,
-      59.997
-    ]
-  },
-  "romancal.datamodels.tests.test_library::test_group_with_no_datamodels_open[group_names]": {
-    "time": [
-      0.847,
-      0.823
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_defaults_to_valid_abs_refcat[None]": {
-    "time": [
-      1.638,
-      0.944
-    ]
-  },
-  "romancal.regtest.test_wfi_flat_field::test_flat_field_crds_match_image_step": {
-    "time": [
-      70.814,
-      74.289
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_set_good_bits_in_resample_meta[LOW_QE+NONLINEAR]": {
-    "time": [
-      0.896,
-      0.842
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_init_default_parameters[pars0]": {
-    "time": [
-      0.252,
-      0.122
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_returns_modellibrary_on_list_of_roman_datamodels_as_input": {
-    "time": [
-      2.311,
-      2.084
-    ]
-  },
-  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.6317071082430643--0.23264489147623313-26826.957952797275]": {
-    "time": [
-      62.089,
-      65.792
-    ]
-  },
-  "romancal.photom.tests.test_photom::test_apply_photom1": {
-    "time": [
-      0.264,
-      0.257
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestStandardView::test_remove_offset": {
-    "time": [
-      0.01,
-      0.008
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog_return_updated_model_attribute[False-SourceCatalogModel]": {
-    "time": [
-      51.038,
-      51.113
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_rotated_plane[theta10-0-1]": {
-    "time": [
-      1.12,
-      1.099
-    ]
-  },
-  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.2739233746429086--0.648688758794882-1000.0]": {
-    "time": [
-      73.671,
-      66.65
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_resampledata_do_drizzle_many_to_one_default_no_rotation_single_exposure": {
-    "time": [
-      1.505,
-      1.428
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_set_good_bits_in_resample_meta[73728]": {
-    "time": [
-      0.88,
-      0.84
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog_keywords[20-10-5-False-False-SourceCatalogModel-expected_outputs3]": {
-    "time": [
-      53.216,
-      72.878
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-True-median-True]": {
-    "time": [
-      0.927,
-      0.967
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-False-mean-True]": {
-    "time": [
-      0.968,
-      1.019
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog[3-50-5-False]": {
-    "time": [
-      60.066,
-      52.802
-    ]
-  },
-  "romancal.photom.tests.test_photom::test_photom_step_interface[WFI-WFI_IMAGE]": {
-    "time": [
-      0.651,
-      0.522
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_rotated_plane[theta4-0-0]": {
-    "time": [
-      1.13,
-      1.134
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-False-mode-True]": {
-    "time": [
-      0.967,
-      0.969
-    ]
-  },
-  "romancal.associations.tests.test_generate::test_simple": {
-    "time": [
-      0.004,
-      0.003
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-False-midpt-True]": {
-    "time": [
-      0.693,
-      0.691
-    ]
-  },
-  "romancal.datamodels.tests.test_filetype::test_filetype": {
-    "time": [
-      0.126,
-      0.124
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-False-mean-True]": {
-    "time": [
-      0.833,
-      0.815
-    ]
-  },
-  "romancal.patch_match.test.test_patch_match::test_corners[pars4-expected4]": {
-    "time": [
-      0.096,
-      0.09
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10-10-0.1-GAIADR3]": {
-    "time": [
-      0.613,
-      0.236
-    ]
-  },
-  "romancal.dark_current.tests.test_dark::test_dark_step_interface[WFI-WFI_IMAGE]": {
-    "time": [
-      0.373,
-      0.419
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestStandardView::test_channels_regression": {
-    "time": [
-      0.004,
-      0.003
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-True-median-False]": {
-    "time": [
-      0.704,
-      0.675
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-False-midpt-True]": {
-    "time": [
-      0.952,
-      0.988
-    ]
-  },
-  "romancal.stpipe.tests.test_core::test_open_model[RomanPipeline-False]": {
-    "time": [
-      0.646,
-      0.621
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_set_good_bits_in_resample_meta[8192,65536]": {
-    "time": [
-      0.889,
-      0.843
-    ]
-  },
-  "romancal.ramp_fitting.tests.test_ramp_fit_cas22::test_fits[extragain-data]": {
-    "time": [
-      0.412,
-      0.398
-    ]
-  },
-  "romancal.datamodels.tests.test_library::test_assign_member": {
-    "time": [
-      1.582,
-      1.476
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_raises_error_on_invalid_input[input2-error_type2]": {
-    "time": [
-      0.128,
-      0.121
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_invalid_parameters[10-10-0.1-GAIDR3]": {
-    "time": [
-      0.034,
-      0.039
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_raises_attributeerror_on_missing_tweakreg_catalog": {
-    "time": [
-      0.318,
-      0.316
-    ]
-  },
-  "romancal.associations.tests.test_pool::test_pool": {
-    "time": [
-      0.152,
-      0.158
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10--10-0.1-GAIADR2]": {
-    "time": [
-      0.143,
-      0.281
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_build_driz_weight_multiple_good_bits[8192,65536-dq_array7-expected_output7]": {
-    "time": [
-      0.117,
-      0.119
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_l3_wcsinfo": {
-    "time": [
-      2.307,
-      2.495
-    ]
-  },
-  "romancal.source_detection.tests.test_source_detection_step.TestSourceDetection::test_dao_vs_psf": {
-    "time": [
-      99.898,
-      98.312
-    ]
-  },
-  "romancal.regtest.test_wfi_pipeline::test_processing_pipeline_all_saturated": {
-    "time": [
-      48.081,
-      51.752
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_resampledata_do_drizzle_many_to_one_default_rotation_0_multiple_exposures": {
-    "time": [
-      2.087,
-      2.004
-    ]
-  },
-  "romancal.associations.tests.test_asn_from_list::test_cmdline_change_rules": {
-    "time": [
-      0.022,
-      0.021
-    ]
-  },
-  "romancal.regtest.test_wfi_saturation::test_saturation_grism_step": {
-    "time": [
-      49.77,
-      58.844
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestStandardView::test_apply_offset": {
-    "time": [
-      0.011,
-      0.002
-    ]
-  },
-  "romancal.stpipe.tests.test_core::test_open_model[RomanStep-True]": {
-    "time": [
-      0.475,
-      0.473
-    ]
-  },
-  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[-0.9180529521276106-0.08292244049818343-1930.6977288832495]": {
-    "time": [
-      56.012,
-      53.461
-    ]
-  },
-  "romancal.regtest.test_ramp_fitting::test_rampfit_step[image_full]": {
-    "time": [
-      46.347,
-      48.538
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-False-midpt-False]": {
-    "time": [
-      0.672,
-      0.681
+      1.396,
+      1.758
     ]
   },
   "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_returns_modellibrary_on_modellibrary_as_input": {
@@ -1047,538 +53,10 @@
       0.924
     ]
   },
-  "romancal.lib.tests.test_suffix::test_suffix_removal[i2d]": {
+  "romancal.regtest.test_wfi_saturation::test_saturation_grism_step": {
     "time": [
-      0.001,
-      0.002
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_fit_results_in_meta": {
-    "time": [
-      1.225,
-      0.978
-    ]
-  },
-  "romancal.lib.tests.test_suffix::test_suffix_existence": {
-    "time": [
-      0.046,
-      0.044
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-True-median-True]": {
-    "time": [
-      0.72,
-      0.683
-    ]
-  },
-  "romancal.regtest.test_dark_current::test_dark_current_outfile_suffix": {
-    "time": [
-      43.615,
-      49.0
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_populate_mosaic_basic_single_exposure": {
-    "time": [
-      0.61,
-      0.815
-    ]
-  },
-  "romancal.dq_init.tests.test_dq_init::test_dq_add1_groupdq": {
-    "time": [
-      0.03,
-      0.043
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_check_list_pars_exception[vals5-test-min_vals5]": {
-    "time": [
-      0.003,
-      0.002
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-True-median-True]": {
-    "time": [
-      1.016,
-      1.074
-    ]
-  },
-  "romancal.jump.tests.test_jump_step::test_one_CR[all]": {
-    "time": [
-      5.445,
-      4.899
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10-10-0.1-GAIADR1]": {
-    "time": [
-      0.106,
-      0.274
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog_keywords[3-10-7-True-True-ImageModel-expected_outputs0]": {
-    "time": [
-      55.625,
-      58.535
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_populate_mosaic_basic_different_observations[input_models_data2-expected_output2]": {
-    "time": [
-      1.803,
-      2.026
-    ]
-  },
-  "romancal.dq_init.tests.test_dq_init::test_dqinit_step_interface[WFI-WFI_IMAGE]": {
-    "time": [
-      0.567,
-      0.541
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_defaults_to_valid_abs_refcat[]": {
-    "time": [
-      1.291,
-      0.957
-    ]
-  },
-  "romancal.regtest.test_mos_pipeline::test_hlp_mosaic_pipeline": {
-    "time": [
-      464.836,
-      496.433
-    ]
-  },
-  "romancal.associations.tests.test_level2_candidates::test_candidate_observation[partial_args1-0]": {
-    "time": [
-      0.067,
-      0.066
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_build_driz_weight_multiple_good_bits[~DO_NOT_USE+NON_SCIENCE-dq_array0-expected_output0]": {
-    "time": [
-      0.123,
-      0.235
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_check_list_pars[vals3-test-min_vals3-expected3]": {
-    "time": [
-      0.003,
-      0.002
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-True-midpt-True]": {
-    "time": [
-      0.692,
-      0.708
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-False-midpt-True]": {
-    "time": [
-      0.749,
-      0.78
-    ]
-  },
-  "romancal.ramp_fitting.tests.test_ramp_fit_cas22::test_fits[extranoise-jump-var_rnoise]": {
-    "time": [
-      0.002,
-      0.001
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-False-median-False]": {
-    "time": [
-      1.119,
-      0.954
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l2_input_model_unchanged": {
-    "time": [
-      59.16,
-      66.251
-    ]
-  },
-  "romancal.stpipe.tests.test_core::test_open_model[RomanPipeline-True]": {
-    "time": [
-      0.501,
-      0.474
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-True-mode-True]": {
-    "time": [
-      0.713,
-      0.712
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestReferenceFFT::test_correction": {
-    "time": [
-      0.016,
-      0.018
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog_keywords[3-50-5-True-False-MosaicSourceCatalogModel-expected_outputs1]": {
-    "time": [
-      52.145,
-      51.729
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog[25-10-3-False]": {
-    "time": [
-      56.937,
-      54.674
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_2x[global-False]": {
-    "time": [
-      1.104,
-      1.144
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_resample_variance_array[var_poisson]": {
-    "time": [
-      0.895,
-      0.971
-    ]
-  },
-  "romancal.assign_wcs.tests.test_wcs::test_crds_getbestref[load_wcs_step]": {
-    "time": [
-      1.109,
-      1.125
-    ]
-  },
-  "romancal.patch_match.test.test_patch_match::test_wcs_corners": {
-    "time": [
-      0.303,
-      0.279
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[0-0-2030]": {
-    "time": [
-      0.411,
-      0.335
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_parse_catfile_raises_error_on_invalid_content[img1.asdf column1 column2 column3]": {
-    "time": [
-      0.002,
-      0.006
-    ]
-  },
-  "romancal.regtest.test_catalog::test_catalog_l3": {
-    "time": [
-      83.987,
-      84.598
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog[3-10-7-True]": {
-    "time": [
-      67.125,
-      63.05
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_parses_asn_correctly": {
-    "time": [
-      3.09,
-      3.083
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-False-mean-False]": {
-    "time": [
-      0.659,
-      0.667
-    ]
-  },
-  "romancal.associations.tests.test_update_path::test_update_path_level2": {
-    "time": [
-      0.002,
-      0.001
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[0-0-2010.3]": {
-    "time": [
-      0.283,
-      0.285
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[10-10-2010.3]": {
-    "time": [
-      0.266,
-      0.288
-    ]
-  },
-  "romancal.regtest.test_regtestdata::test_compare_asdf[None]": {
-    "time": [
-      1.344,
-      1.047
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestChannelView::test_remove_trends_regression": {
-    "time": [
-      0.184,
-      0.147
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-False-median-True]": {
-    "time": [
-      0.677,
-      0.663
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_overlap[local-False-mean]": {
-    "time": [
-      1.051,
-      1.02
-    ]
-  },
-  "romancal.assign_wcs.tests.test_wcs::test_wcs[load_wcs_step-distortion0]": {
-    "time": [
-      6.354,
-      5.287
-    ]
-  },
-  "romancal.regtest.test_regtestdata::test_n_diffs[3]": {
-    "time": [
-      0.116,
-      0.104
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-True-mode-False]": {
-    "time": [
-      0.9,
-      0.811
-    ]
-  },
-  "romancal.flux.tests.test_flux_step::test_attributes[input_imagemodel-data-1]": {
-    "time": [
-      0.738,
-      0.68
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog[25-10-3-False]": {
-    "time": [
-      58.214,
-      56.147
-    ]
-  },
-  "romancal.dq_init.tests.test_dq_init::test_dqinit_resultantdq[WFI-WFI_IMAGE]": {
-    "time": [
-      0.507,
-      0.493
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-True-midpt-True]": {
-    "time": [
-      0.935,
-      1.029
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-True-mean-True]": {
-    "time": [
-      0.767,
-      0.758
-    ]
-  },
-  "romancal.flatfield.tests.test_flatfield::test_spectroscopic_skip[WFI_PRISM-WFI]": {
-    "time": [
-      0.665,
-      0.633
-    ]
-  },
-  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.7148085531751387-0.9616706775524602-51794.74679231213]": {
-    "time": [
-      56.601,
-      60.614
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_do_detection_write_files_to_custom_location": {
-    "time": [
-      0.543,
-      0.617
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10-10-0.1-GAIADR2]": {
-    "time": [
-      0.141,
-      0.346
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_2x[local-False]": {
-    "time": [
-      1.136,
-      1.162
-    ]
-  },
-  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.08724998293084574-0.2943790231485002-13894.95494373136]": {
-    "time": [
-      59.597,
-      69.274
-    ]
-  },
-  "romancal.jump.tests.test_jump_step::test_two_group_integration[half]": {
-    "time": [
-      0.274,
-      0.261
-    ]
-  },
-  "romancal.regtest.test_regtestdata::test_compare_asdf_tables[dtype]": {
-    "time": [
-      0.126,
-      0.119
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_returns_modellibrary_on_list_of_asdf_file_as_input": {
-    "time": [
-      2.994,
-      2.432
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_returns_modellibrary_on_roman_datamodel_as_input": {
-    "time": [
-      1.829,
-      1.159
-    ]
-  },
-  "romancal.associations.tests.test_level2_candidates::test_candidate_observation[partial_args4-5]": {
-    "time": [
-      0.258,
-      0.246
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-False-mode-True]": {
-    "time": [
-      0.689,
-      0.679
-    ]
-  },
-  "romancal.lib.tests.test_suffix::test_suffix_removal[ramp]": {
-    "time": [
-      0.001,
-      0.002
-    ]
-  },
-  "romancal.assign_wcs.tests.test_wcs::test_wcs[assign_wcs_step-distortion1]": {
-    "time": [
-      5.678,
-      5.364
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10--10-0.1-GAIADR3]": {
-    "time": [
-      0.136,
-      0.176
-    ]
-  },
-  "romancal.saturation.tests.test_saturation::test_read_pattern_saturation_flagging": {
-    "time": [
-      0.008,
-      0.009
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_custom_wcs_input_small_overlap_no_rotation": {
-    "time": [
-      1.089,
-      0.884
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_build_driz_weight_multiple_good_bits[~513-dq_array1-expected_output1]": {
-    "time": [
-      0.241,
-      0.124
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_detection_always_returns_modelcontainer_with_updated_datamodels[ASDFFilenameList]": {
-    "time": [
-      2.509,
-      2.254
-    ]
-  },
-  "romancal.associations.tests.test_level2_candidates::test_candidate_observation[partial_args0-0]": {
-    "time": [
-      0.072,
-      0.069
-    ]
-  },
-  "romancal.regtest.test_linearity::test_linearity_step": {
-    "time": [
-      91.955,
-      101.808
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_populate_mosaic_basic_different_observations[input_models_data4-expected_output4]": {
-    "time": [
-      1.785,
-      1.751
-    ]
-  },
-  "romancal.refpix.tests.test_data::test_constants_sanity": {
-    "time": [
-      0.001,
-      0.002
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_identical_images": {
-    "time": [
-      2.114,
-      1.895
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestChannelView::test_remove_trends": {
-    "time": [
-      0.038,
-      0.037
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-True-midpt-True]": {
-    "time": [
-      0.79,
-      0.755
-    ]
-  },
-  "romancal.assign_wcs.tests.test_wcs::test_wcs[load_wcs_step-distortion1]": {
-    "time": [
-      6.89,
-      5.409
-    ]
-  },
-  "romancal.associations.tests.test_constraints.TestDupNames::test_dups[constraints0-expected0]": {
-    "time": [
-      0.002,
-      0.001
-    ]
-  },
-  "romancal.associations.tests.test_asn_from_list::test_cmdline_success[yaml]": {
-    "time": [
-      0.027,
-      0.025
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestChannelView::test_reference_fft_regression": {
-    "time": [
-      0.003,
-      0.002
-    ]
-  },
-  "romancal.lib.tests.test_suffix::test_suffix_replacement[uncal]": {
-    "time": [
-      0.003,
-      0.001
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog[35-10-1-False]": {
-    "time": [
-      59.67,
-      62.527
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_rotated_plane[theta1-1-0]": {
-    "time": [
-      1.101,
-      1.223
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-False-median-False]": {
-    "time": [
-      0.898,
-      0.895
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-True-midpt-False]": {
-    "time": [
-      0.919,
-      0.971
+      49.77,
+      58.844
     ]
   },
   "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_using_epoch[GAIADR1-2000.0]": {
@@ -1587,986 +65,22 @@
       0.367
     ]
   },
-  "romancal.associations.tests.test_generate::test_unserialize": {
+  "romancal.resample.tests.test_resample::test_populate_mosaic_basic_single_exposure": {
     "time": [
-      0.014,
-      0.011
+      0.61,
+      0.815
     ]
   },
-  "romancal.source_catalog.tests.test_source_catalog::test_do_psf_photometry": {
+  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog_keywords[20-10-5-False-False-SourceCatalogModel-expected_outputs3]": {
     "time": [
-      57.89,
-      56.67
+      53.216,
+      72.878
     ]
   },
-  "romancal.resample.tests.test_resample_step::test_build_driz_weight_multiple_good_bits[~1+512-dq_array2-expected_output2]": {
+  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_skips_step_on_exposure_type_different_from_wfi_image": {
     "time": [
-      0.123,
-      0.118
-    ]
-  },
-  "romancal.regtest.test_regtestdata::test_compare_asdf_tables[None]": {
-    "time": [
-      0.129,
-      0.122
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_resampledata_do_drizzle_many_to_one_default_rotation_0": {
-    "time": [
-      1.44,
-      1.422
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-False-midpt-False]": {
-    "time": [
-      0.965,
-      1.142
-    ]
-  },
-  "romancal.jump.tests.test_jump_step::test_two_CRs[half]": {
-    "time": [
-      4.43,
-      3.134
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_resample_variance_array[var_rnoise]": {
-    "time": [
-      1.099,
-      0.931
-    ]
-  },
-  "romancal.regtest.test_wfi_16resultants::test_16resultants_spectral_processing": {
-    "time": [
-      130.655,
-      129.808
-    ]
-  },
-  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.8701448475755365-0.2307702229625077-19306.977288832495]": {
-    "time": [
-      62.397,
-      57.118
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_detection_always_returns_modelcontainer_with_updated_datamodels[DataModelList]": {
-    "time": [
-      2.086,
-      2.035
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_do_psf_photometry_column_names[True]": {
-    "time": [
-      56.71,
-      57.458
-    ]
-  },
-  "romancal.assign_wcs.tests.test_wcs::test_crds_getbestref[assign_wcs_step]": {
-    "time": [
-      1.093,
-      1.132
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-True-mean-True]": {
-    "time": [
-      0.698,
-      0.692
-    ]
-  },
-  "romancal.saturation.tests.test_saturation::test_saturation_getbestref": {
-    "time": [
-      0.407,
-      0.349
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog[3-10-7-True]": {
-    "time": [
-      55.745,
-      59.764
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog[10-10-7-False]": {
-    "time": [
-      55.49,
-      54.585
-    ]
-  },
-  "romancal.regtest.test_regtestdata::test_model_difference": {
-    "time": [
-      0.705,
-      0.627
-    ]
-  },
-  "romancal.patch_match.test.test_patch_match::test_corners[pars2-expected2]": {
-    "time": [
-      0.097,
-      0.092
-    ]
-  },
-  "romancal.flatfield.tests.test_flatfield::test_crds_temporal_match[WFI-WFI_IMAGE]": {
-    "time": [
-      0.39,
-      0.394
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_rotated_plane[theta0-0-0]": {
-    "time": [
-      1.129,
-      1.126
-    ]
-  },
-  "romancal.refpix.tests.test_refpix::test_run_steps_regression": {
-    "time": [
-      0.54,
-      0.38
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_set_good_bits_in_resample_meta[~1+512]": {
-    "time": [
-      0.886,
-      0.848
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_custom_wcs_input_entire_field_no_rotation": {
-    "time": [
-      2.203,
-      2.108
-    ]
-  },
-  "romancal.jump.tests.test_jump_step::test_three_group_integration[False]": {
-    "time": [
-      0.367,
-      0.383
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog[20-10-5-False]": {
-    "time": [
-      54.589,
-      51.503
-    ]
-  },
-  "romancal.regtest.test_wfi_pipeline::test_pipeline_suffix": {
-    "time": [
-      192.31,
-      196.122
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-True-mode-True]": {
-    "time": [
-      0.947,
-      0.942
-    ]
-  },
-  "romancal.regtest.test_dark_current::test_dark_current_subtraction_step": {
-    "time": [
-      52.736,
-      57.263
-    ]
-  },
-  "romancal.regtest.test_dark_current::test_dark_current_outfile_step": {
-    "time": [
-      42.736,
-      43.411
-    ]
-  },
-  "romancal.regtest.test_regtestdata::test_compare_asdf_tables[small_values]": {
-    "time": [
-      0.195,
-      0.154
-    ]
-  },
-  "romancal.dark_current.tests.test_dark::test_dark_step_subtraction[WFI-WFI_IMAGE]": {
-    "time": [
-      0.444,
-      0.547
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-False-median-False]": {
-    "time": [
-      0.68,
-      0.739
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_raises_error_on_invalid_input[input4-error_type4]": {
-    "time": [
-      0.125,
-      0.118
-    ]
-  },
-  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[-0.9669447289429418--0.40057621892523043-2682.6957952797247]": {
-    "time": [
-      60.019,
-      57.717
-    ]
-  },
-  "romancal.regtest.test_catalog::test_catalog_l2": {
-    "time": [
-      71.135,
-      72.052
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog_keywords[3-10-7-True-True-MosaicModel-expected_outputs0]": {
-    "time": [
-      52.958,
-      53.333
-    ]
-  },
-  "romancal.flux.tests.test_flux_step::test_attributes[input_modellibrary-var_flat-2]": {
-    "time": [
-      0.003,
-      0.002
-    ]
-  },
-  "romancal.regtest.test_regtestdata::test_compare_asdf_tables[large_values]": {
-    "time": [
-      0.223,
-      0.121
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_always_returns_modellibrary_with_updated_datamodels[ModelLibrary]": {
-    "time": [
-      3.21,
-      3.251
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_save_valid_abs_refcat[GAIADR3]": {
-    "time": [
-      1.199,
-      0.943
-    ]
-  },
-  "romancal.regtest.test_ramp_fitting::test_rampfit_step[spec_trunc]": {
-    "time": [
-      43.838,
-      45.706
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_rotated_plane[theta8-0-0]": {
-    "time": [
-      1.122,
-      1.204
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-True-median-True]": {
-    "time": [
-      0.814,
-      0.766
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog[50-10-0-False]": {
-    "time": [
-      0.431,
-      0.427
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_update_phot_keywords[None-1.0-2.0-None-4.0]": {
-    "time": [
-      0.003,
-      0.002
-    ]
-  },
-  "romancal.stpipe.tests.test_core::test_calibration_software_version": {
-    "time": [
-      0.293,
-      0.304
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[10--10-2030]": {
-    "time": [
-      0.27,
-      0.337
-    ]
-  },
-  "romancal.flatfield.tests.test_flatfield::test_spectroscopic_skip[WFI_GRISM-WFI]": {
-    "time": [
-      0.615,
-      0.659
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-True-mean-False]": {
-    "time": [
-      1.002,
-      0.968
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-True-mode-True]": {
-    "time": [
-      0.766,
-      0.791
-    ]
-  },
-  "romancal.refpix.tests.test_step::test_refpix_step[True-True-True-True]": {
-    "time": [
-      0.681,
-      0.679
-    ]
-  },
-  "romancal.regtest.test_wfi_photom::test_absolute_photometric_calibration": {
-    "time": [
-      31.936,
-      38.637
-    ]
-  },
-  "docs.roman.datamodels.models.rst::models.rst": {
-    "time": [
-      2.293,
-      2.95
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_resampledata_do_drizzle_default_single_exposure_weight_array[exptime]": {
-    "time": [
-      1.611,
-      1.674
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_check_list_pars[vals4-test-min_vals4-expected4]": {
-    "time": [
-      0.003,
-      0.002
-    ]
-  },
-  "romancal.jump.tests.test_jump_step::test_two_group_integration[none]": {
-    "time": [
-      0.276,
-      0.263
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-False-mean-False]": {
-    "time": [
-      0.973,
-      0.98
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_check_list_pars_valid[vals0-list1-None-expected0]": {
-    "time": [
-      0.005,
-      0.007
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_background": {
-    "time": [
-      0.598,
-      0.585
-    ]
-  },
-  "romancal.jump.tests.test_jump_step::test_two_CRs[none]": {
-    "time": [
-      0.399,
-      0.38
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_valid_input_asn": {
-    "time": [
-      1.528,
-      1.571
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_rotated_plane[theta5-1-0]": {
-    "time": [
-      1.146,
-      1.206
-    ]
-  },
-  "romancal.saturation.tests.test_saturation::test_basic_saturation_flagging": {
-    "time": [
-      0.014,
-      0.008
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_2x[global+match-False]": {
-    "time": [
-      1.446,
-      1.55
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_raises_error_on_invalid_input[input1-error_type1]": {
-    "time": [
-      0.125,
-      0.12
-    ]
-  },
-  "romancal.stpipe.tests.test_core::test_crds_meta": {
-    "time": [
-      0.345,
-      0.347
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_raises_error_on_invalid_input_models[]": {
-    "time": [
-      0.211,
-      0.196
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestCoefficients::test_from_ref": {
-    "time": [
-      0.1,
-      0.028
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_rotated_plane[theta11-1-1]": {
-    "time": [
-      1.216,
-      1.2
-    ]
-  },
-  "romancal.patch_match.test.test_patch_match::test_corners[pars3-expected3]": {
-    "time": [
-      0.098,
-      0.104
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_overlap[global-False-mean]": {
-    "time": [
-      1.101,
-      0.933
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_l3_individual_image_meta": {
-    "time": [
-      1.393,
-      1.631
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_resampledata_init_default": {
-    "time": [
-      0.714,
-      0.725
-    ]
-  },
-  "docs.roman.resample.main.rst::main.rst": {
-    "time": [
-      0.004,
-      0.003
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_overlap[global-True-mean]": {
-    "time": [
-      1.297,
-      0.916
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_init_default_parameters[pars1]": {
-    "time": [
-      0.211,
-      0.117
-    ]
-  },
-  "romancal.dark_current.tests.test_dark::test_dark_step_getbestrefs[WFI-WFI_IMAGE]": {
-    "time": [
-      0.715,
-      0.805
-    ]
-  },
-  "romancal.stpipe.tests.test_core::test_get_reference_file[RomanPipeline]": {
-    "time": [
-      0.193,
-      0.243
-    ]
-  },
-  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_valid_input_modelcontainer": {
-    "time": [
-      0.752,
-      0.456
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_parse_catfile_valid_catalog": {
-    "time": [
-      1.396,
-      1.758
-    ]
-  },
-  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.8255111545554434--0.9433606577090741-5179.474679231213]": {
-    "time": [
-      59.777,
-      60.857
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-True-mode-False]": {
-    "time": [
-      1.063,
-      1.19
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[local-True-mode-False]": {
-    "time": [
-      0.698,
-      0.723
-    ]
-  },
-  "romancal.associations.tests.test_asn_from_list::test_default_roundtrip": {
-    "time": [
-      0.012,
-      0.013
-    ]
-  },
-  "romancal.dq_init.tests.test_dq_init::test_dq_im[RampModel]": {
-    "time": [
-      0.069,
-      0.088
-    ]
-  },
-  "romancal.jump.tests.test_jump_step::test_four_group_integration[True]": {
-    "time": [
-      0.345,
-      0.284
-    ]
-  },
-  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.45931089285988813-0.3009185525356326-100000.0]": {
-    "time": [
-      58.968,
-      58.589
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_populate_mosaic_basic_different_observations[input_models_data0-expected_output0]": {
-    "time": [
-      1.822,
-      1.751
-    ]
-  },
-  "romancal.jump.tests.test_jump_step::test_four_group_integration[False]": {
-    "time": [
-      0.439,
-      0.396
-    ]
-  },
-  "romancal.ramp_fitting.tests.test_ramp_fit_cas22::test_fits[default-data]": {
-    "time": [
-      0.431,
-      0.447
-    ]
-  },
-  "romancal.jump.tests.test_jump_step::test_two_group_integration[all]": {
-    "time": [
-      0.277,
-      0.268
-    ]
-  },
-  "docs.roman.datamodels.metadata.rst::metadata.rst": {
-    "time": [
-      0.684,
-      0.765
-    ]
-  },
-  "romancal.regtest.test_wfi_flat_field::test_flat_field_image_step": {
-    "time": [
-      34.065,
-      34.266
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[0-0-2000]": {
-    "time": [
-      0.593,
-      0.288
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_variable_num_sources[GAIADR2-10]": {
-    "time": [
-      0.949,
-      0.607
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_resampledata_do_drizzle_many_to_one_single_input_model": {
-    "time": [
-      0.974,
-      0.925
-    ]
-  },
-  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.21327155153435973--0.7514334470008721-7196.856730011521]": {
-    "time": [
-      67.266,
-      56.208
-    ]
-  },
-  "romancal.regtest.test_wfi_dq_init::test_dq_init_grism_step": {
-    "time": [
-      34.845,
-      43.486
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestChannelView::test_correction_regression": {
-    "time": [
-      0.018,
-      0.017
-    ]
-  },
-  "romancal.ramp_fitting.tests.test_ramp_fit_cas22::test_fits[default-jump-data]": {
-    "time": [
-      0.409,
-      0.408
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog_keywords[20-10-5-False-False-MosaicSourceCatalogModel-expected_outputs3]": {
-    "time": [
-      51.403,
-      47.8
-    ]
-  },
-  "romancal.refpix.tests.test_data.TestStandardView::test_apply_offset_regression": {
-    "time": [
-      0.004,
-      0.002
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_build_driz_weight_different_weight_type[ivm]": {
-    "time": [
-      0.136,
-      0.135
-    ]
-  },
-  "romancal.patch_match.test.test_patch_match::test_corners[pars0-expected0]": {
-    "time": [
-      0.099,
-      0.092
-    ]
-  },
-  "romancal.regtest.test_wfi_pipeline::test_level2_image_processing_pipeline": {
-    "status": [
-      "Success",
-      {
-        "Failure": {
-          "failure_type": "",
-          "message": "AssertionError: \n  Diff report for:\n      result file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf\n          model type: ImageModel\n      truth file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/truth/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf\n          model type: ImageModel\n  \n  {'arrays_differ': {\"root['roman']['data']\": {'abs_diff': <Quantity 32778.504 DN / s>,\n                                               'n_diffs': 471,\n                                               'worst_abs_diff': {'index': (2955,\n                                                                            3321),\n                                                                  'value': <Quantity 7411.377 DN / s>},\n                                               'worst_fractional_diff': {'index': (2492,\n                                                                                   1865),\n                                                                         'value': <Quantity 863315.94>}},\n                     \"root['roman']['dq']\": {'abs_diff': 12884901877,\n                                             'n_diffs': 4,\n                                             'worst_abs_diff': {'index': (2951,\n                                                                          3317),\n                                                                'value': 4294967292},\n                                             'worst_fractional_diff': {'index': (2952,\n                                                                                 3320),\n                                                                       'value': inf}},\n                     \"root['roman']['err']\": {'abs_diff': <Quantity 1347.6384 DN / s>,\n                                              'n_diffs': 7,\n                                              'worst_abs_diff': {'index': (2952,\n                                                                           3320),\n                                                                 'value': <Quantity 577.6964 DN / s>},\n                                              'worst_fractional_diff': {'index': (2492,\n                                                                                  1865),\n                                                                        'value': <Quantity 947606.2>}},\n                     \"root['roman']['var_flat']\": {'abs_diff': <Quantity 494019.94 DN2 / s2>,\n                                                   'n_diffs': 7,\n                                                   'worst_abs_diff': {'index': (2952,\n                                                                                3320),\n                                                                      'value': <Quantity 333064.88 DN2 / s2>},\n                                                   'worst_fractional_diff': {'index': (2492,\n                                                                                       1865),\n                                                                             'value': <Quantity 7.453108e+11>}},\n                     \"root['roman']['var_poisson']\": {'abs_diff': <Quantity 3126.605 DN2 / s2>,\n                                                      'n_diffs': 7,\n                                                      'worst_abs_diff': {'index': (2955,\n                                                                                   3321),\n                                                                         'value': <Quantity 675.62225 DN2 / s2>},\n                                                      'worst_fractional_diff': {'index': (1828,\n                                                                                          711),\n                                                                                'value': <Quantity inf>}},\n                     \"root['roman']['var_rnoise']\": {'abs_diff': <Quantity 12.500684 DN2 / s2>,\n                                                     'n_diffs': 7,\n                                                     'worst_abs_diff': {'index': (2952,\n                                                                                  3320),\n                                                                        'value': <Quantity 3.4215055 DN2 / s2>},\n                                                     'worst_fractional_diff': {'index': (1828,\n                                                                                         711),\n                                                                               'value': <Quantity inf>}}},\n   'values_changed': {\"root['roman']['meta']['wcs_fit_results']['<rot>']\": {'new_value': -8.284282814118433e-05,\n                                                                            'old_value': -5.9008763525942403e-05},\n                      \"root['roman']['meta']['wcs_fit_results']['center'][0]\": {'new_value': -249.45443937059298,\n                                                                                'old_value': -249.45421319021025},\n                      \"root['roman']['meta']['wcs_fit_results']['center'][1]\": {'new_value': 109.61109764361109,\n                                                                                'old_value': 109.61122052869052},\n                      \"root['roman']['meta']['wcs_fit_results']['mae']\": {'new_value': 0.003221932838851946,\n                                                                          'old_value': 0.002684014626406904},\n                      \"root['roman']['meta']['wcs_fit_results']['matrix'][0][1]\": {'new_value': -1.4458801127269767e-06,\n                                                                                   'old_value': -1.0298972110582511e-06},\n                      \"root['roman']['meta']['wcs_fit_results']['matrix'][1][0]\": {'new_value': 1.4458801127269767e-06,\n                                                                                   'old_value': 1.0298972110582511e-06},\n                      \"root['roman']['meta']['wcs_fit_results']['proper_rot']\": {'new_value': -8.284282814118433e-05,\n                                                                                 'old_value': -5.9008763525942403e-05},\n                      \"root['roman']['meta']['wcs_fit_results']['rmse']\": {'new_value': 0.004752892068723334,\n                                                                           'old_value': 0.003440309699826702},\n                      \"root['roman']['meta']['wcs_fit_results']['rot'][0]\": {'new_value': -8.284282814118433e-05,\n                                                                             'old_value': -5.9008763525942403e-05},\n                      \"root['roman']['meta']['wcs_fit_results']['rot'][1]\": {'new_value': -8.284282814118433e-05,\n                                                                             'old_value': -5.9008763525942403e-05},\n                      \"root['roman']['meta']['wcs_fit_results']['shift'][0]\": {'new_value': -0.00849888422641429,\n                                                                               'old_value': -0.008499128453755975},\n                      \"root['roman']['meta']['wcs_fit_results']['shift'][1]\": {'new_value': 0.014497927842124192,\n                                                                               'old_value': 0.014101158752967921}}}\nassert False\n +  where False = <romancal.regtest.regtestdata.DiffResult object at 0x7f37e715d310>.identical",
-          "text": "rtdata = {'input': '/runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/r0000101001001001001_01101_00...nt.asdf',\n 'truth_remote': 'roman-pipeline/dev/truth/WFI/image/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf'}\nignore_asdf_paths = {'ignore': ['asdf_library', 'history', 'roman.meta.ref_file.crds.sw_version', 'roman.meta.calibration_software_version', 'roman.cal_logs', 'roman.meta.date', ...]}\n\n    @pytest.mark.bigdata\n    @pytest.mark.soctests\n    def test_level2_image_processing_pipeline(rtdata, ignore_asdf_paths):\n        \"\"\"Tests for flat field imaging processing requirements DMS86 & DMS 87\"\"\"\n        input_data = \"r0000101001001001001_01101_0001_WFI01_uncal.asdf\"\n        rtdata.get_data(f\"WFI/image/{input_data}\")\n        rtdata.input = input_data\n    \n        # Test Pipeline\n        output = \"r0000101001001001001_01101_0001_WFI01_cal.asdf\"\n        rtdata.output = output\n        args = [\n            \"roman_elp\",\n            rtdata.input,\n        ]\n        ExposurePipeline.from_cmdline(args)\n        rtdata.get_truth(f\"truth/WFI/image/{output}\")\n        diff = compare_asdf(rtdata.output, rtdata.truth, **ignore_asdf_paths)\n        assert diff.identical, diff.report()\n    \n        # Perform DMS tests\n        # Initial prep\n        model = rdm.open(rtdata.output)\n        pipeline = ExposurePipeline()\n    \n        # DMS280 result is an ImageModel\n        pipeline.log.info(\n            \"DMS280 MSG: Testing that result is a Level 2 model.......\"\n            + passfail(isinstance(model, rdm.datamodels.ImageModel))\n        )\n    \n        # DMS86 instrument artifact correction tests\n        pipeline.log.info(\n            \"Status of the step:             assign_wcs    \"\n            + str(model.meta.cal_step.assign_wcs)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of wcs assignment inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.assign_wcs == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.assign_wcs == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             flat_field    \"\n            + str(model.meta.cal_step.flat_field)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of flat fielding inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.flat_field == \"PASS\")\n        )\n        assert model.meta.cal_step.flat_field == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             dark          \" + str(model.meta.cal_step.dark)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of dark correction inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.dark == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.dark == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             dq_init       \"\n            + str(model.meta.cal_step.dq_init)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of data quality correction in Level 2 image\"\n            \" output.......\" + passfail(model.meta.cal_step.dq_init == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.dq_init == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             jump          \" + str(model.meta.cal_step.jump)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of jump detection inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.jump == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.jump == \"COMPLETE\"\n        uneven = len({len(x) for x in model.meta.exposure.read_pattern}) > 1\n        pipeline.log.info(\n            \"DMS361: Testing that jump detection detected jumps in uneven ramp in \"\n            \"Level 2 image output.......\"\n            + passfail(uneven & np.any(model.dq & pixel.JUMP_DET))\n        )\n        assert uneven & np.any(model.dq & pixel.JUMP_DET)\n        pipeline.log.info(\n            \"Status of the step:             linearity     \"\n            + str(model.meta.cal_step.linearity)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of linearity correction in Level 2 image\"\n            \" output.......\" + passfail(model.meta.cal_step.linearity == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.linearity == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             ramp_fit      \"\n            + str(model.meta.cal_step.ramp_fit)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of ramp fitting inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.ramp_fit == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.ramp_fit == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             saturation    \"\n            + str(model.meta.cal_step.saturation)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of saturation detection in Level 2 image\"\n            \" output.......\" + passfail(model.meta.cal_step.saturation == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.saturation == \"COMPLETE\"\n    \n        # DMS-129 tests\n        # check if assign_wcs step is complete\n        pipeline.log.info(\n            \"DMS-129 MSG: Status of the step:             assign_wcs    \"\n            + str(model.meta.cal_step.assign_wcs)\n        )\n        pipeline.log.info(\n            \"DMS-129 MSG: Testing completion of WCS assignment inLevel 2 image\"\n            \" output.......\" + passfail(model.meta.cal_step.assign_wcs == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.assign_wcs == \"COMPLETE\"\n        # check if WCS exists\n        pipeline.log.info(\"DMS-129 MSG: Testing that a WCS object exists    \")\n        pipeline.log.info(\n            \"DMS-129 MSG: Testing that WCS exists inLevel 2 image output.......\"\n            + passfail(model.meta.wcs is not None)\n        )\n        assert model.meta.wcs is not None\n        pipeline.log.info(\n            \"DMS-129 MSG: Testing that geometric distortion information is available\"\n            \" inLevel 2 image output.......\"\n            + passfail(\"v2v3\" in model.meta.wcs.available_frames)\n        )\n        assert \"v2v3\" in model.meta.wcs.available_frames\n        # compare coordinates before and after distortion correction has been applied\n        # 1 - get new image array based on the model\n        x0, y0 = grid_from_bounding_box(model.meta.wcs.bounding_box)\n        # 2 - apply the distortion-corrected WCS solution to new image array\n        corrected_coords = model.meta.wcs(x0, y0)\n        # 3 - apply the transformation from 'v2v3' to 'world' without distortion correction\n        original_coords = model.meta.wcs.get_transform(\"v2v3\", \"world\")(x0, y0)\n        # compare both results to make sure they don't match\n        # (which means the distortion correction was actually applied to the model)\n        pipeline.log.info(\n            \"DMS-129 MSG: Testing that distortion correction was applied toLevel 2 image\"\n            \" output.......\"\n            + passfail(\n                (corrected_coords[0] != original_coords[0]).all()\n                & (corrected_coords[1] != original_coords[1]).all()\n            )\n        )\n        assert (corrected_coords[0] != original_coords[0]).all()\n        assert (corrected_coords[1] != original_coords[1]).all()\n    \n        # DMS87 data quality tests\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of data quality array (dq) in Level 2 image\"\n            \" output.......\" + passfail(\"dq\" in model.keys())\n        )\n        assert \"dq\" in model.keys()\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of general error array (err) in Level 2 image\"\n            \" output.......\" + passfail(\"err\" in model.keys())\n        )\n        assert \"err\" in model.keys()\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of Poisson noise variancearray (var_poisson) in\"\n            \" Level 2 image output.......\" + passfail(\"var_poisson\" in model.keys())\n        )\n        assert \"var_poisson\" in model.keys()\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of read noise variance array (var_rnoise) in\"\n            \" level 2 image output.......\" + passfail(\"var_rnoise\" in model.keys())\n        )\n        assert \"var_rnoise\" in model.keys()\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of flatfield uncertainty variance array\"\n            \" (var_flat) in Level 2 image output....\" + passfail(\"var_flat\" in model.keys())\n        )\n        assert \"var_flat\" in model.keys()\n    \n        # DMS88 total exposure time test\n        pipeline.log.info(\n            \"DMS88 MSG: Testing existence of total exposure time (exposure_time) in Level 2\"\n            \" image output.......\" + passfail(\"exposure_time\" in model.meta.exposure)\n        )\n        assert \"exposure_time\" in model.meta.exposure\n    \n        # DMS-136 PSF tests\n        pipeline.log.info(\n            \"DMS-136 MSG: Testing existence of  detector and \"\n            \"optical element (detector & optical_element) in Level 2 \"\n            \"image output.......\" + passfail(\"exposure_time\" in model.meta.exposure)\n        )\n        assert \"detector\" in model.meta.instrument\n        assert \"optical_element\" in model.meta.instrument\n    \n        # DMS89 WCS tests\n        pipeline.log.info(\n            \"DMS89 MSG: Testing that the wcs boundingbox was generated.......\"\n            + passfail(len(model.meta.wcs.bounding_box) == 2)\n        )\n        assert len(model.meta.wcs.bounding_box) == 2\n    \n        # Save original wcs information\n        orig_wcs = copy.deepcopy(model.meta.wcs)\n        del model.meta[\"wcs\"]\n    \n        # Create new pointing for the model\n        # RA & Dec are each shifted + 10 degrees, unless they are near\n        # the upper limit, in which case they are shifted -10 degrees.\n        delta = [10.0, 10.0]\n        if model.meta.wcsinfo.ra_ref >= 350.0:\n            delta[0] *= -1.0\n    \n        if model.meta.wcsinfo.dec_ref >= 80.0:\n            delta[1] *= -1.0\n    \n        model.meta.wcsinfo.ra_ref += delta[0]\n        model.meta.wcsinfo.dec_ref += delta[1]\n    \n        # Create new wcs object for the new pointing\n        model = AssignWcsStep.call(model)\n    \n        rtdata.output = output.rsplit(\".\", 1)[0] + \"_repoint.asdf\"\n        model.to_asdf(rtdata.output)\n    \n        # Test that repointed file matches truth\n        rtdata.get_truth(\"truth/WFI/image/\" + output.rsplit(\".\", 1)[0] + \"_repoint.asdf\")\n        diff = compare_asdf(rtdata.output, rtdata.truth, **ignore_asdf_paths)\n>       assert diff.identical, diff.report()\nE       AssertionError: \nE         Diff report for:\nE             result file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf\nE                 model type: ImageModel\nE             truth file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/truth/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf\nE                 model type: ImageModel\nE         \nE         {'arrays_differ': {\"root['roman']['data']\": {'abs_diff': <Quantity 32778.504 DN / s>,\nE                                                      'n_diffs': 471,\nE                                                      'worst_abs_diff': {'index': (2955,\nE                                                                                   3321),\nE                                                                         'value': <Quantity 7411.377 DN / s>},\nE                                                      'worst_fractional_diff': {'index': (2492,\nE                                                                                          1865),\nE                                                                                'value': <Quantity 863315.94>}},\nE                            \"root['roman']['dq']\": {'abs_diff': 12884901877,\nE                                                    'n_diffs': 4,\nE                                                    'worst_abs_diff': {'index': (2951,\nE                                                                                 3317),\nE                                                                       'value': 4294967292},\nE                                                    'worst_fractional_diff': {'index': (2952,\nE                                                                                        3320),\nE                                                                              'value': inf}},\nE                            \"root['roman']['err']\": {'abs_diff': <Quantity 1347.6384 DN / s>,\nE                                                     'n_diffs': 7,\nE                                                     'worst_abs_diff': {'index': (2952,\nE                                                                                  3320),\nE                                                                        'value': <Quantity 577.6964 DN / s>},\nE                                                     'worst_fractional_diff': {'index': (2492,\nE                                                                                         1865),\nE                                                                               'value': <Quantity 947606.2>}},\nE                            \"root['roman']['var_flat']\": {'abs_diff': <Quantity 494019.94 DN2 / s2>,\nE                                                          'n_diffs': 7,\nE                                                          'worst_abs_diff': {'index': (2952,\nE                                                                                       3320),\nE                                                                             'value': <Quantity 333064.88 DN2 / s2>},\nE                                                          'worst_fractional_diff': {'index': (2492,\nE                                                                                              1865),\nE                                                                                    'value': <Quantity 7.453108e+11>}},\nE                            \"root['roman']['var_poisson']\": {'abs_diff': <Quantity 3126.605 DN2 / s2>,\nE                                                             'n_diffs': 7,\nE                                                             'worst_abs_diff': {'index': (2955,\nE                                                                                          3321),\nE                                                                                'value': <Quantity 675.62225 DN2 / s2>},\nE                                                             'worst_fractional_diff': {'index': (1828,\nE                                                                                                 711),\nE                                                                                       'value': <Quantity inf>}},\nE                            \"root['roman']['var_rnoise']\": {'abs_diff': <Quantity 12.500684 DN2 / s2>,\nE                                                            'n_diffs': 7,\nE                                                            'worst_abs_diff': {'index': (2952,\nE                                                                                         3320),\nE                                                                               'value': <Quantity 3.4215055 DN2 / s2>},\nE                                                            'worst_fractional_diff': {'index': (1828,\nE                                                                                                711),\nE                                                                                      'value': <Quantity inf>}}},\nE          'values_changed': {\"root['roman']['meta']['wcs_fit_results']['<rot>']\": {'new_value': -8.284282814118433e-05,\nE                                                                                   'old_value': -5.9008763525942403e-05},\nE                             \"root['roman']['meta']['wcs_fit_results']['center'][0]\": {'new_value': -249.45443937059298,\nE                                                                                       'old_value': -249.45421319021025},\nE                             \"root['roman']['meta']['wcs_fit_results']['center'][1]\": {'new_value': 109.61109764361109,\nE                                                                                       'old_value': 109.61122052869052},\nE                             \"root['roman']['meta']['wcs_fit_results']['mae']\": {'new_value': 0.003221932838851946,\nE                                                                                 'old_value': 0.002684014626406904},\nE                             \"root['roman']['meta']['wcs_fit_results']['matrix'][0][1]\": {'new_value': -1.4458801127269767e-06,\nE                                                                                          'old_value': -1.0298972110582511e-06},\nE                             \"root['roman']['meta']['wcs_fit_results']['matrix'][1][0]\": {'new_value': 1.4458801127269767e-06,\nE                                                                                          'old_value': 1.0298972110582511e-06},\nE                             \"root['roman']['meta']['wcs_fit_results']['proper_rot']\": {'new_value': -8.284282814118433e-05,\nE                                                                                        'old_value': -5.9008763525942403e-05},\nE                             \"root['roman']['meta']['wcs_fit_results']['rmse']\": {'new_value': 0.004752892068723334,\nE                                                                                  'old_value': 0.003440309699826702},\nE                             \"root['roman']['meta']['wcs_fit_results']['rot'][0]\": {'new_value': -8.284282814118433e-05,\nE                                                                                    'old_value': -5.9008763525942403e-05},\nE                             \"root['roman']['meta']['wcs_fit_results']['rot'][1]\": {'new_value': -8.284282814118433e-05,\nE                                                                                    'old_value': -5.9008763525942403e-05},\nE                             \"root['roman']['meta']['wcs_fit_results']['shift'][0]\": {'new_value': -0.00849888422641429,\nE                                                                                      'old_value': -0.008499128453755975},\nE                             \"root['roman']['meta']['wcs_fit_results']['shift'][1]\": {'new_value': 0.014497927842124192,\nE                                                                                      'old_value': 0.014101158752967921}}}\nE       assert False\nE        +  where False = <romancal.regtest.regtestdata.DiffResult object at 0x7f37e715d310>.identical\n\n/runner/_work/RegressionTests/RegressionTests/romancal/regtest/test_wfi_pipeline.py:256: AssertionError"
-        }
-      }
-    ],
-    "time": [
-      277.484,
-      284.938
-    ]
-  },
-  "romancal.jump.tests.test_jump_step::test_two_CRs[all]": {
-    "time": [
-      5.367,
-      5.659
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_save_valid_abs_refcat[GAIADR2]": {
-    "time": [
-      1.5,
-      0.888
-    ]
-  },
-  "romancal.flatfield.tests.test_flatfield::test_flatfield_step_interface[WFI-WFI_IMAGE]": {
-    "time": [
-      0.528,
-      0.634
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_resampledata_init": {
-    "time": [
-      0.724,
-      0.727
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_always_returns_modellibrary_with_updated_datamodels[ASDFFilenameList]": {
-    "time": [
-      2.272,
-      2.423
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[10-10-2000]": {
-    "time": [
-      0.666,
-      0.258
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-True-mode-False]": {
-    "time": [
-      0.938,
-      0.924
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_write_results_to_disk": {
-    "time": [
-      14.998,
-      8.158
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_valid_parameters_but_no_sources_returned": {
-    "time": [
-      0.113,
-      0.06
-    ]
-  },
-  "romancal.regtest.test_regtestdata::test_compare_asdf_tables[large_meta]": {
-    "time": [
-      0.139,
-      0.123
-    ]
-  },
-  "romancal.associations.tests.test_level2_basics::test_level2_productname": {
-    "time": [
-      0.063,
-      0.071
-    ]
-  },
-  "romancal.regtest.test_wfi_saturation::test_saturation_image_step": {
-    "time": [
-      59.869,
-      62.557
-    ]
-  },
-  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[-0.4604265724722594-0.7263578446997732-1389.4954943731375]": {
-    "time": [
-      56.746,
-      54.786
-    ]
-  },
-  "romancal.dq_init.tests.test_dq_init::test_dqinit_refpix[WFI-WFI_IMAGE]": {
-    "time": [
-      0.504,
-      0.473
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog_keywords[3-50-5-True-False-SourceCatalogModel-expected_outputs1]": {
-    "time": [
-      52.865,
-      67.501
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_set_good_bits_in_resample_meta[~1,512]": {
-    "time": [
-      0.892,
-      0.84
-    ]
-  },
-  "romancal.datamodels.tests.test_library::test_asn_data": {
-    "time": [
-      0.94,
-      0.992
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_rotated_plane[theta3-1-1]": {
-    "time": [
-      1.158,
-      1.197
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_update_exposure_times_different_sca_same_exposure": {
-    "time": [
-      1.322,
-      1.332
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-False-mode-False]": {
-    "time": [
-      0.937,
-      0.971
-    ]
-  },
-  "romancal.associations.lib.constraint::romancal.associations.lib.constraint.SimpleConstraint": {
-    "time": [
-      0.004,
-      0.003
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-False-midpt-False]": {
-    "time": [
-      0.92,
-      0.975
-    ]
-  },
-  "romancal.saturation.tests.test_saturation::test_ad_floor_and_saturation_flagging": {
-    "time": [
-      0.006,
-      0.007
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog[50-10-0-False]": {
-    "time": [
-      0.447,
-      0.45
-    ]
-  },
-  "romancal.resample.tests.test_resample_step::test_update_phot_keywords[1.0-None-2.0-4.0-None]": {
-    "time": [
-      0.003,
-      0.002
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-True-mean-False]": {
-    "time": [
-      0.78,
-      0.758
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_rotated_plane[theta2-0-1]": {
-    "time": [
-      1.096,
-      1.172
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_returns_modellibrary_on_association_file_as_input": {
-    "time": [
-      3.211,
-      2.745
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-False-median-True]": {
-    "time": [
-      0.902,
-      0.911
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-False-mode-True]": {
-    "time": [
-      0.93,
-      0.959
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_raises_error_on_invalid_input[input0-error_type0]": {
-    "time": [
-      0.125,
-      0.123
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_raises_error_on_invalid_abs_refcat": {
-    "time": [
-      0.769,
-      0.593
-    ]
-  },
-  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[-0.9328288493890713-0.3710839689613894-71968.56730011514]": {
-    "time": [
-      60.646,
-      58.37
-    ]
-  },
-  "romancal.resample.tests.test_resample::test_populate_mosaic_basic_different_observations[input_models_data5-expected_output5]": {
-    "time": [
-      1.837,
-      2.181
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-True-mean-True]": {
-    "time": [
-      1.024,
-      1.001
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10--10-0.1-GAIADR1]": {
-    "time": [
-      0.119,
-      0.337
-    ]
-  },
-  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog[20-10-5-False]": {
-    "time": [
-      57.562,
-      67.556
-    ]
-  },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_combine_custom_catalogs_and_asn_file": {
-    "time": [
-      4.923,
-      4.506
-    ]
-  },
-  "romancal.ramp_fitting.tests.test_ramp_fit_cas22::test_fits[extragain-jump-data]": {
-    "time": [
-      0.402,
-      0.407
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[0-0-0.01-GAIADR1]": {
-    "time": [
-      0.558,
-      0.166
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_using_epoch[GAIADR3-None]": {
-    "time": [
-      0.605,
-      0.585
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-False-mean-False]": {
-    "time": [
-      0.803,
-      0.779
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_variable_num_sources[GAIADR1-5]": {
-    "time": [
-      0.504,
-      0.79
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-False-median-True]": {
-    "time": [
-      0.963,
-      0.972
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-False-mean-True]": {
-    "time": [
-      0.897,
-      0.935
-    ]
-  },
-  "romancal.linearity.tests.test_linearity::test_linearity_coeff[WFI-WFI_IMAGE]": {
-    "time": [
-      1.193,
-      1.056
-    ]
-  },
-  "romancal.associations.tests.test_level2_candidates::test_candidate_observation[partial_args2-5]": {
-    "time": [
-      0.395,
-      0.326
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-True-midpt-False]": {
-    "time": [
-      0.778,
-      0.759
-    ]
-  },
-  "romancal.regtest.test_regtestdata::test_n_diffs[7]": {
-    "time": [
-      0.109,
-      0.104
-    ]
-  },
-  "romancal.jump.tests.test_jump_step::test_one_CR[half]": {
-    "time": [
-      3.691,
-      3.375
-    ]
-  },
-  "romancal.datamodels.tests.test_library::test_group_with_no_datamodels_open[group_indices]": {
-    "time": [
-      1.096,
-      1.29
-    ]
-  },
-  "romancal.regtest.test_regtestdata::test_compare_asdf_tables[names]": {
-    "time": [
-      0.127,
-      0.177
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_invalid_parameters[10-100-0.1-]": {
-    "time": [
-      0.045,
-      0.038
-    ]
-  },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-True-median-False]": {
-    "time": [
-      0.994,
-      1.056
-    ]
-  },
-  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[10--10-2010.3]": {
-    "time": [
-      0.263,
-      0.255
-    ]
-  },
-  "romancal.stpipe.tests.test_core::test_open_model[RomanStep-False]": {
-    "time": [
-      0.435,
-      0.432
+      0.753,
+      0.446
     ]
   },
   "romancal.regtest.test_wfi_dq_init::test_dq_init_image_step": {
@@ -2575,34 +89,40 @@
       45.641
     ]
   },
-  "romancal.associations.lib.constraint::romancal.associations.lib.constraint.Constraint": {
+  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_using_epoch[GAIADR3-J2000]": {
     "time": [
-      0.008,
-      0.006
+      0.956,
+      0.439
     ]
   },
-  "romancal.jump.tests.test_jump_step::test_three_group_integration[True]": {
+  "romancal.regtest.test_wfi_photom::test_absolute_photometric_calibration": {
     "time": [
-      0.28,
-      0.272
+      31.936,
+      38.637
     ]
   },
-  "romancal.regtest.test_mos_pipeline::test_level3_mos_pipeline": {
+  "romancal.skymatch.tests.test_skymatch::test_skymatch_overlap[global-True-mean]": {
     "time": [
-      569.019,
-      588.207
+      1.297,
+      0.916
     ]
   },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_rotated_plane[theta7-1-1]": {
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_returns_modellibrary_on_list_of_asdf_file_as_input": {
     "time": [
-      1.344,
-      1.203
+      2.994,
+      2.432
     ]
   },
-  "romancal.resample.tests.test_resample::test_populate_mosaic_basic_different_observations[input_models_data3-expected_output3]": {
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_save_valid_abs_refcat[GAIADR2]": {
     "time": [
-      1.87,
-      1.894
+      1.5,
+      0.888
+    ]
+  },
+  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_init_default_parameters[pars0]": {
+    "time": [
+      0.252,
+      0.122
     ]
   },
   "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.4589931219679968-0.34124882938726064-10000.0]": {
@@ -2611,10 +131,58 @@
       59.22
     ]
   },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[global-True-median-False]": {
+  "romancal.ramp_fitting.tests.test_ramp_fit_cas22::test_bad_readpattern": {
     "time": [
-      0.834,
-      0.751
+      0.733,
+      0.547
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_returns_modellibrary_on_roman_datamodel_as_input": {
+    "time": [
+      1.829,
+      1.159
+    ]
+  },
+  "romancal.resample.tests.test_resample_step::test_build_driz_weight_multiple_good_bits[~513-dq_array1-expected_output1]": {
+    "time": [
+      0.241,
+      0.124
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[0-0-0.01-GAIADR1]": {
+    "time": [
+      0.558,
+      0.166
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog_keywords[3-50-5-True-False-SourceCatalogModel-expected_outputs1]": {
+    "time": [
+      52.865,
+      67.501
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10--10-0.1-GAIADR1]": {
+    "time": [
+      0.119,
+      0.337
+    ]
+  },
+  "romancal.regtest.test_wfi_flat_field::test_flat_field_grism_step": {
+    "time": [
+      13.683,
+      16.979
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[10-10-2030]": {
+    "time": [
+      0.752,
+      0.252
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_write_results_to_disk": {
+    "time": [
+      14.998,
+      8.158
     ]
   },
   "romancal.jump.tests.test_jump_step::test_two_group_integration[quarter]": {
@@ -2623,10 +191,148 @@
       0.265
     ]
   },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch[match-True-mean-True]": {
+  "docs.roman.datamodels.models.rst::models.rst": {
     "time": [
-      0.931,
-      0.986
+      2.293,
+      2.95
+    ]
+  },
+  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_valid_input_modelcontainer": {
+    "time": [
+      0.752,
+      0.456
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l2_input_model_unchanged": {
+    "time": [
+      59.16,
+      66.251
+    ]
+  },
+  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.21327155153435973--0.7514334470008721-7196.856730011521]": {
+    "time": [
+      67.266,
+      56.208
+    ]
+  },
+  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-True-midpt-True]": {
+    "time": [
+      1.04,
+      1.33
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10-10-0.1-GAIADR2]": {
+    "time": [
+      0.141,
+      0.346
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_variable_num_sources[GAIADR2-10]": {
+    "time": [
+      0.949,
+      0.607
+    ]
+  },
+  "romancal.regtest.test_dark_current::test_dark_current_outfile_suffix": {
+    "time": [
+      43.615,
+      49.0
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog[10-10-7-False]": {
+    "time": [
+      70.568,
+      57.451
+    ]
+  },
+  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.2739233746429086--0.648688758794882-1000.0]": {
+    "time": [
+      73.671,
+      66.65
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_returns_modellibrary_on_association_file_as_input": {
+    "time": [
+      3.211,
+      2.745
+    ]
+  },
+  "romancal.jump.tests.test_jump_step::test_two_CRs[half]": {
+    "time": [
+      4.43,
+      3.134
+    ]
+  },
+  "romancal.regtest.test_ramp_fitting::test_rampfit_step[spec_full]": {
+    "time": [
+      42.548,
+      48.934
+    ]
+  },
+  "romancal.refpix.tests.test_refpix::test_run_steps_regression": {
+    "time": [
+      0.54,
+      0.38
+    ]
+  },
+  "romancal.skymatch.tests.test_skymatch::test_skymatch_2x[match-False]": {
+    "time": [
+      2.147,
+      1.45
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_save_valid_abs_refcat[GAIADR3]": {
+    "time": [
+      1.199,
+      0.943
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_variable_num_sources[GAIADR1-5]": {
+    "time": [
+      0.504,
+      0.79
+    ]
+  },
+  "romancal.assign_wcs.tests.test_wcs::test_wcs[load_wcs_step-distortion0]": {
+    "time": [
+      6.354,
+      5.287
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog[20-10-5-False]": {
+    "time": [
+      57.562,
+      67.556
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10-10-0.1-GAIADR3]": {
+    "time": [
+      0.613,
+      0.236
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_variable_num_sources[GAIADR3-15]": {
+    "time": [
+      1.078,
+      0.435
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_fit_results_in_meta": {
+    "time": [
+      1.225,
+      0.978
+    ]
+  },
+  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.08724998293084574-0.2943790231485002-13894.95494373136]": {
+    "time": [
+      59.597,
+      69.274
+    ]
+  },
+  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_detection_always_returns_modelcontainer_with_updated_datamodels[ASNFile]": {
+    "time": [
+      2.866,
+      2.491
     ]
   },
   "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_updates_group_id": {
@@ -2635,16 +341,124 @@
       0.94
     ]
   },
-  "romancal.skymatch.tests.test_skymatch::test_skymatch_overlap[match-True-mean]": {
+  "romancal.assign_wcs.tests.test_wcs::test_wcs[assign_wcs_step-distortion0]": {
     "time": [
-      2.643,
-      2.542
+      7.009,
+      5.59
     ]
   },
-  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_handles_multiple_groups": {
+  "romancal.flux.tests.test_flux_step::test_attributes[input_modellibrary-data-1]": {
     "time": [
-      1.815,
+      1.091,
+      0.737
+    ]
+  },
+  "romancal.assign_wcs.tests.test_wcs::test_wcs[load_wcs_step-distortion1]": {
+    "time": [
+      6.89,
+      5.409
+    ]
+  },
+  "romancal.resample.tests.test_resample::test_populate_mosaic_basic_different_observations[input_models_data5-expected_output5]": {
+    "time": [
+      1.837,
+      2.181
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[0-0-2000]": {
+    "time": [
+      0.593,
+      0.288
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_raises_error_on_invalid_abs_refcat": {
+    "time": [
+      0.769,
+      0.593
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog[3-50-5-False]": {
+    "time": [
+      60.066,
+      52.802
+    ]
+  },
+  "romancal.regtest.test_wfi_dq_init::test_dq_init_grism_step": {
+    "time": [
+      34.845,
+      43.486
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog_keywords[10-10-7-False-True-ImageModel-expected_outputs2]": {
+    "time": [
+      52.423,
+      62.989
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_defaults_to_valid_abs_refcat[]": {
+    "time": [
+      1.291,
+      0.957
+    ]
+  },
+  "romancal.regtest.test_regtestdata::test_compare_asdf[None]": {
+    "time": [
+      1.344,
+      1.047
+    ]
+  },
+  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-True-mode-True]": {
+    "time": [
+      2.065,
       1.74
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_defaults_to_valid_abs_refcat[None]": {
+    "time": [
+      1.638,
+      0.944
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[10--10-2000]": {
+    "time": [
+      0.686,
+      0.25
+    ]
+  },
+  "romancal.regtest.test_ramp_fitting::test_rampfit_step[image_trunc]": {
+    "time": [
+      41.982,
+      50.938
+    ]
+  },
+  "romancal.resample.tests.test_resample::test_custom_wcs_input_small_overlap_no_rotation": {
+    "time": [
+      1.089,
+      0.884
+    ]
+  },
+  "romancal.outlier_detection.tests.test_outlier_detection::test_find_outliers": {
+    "time": [
+      5.187,
+      3.327
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog[3-50-5-False]": {
+    "time": [
+      62.664,
+      53.992
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[10-10-2000]": {
+    "time": [
+      0.666,
+      0.258
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10--10-0.1-GAIADR2]": {
+    "time": [
+      0.143,
+      0.281
     ]
   }
 }
