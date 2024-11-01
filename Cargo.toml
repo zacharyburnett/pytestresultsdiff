@@ -9,6 +9,15 @@ repository = "https://github.com/zacharyburnett/pytestresultsdiff"
 version = "0.2.0"
 edition = "2021"
 
+[features]
+default = ["extra-properties"]
+# compare system-err of test results
+system-err = []
+# compare system-out of test results
+system-out = []
+# compare extra properties
+extra-properties = []
+
 [dependencies]
 clap = { version = "4.5.20", features = ["derive"] }
 junit-parser = { version = "1.3.1", features = ["serde"] }
