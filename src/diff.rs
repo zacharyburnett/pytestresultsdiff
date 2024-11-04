@@ -1,7 +1,5 @@
 use serde_json::json;
-use std::collections::HashMap;
-use std::fs::File;
-use std::io::BufReader;
+use std::{collections::HashMap, io::BufRead};
 
 #[derive(clap::ValueEnum, Clone, serde::Serialize)]
 #[serde(rename_all = "snake_case")]
@@ -23,17 +21,17 @@ pub fn diff_results(
     let time_relative_tolerance = time_relative_tolerance.unwrap_or(0.1);
     let time_absolute_tolerance = time_absolute_tolerance.unwrap_or(0.1);
 
-    for filename in &results_xmls {
-        if !filename.exists() {
-            panic!("No such file: \"{}\"", filename.to_str().unwrap());
-        }
-    }
-
     let mut test_runs: Vec<junit_parser::TestSuites> = vec![];
     for results_xml in results_xmls {
-        test_runs.push(
-            junit_parser::from_reader(BufReader::new(File::open(results_xml).unwrap())).unwrap(),
+        let suites = junit_parser::from_reader(
+            crate::file::read_path_or_url(&results_xml.to_str().unwrap().to_owned()).unwrap(),
         );
+        match suites {
+            Ok(suites) => {
+                test_runs.push(suites);
+            }
+            Err(error) => panic!("{}", error.to_string()),
+        }
     }
 
     let mut test_cases: HashMap<String, Vec<junit_parser::TestCase>> = HashMap::new();

@@ -1,4 +1,5 @@
 mod diff;
+mod file;
 use crate::diff::diff_results;
 use clap::Parser;
 
