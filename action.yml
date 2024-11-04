@@ -29,4 +29,4 @@ runs:
       run: cargo run -- ${{ inputs.results-xmls }} -r ${{ inputs.time-relative-tolerance }} -a ${{ inputs.time-absolute-tolerance }} > resultsdiff.json
     - id: run
       shell: bash
-      run: echo "stdout=(cat resultsdiff.json)" >> $GITHUB_ENV
+      run: echo "stdout=(cat resultsdiff.json)" >> $GITHUB_OUTPUT

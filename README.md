@@ -1,19 +1,28 @@
 # pytestresultsdiff
 compare properties of Pytest results
 
-## installation
+## GitHub Actions workflow
 
-download a binary from the [releases page](https://github.com/zacharyburnett/pytestresultsdiff/releases)
-
-### from source
-
-```console
-git clone https://github.com/zacharyburnett/pytestresultsdiff
-cd pytestresultsdiff
-cargo build --release
+```yaml
+      - run: pytest --junitxml=${{ runner.temp }}/currentresults.xml
+      - id: pytestresultsdiff
+        uses: zacharyburnett/pytestresultsdiff@0.4.0
+        with:
+          results-xmls: >-
+            ${{ runner.temp }}/currentresults.xml
+            oldresults.xml
+          time-relative-tolerance: 0.1
+          #time-absolute-tolerance: 0.1
+      - run: echo ${{ steps.pytestresultsdiff.outputs.diff }}
 ```
 
-## usage 
+> [!TIP]
+> Remember to use newline stripping (`>-`) if entering `results.xml` filenames on multiple lines.
+
+> [!TIP]
+> `results-xmls` also accepts URLs to XML files.
+
+## console executable
 
 ```console
 ❯ pytestresultsdiff --help
