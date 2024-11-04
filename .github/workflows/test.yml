@@ -37,6 +37,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./
         with:
-          results_xmls: >
+          results-xmls: >
             ./src/data/romancal_24Q4_B15.0.0_results-Linux-x64-py3.11.xml
             ./src/data/romancal_nightly_results-Linux-x64-py3.11.xml
+          time-relative-tolerance: 0.1
+          #time-absolute-tolerance: 0.1
