@@ -162,8 +162,8 @@ mod tests {
     #[test]
     fn test_diff_results() {
         let data_directory = std::path::Path::new(file!()).parent().unwrap().join("data");
-        let reference_diff = serde_json::from_reader(BufReader::new(
-            File::open(data_directory.join("diff.json")).unwrap(),
+        let reference_diff = serde_json::from_reader(std::io::BufReader::new(
+            std::fs::File::open(data_directory.join("diff.json")).unwrap(),
         ))
         .unwrap();
 
