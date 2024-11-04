@@ -35,6 +35,7 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
     steps:
       - uses: actions/checkout@v4
+      - run: ls -la
       - uses: ./action.yml
         with:
           results_xmls: >
