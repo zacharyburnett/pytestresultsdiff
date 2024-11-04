@@ -1,5 +1,5 @@
 use serde_json::json;
-use std::{collections::HashMap, io::BufRead};
+use std::collections::HashMap;
 
 #[derive(clap::ValueEnum, Clone, serde::Serialize)]
 #[serde(rename_all = "snake_case")]

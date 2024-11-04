@@ -1,6 +1,5 @@
 mod diff;
 mod file;
-use crate::diff::diff_results;
 use clap::Parser;
 
 #[derive(Parser)]
@@ -18,7 +17,7 @@ struct PytestResultsDiffCommand {
 
 fn main() {
     let arguments = PytestResultsDiffCommand::parse();
-    let test_case_differences = diff_results(
+    let test_case_differences = crate::diff::diff_results(
         arguments.results_xmls,
         Some(arguments.time_relative_tolerance),
         Some(arguments.time_absolute_tolerance),
