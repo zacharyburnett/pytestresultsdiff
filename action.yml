@@ -26,11 +26,12 @@ runs:
     - uses: actions-rust-lang/setup-rust-toolchain@11df97af8e8102fd60b60a77dfbf58d40cd843b8 # v1.10.1 
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
-        path: ${{ runner.temp }}/pytestresultsdiff/
+        path: ./_pytestresultsdiff/
     - shell: bash
       run: |
-        cargo install --path ${{ runner.temp }}/pytestresultsdiff/ --target-dir ~/.cargo/bin/
-        echo ".cargo/bin/" >> $GITHUB_PATH
+        cargo install --path ./_pytestresultsdiff/ --target-dir ~/.cargo/bin/
+        echo "~/.cargo/bin/" >> $GITHUB_PATH
+        rm -rf ./pytestresultsdiff/
     - shell: bash
       run: pytestresultsdiff ${{ inputs.results-xmls }} -r ${{ inputs.time-relative-tolerance }} -a ${{ inputs.time-absolute-tolerance }} > resultsdiff.json
     - id: run
