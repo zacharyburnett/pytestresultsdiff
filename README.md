@@ -6,14 +6,16 @@ compare properties of Pytest results
 ```yaml
       - run: pytest --junitxml=${{ runner.temp }}/currentresults.xml
       - id: pytestresultsdiff
-        uses: zacharyburnett/pytestresultsdiff@0.5.0
+        uses: zacharyburnett/pytestresultsdiff@3eefa221961ea57b5a08713adb74e3bbbed9ec58 # 0.6.0
         with:
           results-xmls: >-
             ${{ runner.temp }}/currentresults.xml
             oldresults.xml
           time-relative-tolerance: 0.1
           #time-absolute-tolerance: 0.1
+          output-file: ${{ runner.temp }}/resultsdiff.json
       - run: echo ${{ steps.pytestresultsdiff.outputs.diff }}
+      - run: cat ${{ runner.temp }}/resultsdiff.json
 ```
 
 > [!TIP]
