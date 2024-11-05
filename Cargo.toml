@@ -6,7 +6,7 @@ readme = "README.md"
 description = "compare properties of Pytest results"
 homepage = "https://github.com/zacharyburnett/pytestresultsdiff"
 repository = "https://github.com/zacharyburnett/pytestresultsdiff"
-version = "0.5.0"
+version = "0.6.0"
 edition = "2021"
 
 [features]
