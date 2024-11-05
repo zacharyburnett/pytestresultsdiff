@@ -14,6 +14,7 @@ compare properties of Pytest results
           time-relative-tolerance: 0.1
           #time-absolute-tolerance: 0.1
           output-file: ${{ runner.temp }}/resultsdiff.json
+          #features: url,system-err,system-out,extra-properties
       - run: echo ${{ steps.pytestresultsdiff.outputs.diff }}
       - run: cat ${{ runner.temp }}/resultsdiff.json
 ```
