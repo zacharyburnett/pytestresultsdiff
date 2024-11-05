@@ -6,7 +6,7 @@ compare properties of Pytest results
 ```yaml
       - run: pytest --junitxml=${{ runner.temp }}/currentresults.xml
       - id: pytestresultsdiff
-        uses: zacharyburnett/pytestresultsdiff@3eefa221961ea57b5a08713adb74e3bbbed9ec58 # 0.6.0
+        uses: zacharyburnett/pytestresultsdiff@0.7.0
         with:
           results-xmls: >-
             ${{ runner.temp }}/currentresults.xml
@@ -22,7 +22,7 @@ compare properties of Pytest results
 > Remember to use newline stripping (`>-`) if entering `results.xml` filenames on multiple lines.
 
 > [!TIP]
-> `results-xmls` also accepts URLs to XML files.
+> `results-xmls` also accepts URLs to XML files with the `url` feature.
 
 ## console executable
 

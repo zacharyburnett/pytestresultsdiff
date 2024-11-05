@@ -24,7 +24,7 @@ pub fn diff_results(
     let mut test_runs: Vec<junit_parser::TestSuites> = vec![];
     for results_xml in results_xmls {
         let suites = junit_parser::from_reader(
-            crate::file::read_path_or_url(&results_xml.to_str().unwrap().to_owned()).unwrap(),
+            crate::file::read_path(&results_xml.to_str().unwrap().to_owned()).unwrap(),
         );
         match suites {
             Ok(suites) => {

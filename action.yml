@@ -20,6 +20,10 @@ inputs:
     description: "filename of JSON to write to"
     required: false
     default: ""
+  features:
+    description: "comma-separated list of crate features: `url,system-err,system-out,extra-properties`"
+    required: false
+    default: ""
 
 runs:
   using: composite
@@ -32,7 +36,7 @@ runs:
         path: ./_pytestresultsdiff/
     - shell: bash
       run: |
-        cargo install --path ./_pytestresultsdiff/ --target-dir ~/.cargo/bin/
+        cargo install --path ./_pytestresultsdiff/ --target-dir ~/.cargo/bin/ ${{ inputs.features != '' && format('--features {0}', inputs.features) || '' }}
         echo "~/.cargo/bin/" >> $GITHUB_PATH
         rm -rf ./pytestresultsdiff/
     - id: filename
