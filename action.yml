@@ -1,5 +1,9 @@
 name: pytestresultsdiff
 description: 'Installs and runs pytestresultsdiff on the current runner'
+branding:
+  icon: package
+  color: yellow
+
 inputs:
   results-xmls:
     description: "space-separated filenames of `results.xml` to compare"
@@ -12,13 +16,10 @@ inputs:
     description: "absolute tolerance (in seconds) for time deviation [default: 0.1]"
     required: false
     default: "0.1"
-outputs:
-  diff:
-    description: "output of pytestresultsdiff"
-    value: ${{ steps.run.outputs.stdout }}
-branding:
-  icon: package
-  color: yellow
+  output-file:
+    description: "filename of JSON to write to"
+    required: false
+    default: ""
 
 runs:
   using: composite
@@ -32,8 +33,16 @@ runs:
         cargo install --path ./_pytestresultsdiff/ --target-dir ~/.cargo/bin/
         echo "~/.cargo/bin/" >> $GITHUB_PATH
         rm -rf ./pytestresultsdiff/
-    - shell: bash
-      run: pytestresultsdiff ${{ inputs.results-xmls }} -r ${{ inputs.time-relative-tolerance }} -a ${{ inputs.time-absolute-tolerance }} > resultsdiff.json
-    - id: run
+    - id: filename
       shell: bash
-      run: echo "stdout=(cat resultsdiff.json)" >> $GITHUB_OUTPUT
+      run: echo filename=${{ inputs.output-file != '' && inputs.output-file || format('{0}/resultsdiff.json', runner.temp) }} >> $GITHUB_OUTPUT
+    - shell: bash
+      run: pytestresultsdiff ${{ inputs.results-xmls }} -r ${{ inputs.time-relative-tolerance }} -a ${{ inputs.time-absolute-tolerance }} > ${{ steps.filename.outputs.filename }}
+    - id: output
+      shell: bash
+      run: echo output=$(cat ${{ steps.filename.outputs.filename }}) >> $GITHUB_OUTPUT
+
+outputs:
+  diff:
+    description: "output of pytestresultsdiff"
+    value: ${{ steps.output.outputs.output }}
