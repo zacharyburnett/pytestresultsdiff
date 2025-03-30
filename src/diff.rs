@@ -6,7 +6,7 @@ use std::collections::HashMap;
 enum TestCaseProperty {
     IsPassed,
     IsSkipped,
-    Time,
+    PeakMem,
     #[cfg(feature = "system-err")]
     SystemErr,
     #[cfg(feature = "system-out")]
@@ -15,11 +15,11 @@ enum TestCaseProperty {
 
 pub fn diff_results(
     results_xmls: Vec<std::path::PathBuf>,
-    time_relative_tolerance: Option<f64>,
-    time_absolute_tolerance: Option<f64>,
+    peakmem_relative_tolerance: Option<f64>,
+    peakmem_absolute_tolerance: Option<f64>,
 ) -> HashMap<String, serde_json::Value> {
-    let time_relative_tolerance = time_relative_tolerance.unwrap_or(0.1);
-    let time_absolute_tolerance = time_absolute_tolerance.unwrap_or(0.1);
+    let peakmem_relative_tolerance = peakmem_relative_tolerance.unwrap_or(0.1);
+    let peakmem_absolute_tolerance = peakmem_absolute_tolerance.unwrap_or(0.1);
 
     let mut test_runs: Vec<junit_parser::TestSuites> = vec![];
     for results_xml in results_xmls {
@@ -38,6 +38,9 @@ pub fn diff_results(
     for test_run in test_runs {
         for test_suite in test_run.suites {
             for test_case in test_suite.cases {
+                if !test_case.properties.hashmap.contains_key("tracked-peakmem") {
+                    continue;
+                };
                 if !test_cases.contains_key(&test_case.name) {
                     test_cases.insert(test_case.name.clone(), vec![]);
                 }
@@ -50,16 +53,16 @@ pub fn diff_results(
     for (name, versions) in test_cases {
         let mut difference: serde_json::Map<String, serde_json::Value> = serde_json::Map::new();
 
-        let times = versions
+        let peakmems = versions
             .iter()
-            .map(|version| version.time)
+            .map(|version| version.properties.hashmap["tracked-peakmem"].parse().unwrap())
             .collect::<Vec<f64>>();
-        let reference_time = &times[0];
-        for time in &times {
-            if (time - reference_time).abs()
-                > time * time_relative_tolerance + time_absolute_tolerance
+        let reference_peakmem = &peakmems[0];
+        for peakmem in &peakmems {
+            if (peakmem - reference_peakmem).abs()
+                > peakmem * peakmem_relative_tolerance + peakmem_absolute_tolerance
             {
-                difference.insert(String::from("time"), json!(times));
+                difference.insert(String::from("peakmem"), json!(peakmems));
                 break;
             }
         }
@@ -114,7 +117,7 @@ pub fn diff_results(
         {
             let mut extras: HashMap<String, Vec<Option<String>>> = HashMap::new();
             let standard = vec![
-                String::from("time"),
+                String::from("peakmem"),
                 String::from("classname"),
                 String::from("name"),
                 String::from("system-err"),
@@ -163,15 +166,15 @@ mod tests {
     fn test_diff_results() {
         let data_directory = std::path::Path::new(file!()).parent().unwrap().join("data");
         let reference_diff = serde_json::from_reader(std::io::BufReader::new(
-            std::fs::File::open(data_directory.join("diff.json")).unwrap(),
+            std::fs::File::open(data_directory.join("memdiff.json")).unwrap(),
         ))
         .unwrap();
 
         assert_eq!(
             diff_results(
                 vec![
-                    data_directory.join("romancal_24Q4_B15.0.0_results-Linux-x64-py3.11.xml"),
-                    data_directory.join("romancal_nightly_results-Linux-x64-py3.11.xml")
+                    data_directory.join("main.xml"),
+                    data_directory.join("pr.xml")
                 ],
                 Some(0.1),
                 Some(0.1),
