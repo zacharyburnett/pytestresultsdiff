@@ -17,21 +17,17 @@ pub fn diff_results(
     results_xmls: Vec<std::path::PathBuf>,
     time_relative_tolerance: Option<f64>,
     time_absolute_tolerance: Option<f64>,
-) -> HashMap<String, serde_json::Value> {
+) -> Result<HashMap<String, serde_json::Value>, String> {
     let time_relative_tolerance = time_relative_tolerance.unwrap_or(0.1);
     let time_absolute_tolerance = time_absolute_tolerance.unwrap_or(0.1);
 
     let mut test_runs: Vec<junit_parser::TestSuites> = vec![];
     for results_xml in results_xmls {
         let suites = junit_parser::from_reader(
-            crate::file::read_path(&results_xml.to_str().unwrap().to_owned()).unwrap(),
+            crate::file::read_path(&results_xml.to_str().unwrap().to_owned())
+                .map_err(|err| format!("{err}"))?,
         );
-        match suites {
-            Ok(suites) => {
-                test_runs.push(suites);
-            }
-            Err(error) => panic!("{}", error.to_string()),
-        }
+        test_runs.push(suites.map_err(|err| format!("{err}"))?);
     }
 
     let mut test_cases: HashMap<String, Vec<junit_parser::TestCase>> = HashMap::new();
@@ -152,7 +148,8 @@ pub fn diff_results(
             test_case_differences.insert(name, serde_json::Value::Object(difference));
         }
     }
-    test_case_differences
+
+    Ok(test_case_differences)
 }
 
 #[cfg(test)]
@@ -175,7 +172,8 @@ mod tests {
                 ],
                 Some(0.1),
                 Some(0.1),
-            ),
+            )
+            .unwrap(),
             reference_diff
         );
     }

@@ -21,7 +21,8 @@ fn main() {
         arguments.results_xmls,
         Some(arguments.time_relative_tolerance),
         Some(arguments.time_absolute_tolerance),
-    );
+    )
+    .unwrap();
     println!(
         "{}",
         serde_json::to_string_pretty(&test_case_differences).unwrap()
