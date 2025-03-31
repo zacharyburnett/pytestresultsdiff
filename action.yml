@@ -16,12 +16,16 @@ inputs:
     description: "absolute tolerance (in seconds) for time deviation [default: 0.1]"
     required: false
     default: "0.1"
-  output-file:
-    description: "filename of JSON to write to"
-    required: false
-    default: ""
   features:
     description: "comma-separated list of crate features: `url,system-err,system-out,extra-properties`"
+    required: false
+    default: ""
+  summary_table_properties:
+    description: "space-separated list of properties with which to build a summary table"
+    required: false
+    default: ""
+  output-file:
+    description: "filename of JSON to write to"
     required: false
     default: ""
 
@@ -44,6 +48,11 @@ runs:
       run: echo filename=${{ inputs.output-file != '' && inputs.output-file || format('{0}/resultsdiff.json', runner.temp) }} >> $GITHUB_OUTPUT
     - shell: bash
       run: pytestresultsdiff ${{ inputs.results-xmls }} -r ${{ inputs.time-relative-tolerance }} -a ${{ inputs.time-absolute-tolerance }} > ${{ steps.filename.outputs.filename }}
+    - if: inputs.summary_table_properties != ''
+      uses: actions/setup-python@8d9ed9ac5c53483de85588cdf95a591a75ab9f55 # v5.5.0
+    - if: inputs.summary_table_properties != ''
+      shell: bash
+      run: python scripts/generate_markdown_table.py ${{ steps.filename.outputs.filename }} ${{ inputs.summary_table_properties }} >> $GITHUB_STEP_SUMMARY
     - id: output
       shell: bash
       run: echo output=$(cat ${{ steps.filename.outputs.filename }}) >> $GITHUB_OUTPUT
