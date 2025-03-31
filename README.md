@@ -13,6 +13,8 @@ compare properties of Pytest results
             oldresults.xml
           time-relative-tolerance: 0.1
           #time-absolute-tolerance: 0.1
+          peakmem-relative-tolerance: 0.1
+          #peakmem-absolute-tolerance: 0.1
           output-file: ${{ runner.temp }}/resultsdiff.json
           #features: url,system-err,system-out,extra-properties
       - run: echo ${{ steps.pytestresultsdiff.outputs.diff }}
@@ -45,10 +47,14 @@ Arguments:
   [RESULTS_XMLS]...  filenames of `results.xml` to compare
 
 Options:
-  -r, --time-relative-tolerance <TIME_RELATIVE_TOLERANCE>
+  -t, --time-relative-tolerance <TIME_RELATIVE_TOLERANCE>
           fractional tolerance for time deviation [default: 0.1]
-  -a, --time-absolute-tolerance <TIME_ABSOLUTE_TOLERANCE>
+  -T, --time-absolute-tolerance <TIME_ABSOLUTE_TOLERANCE>
           absolute tolerance (in seconds) for time deviation [default: 0.1]
+  -m, --peakmem-relative-tolerance <PEAKMEM_RELATIVE_TOLERANCE>
+          fractional tolerance for peakmem deviation [default: 0.1]
+  -M, --peakmem-absolute-tolerance <PEAKMEM_ABSOLUTE_TOLERANCE>
+          absolute tolerance (in MB) for peakmem deviation [default: 0.1]
   -h, --help
           Print help
   -V, --version

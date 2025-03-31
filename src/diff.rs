@@ -6,6 +6,8 @@ use std::collections::HashMap;
 enum TestCaseProperty {
     IsPassed,
     IsSkipped,
+    Time,
+    #[cfg(feature = "peakmem")]
     PeakMem,
     #[cfg(feature = "system-err")]
     SystemErr,
@@ -15,12 +17,11 @@ enum TestCaseProperty {
 
 pub fn diff_results(
     results_xmls: Vec<std::path::PathBuf>,
-    peakmem_relative_tolerance: Option<f64>,
-    peakmem_absolute_tolerance: Option<f64>,
+    time_relative_tolerance: f64,
+    time_absolute_tolerance: f64,
+    #[cfg(feature = "peakmem")] peakmem_relative_tolerance: f64,
+    #[cfg(feature = "peakmem")] peakmem_absolute_tolerance: f64,
 ) -> Result<HashMap<String, serde_json::Value>, String> {
-    let peakmem_relative_tolerance = peakmem_relative_tolerance.unwrap_or(0.1);
-    let peakmem_absolute_tolerance = peakmem_absolute_tolerance.unwrap_or(0.1);
-
     let mut test_runs: Vec<junit_parser::TestSuites> = vec![];
     for results_xml in results_xmls {
         let suites = junit_parser::from_reader(
@@ -34,9 +35,6 @@ pub fn diff_results(
     for test_run in test_runs {
         for test_suite in test_run.suites {
             for test_case in test_suite.cases {
-                if !test_case.properties.hashmap.contains_key("tracked-peakmem") {
-                    continue;
-                };
                 if !test_cases.contains_key(&test_case.name) {
                     test_cases.insert(test_case.name.clone(), vec![]);
                 }
@@ -48,20 +46,6 @@ pub fn diff_results(
     let mut test_case_differences: HashMap<String, serde_json::Value> = HashMap::new();
     for (name, versions) in test_cases {
         let mut difference: serde_json::Map<String, serde_json::Value> = serde_json::Map::new();
-
-        let peakmems = versions
-            .iter()
-            .map(|version| version.properties.hashmap["tracked-peakmem"].parse().unwrap())
-            .collect::<Vec<f64>>();
-        let reference_peakmem = &peakmems[0];
-        for peakmem in &peakmems {
-            if (peakmem - reference_peakmem).abs()
-                > peakmem * peakmem_relative_tolerance + peakmem_absolute_tolerance
-            {
-                difference.insert(String::from("peakmem"), json!(peakmems));
-                break;
-            }
-        }
 
         let statuses = versions
             .iter()
@@ -79,17 +63,52 @@ pub fn diff_results(
             }
         }
 
+        let times = versions
+            .iter()
+            .map(|version| version.time)
+            .collect::<Vec<f64>>();
+        if let Some(reference_time) = times.first() {
+            for time in &times {
+                if (time - reference_time).abs()
+                    > time * time_relative_tolerance + time_absolute_tolerance
+                {
+                    difference.insert(String::from("time"), json!(times));
+                }
+            }
+        }
+
+        #[cfg(feature = "peakmem")]
+        {
+            let mut peakmems: Vec<f64> = vec![];
+            for version in &versions {
+                if let Some(string) = version.properties.hashmap.get("tracked-peakmem") {
+                    peakmems.push(string.parse().map_err(|err| format!("{err}"))?);
+                }
+            }
+            if let Some(reference_peakmem) = peakmems.first() {
+                for peakmem in &peakmems {
+                    if (peakmem - reference_peakmem).abs()
+                        > peakmem * peakmem_relative_tolerance + peakmem_absolute_tolerance
+                    {
+                        difference.insert(String::from("peakmem"), json!(peakmems));
+                        break;
+                    }
+                }
+            }
+        }
+
         #[cfg(feature = "system-err")]
         {
             let system_errs = versions
                 .iter()
                 .map(|version| version.system_err.clone())
                 .collect::<Vec<Option<String>>>();
-            let reference_system_err = &system_errs[0];
-            for system_err in &system_errs {
-                if system_err != reference_system_err {
-                    difference.insert(String::from("system-err"), json!(system_errs));
-                    break;
+            if let Some(reference_system_err) = system_errs.first() {
+                for system_err in &system_errs {
+                    if system_err != reference_system_err {
+                        difference.insert(String::from("system-err"), json!(system_errs));
+                        break;
+                    }
                 }
             }
         }
@@ -100,47 +119,60 @@ pub fn diff_results(
                 .iter()
                 .map(|version| version.system_out.clone())
                 .collect::<Vec<Option<String>>>();
-            let reference_system_out = &system_outs[0];
-            for system_out in &system_outs {
-                if system_out != reference_system_out {
-                    difference.insert(String::from("system-out"), json!(system_outs));
-                    break;
+            if let Some(reference_system_out) = system_outs.first() {
+                for system_out in &system_outs {
+                    if system_out != reference_system_out {
+                        difference.insert(String::from("system-out"), json!(system_outs));
+                        break;
+                    }
                 }
             }
         }
 
         #[cfg(feature = "extra-properties")]
         {
-            let mut extras: HashMap<String, Vec<Option<String>>> = HashMap::new();
-            let standard = vec![
-                String::from("peakmem"),
+            #[allow(unused_mut)]
+            let mut standard_properties = vec![
                 String::from("classname"),
                 String::from("name"),
-                String::from("system-err"),
-                String::from("system-out"),
+                String::from("time"),
             ];
+
+            #[cfg(feature = "peakmem")]
+            standard_properties.push(String::from("peakmem"));
+
+            #[cfg(feature = "system-err")]
+            standard_properties.push(String::from("system-err"));
+
+            #[cfg(feature = "system-out")]
+            standard_properties.push(String::from("system-out"));
+
+            let mut extra_properties: HashMap<String, Vec<Option<String>>> = HashMap::new();
             for version in &versions {
                 for property in version.properties.hashmap.keys() {
-                    if !standard.contains(property) {
+                    if !standard_properties.contains(property) {
                         continue;
                     }
-                    extras.insert(property.clone(), vec![None; versions.len()]);
+                    extra_properties.insert(property.clone(), vec![None; versions.len()]);
                 }
             }
             for version in &versions {
                 for (property, value) in &version.properties.hashmap {
-                    if !standard.contains(property) {
+                    if !standard_properties.contains(property) {
                         continue;
                     }
-                    extras.get_mut(property).unwrap().push(Some(value.clone()));
+                    extra_properties
+                        .get_mut(property)
+                        .ok_or_else(|| format!("`{property}` not found in extras"))?
+                        .push(Some(value.clone()));
                 }
             }
 
-            for values in extras.values() {
+            for values in extra_properties.values() {
                 let reference_value = &values[0];
                 for value in values {
                     if value != reference_value {
-                        difference.insert(String::from("extra"), json!(extras.clone()));
+                        difference.insert(String::from("extra"), json!(extra_properties.clone()));
                         break;
                     }
                 }
@@ -173,8 +205,12 @@ mod tests {
                     data_directory.join("main.xml"),
                     data_directory.join("pr.xml")
                 ],
-                Some(0.1),
-                Some(0.1),
+                0.1,
+                0.1,
+                #[cfg(feature = "peakmem")]
+                0.1,
+                #[cfg(feature = "peakmem")]
+                0.1,
             )
             .unwrap(),
             reference_diff
