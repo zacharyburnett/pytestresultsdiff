@@ -21,36 +21,44 @@ def generate_markdown_table(
         for property_name in property_names
     )
 
-    rows = []
-    for test_case, properties in results_diff.items():
-        row = {header[0]: test_case}
-        for property in property_names:
-            if property in properties:
-                row[property] = properties[property]
-
-        # only append the row
-        if len(row) > 1:
-            rows.append(row)
-
     markdown_table_lines = [
         f"| {' | '.join(header)} |",
         f"| {' | '.join(('---' for _ in range(len(header))))} |",
     ]
 
+    rows = []
+    for test_case, properties in results_diff.items():
+        row = {
+            header[0]: test_case,
+            **{
+                property: properties[property]
+                for property in property_names
+                if property in properties
+            },
+        }
+
+        # only append the row
+        if len(row) > 1:
+            rows.append(row)
+
     for row in rows:
         row_strings = []
-        for property, value in row.items():
-            if isinstance(value, dict):
-                value = data_to_details(value)
-            elif isinstance(value, str) and len(value) > 0:
-                value = f"`{value}`"
-            elif "peakmem" in property:
-                value = f"{int(float(value) / 1000000)}MB"
-            elif "time" in property:
-                value = f"{float(value)}s"
+        for property, entry in row.items():
+            if property != header[0]:
+                for value in entry:
+                    if isinstance(value, dict):
+                        value = data_to_details(value)
+                    elif isinstance(value, str) and len(value) > 0:
+                        value = f"`{value}`"
+                    elif "peakmem" in property:
+                        value = f"{float(value) / 1000000:.1f}MB"
+                    elif "time" in property:
+                        value = f"{float(value):.1f}s"
+                    else:
+                        value = str(value)
+                    row_strings.append(value)
             else:
-                value = str(value)
-            row_strings.append(value)
+                row_strings.append(entry)
 
         markdown_table_lines.append(f"| {' | '.join(row_strings)} |")
 
@@ -93,4 +101,3 @@ if __name__ == "__main__":
     )
 
     print(markdown_table)
-
