@@ -15,6 +15,7 @@ compare properties of Pytest results
           #time-absolute-tolerance: 0.1
           peakmem-relative-tolerance: 0.1
           #peakmem-absolute-tolerance: 0.1
+          summary-table-properties: time
           output-file: ${{ runner.temp }}/resultsdiff.json
           #features: url,system-err,system-out,extra-properties
       - run: echo ${{ steps.pytestresultsdiff.outputs.diff }}
