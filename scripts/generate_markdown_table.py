@@ -44,18 +44,16 @@ def generate_markdown_table(
     for row in rows:
         row_strings = []
         for property, entry in row.items():
-            if property != header[0]:
+            if isinstance(entry, list):
                 for value in entry:
                     if isinstance(value, dict):
                         value = data_to_details(value)
-                    elif isinstance(value, str) and len(value) > 0:
-                        value = f"`{value}`"
                     elif "peakmem" in property:
                         value = f"{float(value) / 1000000:.1f}MB"
                     elif "time" in property:
                         value = f"{float(value):.1f}s"
                     else:
-                        value = str(value)
+                        value = f"`{value}`"
                     row_strings.append(value)
             else:
                 row_strings.append(entry)
