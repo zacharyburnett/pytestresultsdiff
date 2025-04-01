@@ -20,7 +20,7 @@ inputs:
     description: "comma-separated list of crate features: `url,system-err,system-out,extra-properties`"
     required: false
     default: ""
-  summary_table_properties:
+  summary-table-properties:
     description: "space-separated list of properties with which to build a summary table"
     required: false
     default: ""
