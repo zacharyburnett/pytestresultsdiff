@@ -49,13 +49,18 @@ def generate_markdown_table(
                     if isinstance(value, dict):
                         value = data_to_details(value)
                     elif "peakmem" in property:
-                        value = f"{float(value) / 1000000:.1f}MB"
+                        # peakmem comes in bytes
+                        value = f"`{float(value) / 1000000:.0f}MB`"
                     elif "time" in property:
-                        value = f"{float(value):.1f}s"
+                        # time comes in seconds
+                        value = f"`{float(value):.1f}s`"
                     else:
-                        value = f"`{value}`"
+                        value = f"{value}"
                     row_strings.append(value)
             else:
+                if "test case" in property:
+                    # format test case name as inline code
+                    entry = f"`{entry}`"
                 row_strings.append(entry)
 
         markdown_table_lines.append(f"| {' | '.join(row_strings)} |")
