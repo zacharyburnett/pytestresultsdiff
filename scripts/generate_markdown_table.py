@@ -38,13 +38,15 @@ def generate_markdown_table(
         }
 
         # only append the row
-        if len(row) > 1:
+        if not all(entry is None for entry in list(row.values())[1:]):
             rows.append(row)
 
     for row in rows:
-        row_strings = []
+        row_strings: list[str] = []
         for property, entry in row.items():
-            if isinstance(entry, list):
+            if entry is None:
+                row_strings.extend("" for _ in run_names)
+            elif isinstance(entry, list):
                 for value in entry:
                     if isinstance(value, dict):
                         value = data_to_details(value)
@@ -57,7 +59,7 @@ def generate_markdown_table(
                     else:
                         value = f"{value}"
                     row_strings.append(value)
-            elif entry is not None:
+            else:
                 if "test case" in property:
                     # format test case name as inline code
                     entry = f"`{entry}`"
