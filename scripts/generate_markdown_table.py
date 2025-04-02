@@ -17,8 +17,8 @@ def generate_markdown_table(
     header = ["test case"]
     header.extend(
         f"{run_name} {property_name}"
-        for run_name in run_names
         for property_name in property_names
+        for run_name in run_names
     )
 
     markdown_table_lines = [
@@ -32,19 +32,21 @@ def generate_markdown_table(
             header[0]: test_case,
             **{
                 property: properties[property]
+                if property in properties else None
                 for property in property_names
-                if property in properties
             },
         }
 
         # only append the row
-        if len(row) > 1:
+        if not all(entry is None for entry in list(row.values())[1:]):
             rows.append(row)
 
     for row in rows:
-        row_strings = []
+        row_strings: list[str] = []
         for property, entry in row.items():
-            if isinstance(entry, list):
+            if entry is None:
+                row_strings.extend("" for _ in run_names)
+            elif isinstance(entry, list):
                 for value in entry:
                     if isinstance(value, dict):
                         value = data_to_details(value)
