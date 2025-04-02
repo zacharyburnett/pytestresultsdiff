@@ -17,8 +17,8 @@ def generate_markdown_table(
     header = ["test case"]
     header.extend(
         f"{run_name} {property_name}"
-        for run_name in run_names
         for property_name in property_names
+        for run_name in run_names
     )
 
     markdown_table_lines = [
@@ -32,8 +32,8 @@ def generate_markdown_table(
             header[0]: test_case,
             **{
                 property: properties[property]
+                if property in properties else None
                 for property in property_names
-                if property in properties
             },
         }
 
@@ -57,7 +57,7 @@ def generate_markdown_table(
                     else:
                         value = f"{value}"
                     row_strings.append(value)
-            else:
+            elif entry is not None:
                 if "test case" in property:
                     # format test case name as inline code
                     entry = f"`{entry}`"
