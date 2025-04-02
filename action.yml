@@ -16,10 +16,18 @@ inputs:
     description: "absolute tolerance (in seconds) for time deviation [default: 0.1]"
     required: false
     default: "0.1"
-  features:
-    description: "comma-separated list of crate features: `url,system-err,system-out,extra-properties`"
+  peakmem-relative-tolerance:
+    description: "fractional tolerance for peakmem deviation [default: 0.1]" 
     required: false
-    default: ""
+    default: "0.1"
+  peakmem-absolute-tolerance:
+    description: "absolute tolerance (in MB) for peakmem deviation [default: 0.1]"
+    required: false
+    default: "0.1"
+  features:
+    description: "comma-separated list of crate features: `peakmem,extra-properties,url,system-err,system-out`"
+    required: false
+    default: "peakmem,extra-properties"
   summary-table-properties:
     description: "space-separated list of properties with which to build a summary table"
     required: false
@@ -35,7 +43,8 @@ runs:
     - uses: actions-rust-lang/setup-rust-toolchain@11df97af8e8102fd60b60a77dfbf58d40cd843b8 # v1.10.1 
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
-        repository: zacharyburnett/pytestresultsdiff
+        repository: braingram/pytestresultsdiff
+        ref: props
         path: ./_pytestresultsdiff/
     - shell: bash
       run: |
@@ -45,7 +54,7 @@ runs:
       shell: bash
       run: echo filename=${{ inputs.output-file != '' && inputs.output-file || format('{0}/resultsdiff.json', runner.temp) }} >> $GITHUB_OUTPUT
     - shell: bash
-      run: pytestresultsdiff ${{ inputs.results-xmls }} -r ${{ inputs.time-relative-tolerance }} -a ${{ inputs.time-absolute-tolerance }} > ${{ steps.filename.outputs.filename }}
+      run: pytestresultsdiff ${{ inputs.results-xmls }} -m ${{ inputs.peakmem-relative-tolerance }} -M ${{ inputs.peakmem-absolute-tolerance }} -t ${{ inputs.time-relative-tolerance }} -T ${{ inputs.time-absolute-tolerance }} > ${{ steps.filename.outputs.filename }}
     - if: inputs.summary-table-properties != ''
       uses: actions/setup-python@8d9ed9ac5c53483de85588cdf95a591a75ab9f55 # v5.5.0
     - if: inputs.summary-table-properties != ''
