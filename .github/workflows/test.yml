@@ -42,7 +42,7 @@ jobs:
             ./src/data/romancal_nightly_results-Linux-x64-py3.11.xml
           time-relative-tolerance: 0.1
           #time-absolute-tolerance: 0.1
-          summary-table-properties: time
+          summary-table-properties: status time
           output-file: resultsdiff.json
       - run: cat resultsdiff.json
   test-action-peakmem:
@@ -63,6 +63,6 @@ jobs:
             ./src/data/pr.xml
           peakmem-relative-tolerance: 0.1
           #peakmem-absolute-tolerance: 0.1
-          summary-table-properties: peakmem
+          summary-table-properties: status peakmem
           output-file: resultsdiff.json
       - run: cat resultsdiff.json
