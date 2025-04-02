@@ -192,7 +192,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_diff_results() {
+    fn test_diff_results_peakmem() {
         let data_directory = std::path::Path::new(file!()).parent().unwrap().join("data");
         let reference_diff = serde_json::from_reader(std::io::BufReader::new(
             std::fs::File::open(data_directory.join("memdiff.json")).unwrap(),
@@ -210,6 +210,30 @@ mod tests {
                 #[cfg(feature = "peakmem")]
                 0.1,
                 #[cfg(feature = "peakmem")]
+                0.1,
+            )
+            .unwrap(),
+            reference_diff
+        );
+    }
+
+    #[test]
+    fn test_diff_results_time() {
+        let data_directory = std::path::Path::new(file!()).parent().unwrap().join("data");
+        let reference_diff = serde_json::from_reader(std::io::BufReader::new(
+            std::fs::File::open(data_directory.join("timediff.json")).unwrap(),
+        ))
+        .unwrap();
+
+        assert_eq!(
+            diff_results(
+                vec![
+                    data_directory.join("romancal_24Q4_B15.0.0_results-Linux-x64-py3.11.xml"),
+                    data_directory.join("romancal_nightly_results-Linux-x64-py3.11.xml")
+                ],
+                0.1,
+                0.1,
+                0.1,
                 0.1,
             )
             .unwrap(),

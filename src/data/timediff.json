@@ -1,0 +1,464 @@
+{
+  "romancal.regtest.test_wfi_pipeline::test_level2_image_processing_pipeline": {
+    "status": [
+      "Success",
+      {
+        "Failure": {
+          "failure_type": "",
+          "message": "AssertionError: \n  Diff report for:\n      result file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf\n          model type: ImageModel\n      truth file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/truth/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf\n          model type: ImageModel\n  \n  {'arrays_differ': {\"root['roman']['data']\": {'abs_diff': <Quantity 32778.504 DN / s>,\n                                               'n_diffs': 471,\n                                               'worst_abs_diff': {'index': (2955,\n                                                                            3321),\n                                                                  'value': <Quantity 7411.377 DN / s>},\n                                               'worst_fractional_diff': {'index': (2492,\n                                                                                   1865),\n                                                                         'value': <Quantity 863315.94>}},\n                     \"root['roman']['dq']\": {'abs_diff': 12884901877,\n                                             'n_diffs': 4,\n                                             'worst_abs_diff': {'index': (2951,\n                                                                          3317),\n                                                                'value': 4294967292},\n                                             'worst_fractional_diff': {'index': (2952,\n                                                                                 3320),\n                                                                       'value': inf}},\n                     \"root['roman']['err']\": {'abs_diff': <Quantity 1347.6384 DN / s>,\n                                              'n_diffs': 7,\n                                              'worst_abs_diff': {'index': (2952,\n                                                                           3320),\n                                                                 'value': <Quantity 577.6964 DN / s>},\n                                              'worst_fractional_diff': {'index': (2492,\n                                                                                  1865),\n                                                                        'value': <Quantity 947606.2>}},\n                     \"root['roman']['var_flat']\": {'abs_diff': <Quantity 494019.94 DN2 / s2>,\n                                                   'n_diffs': 7,\n                                                   'worst_abs_diff': {'index': (2952,\n                                                                                3320),\n                                                                      'value': <Quantity 333064.88 DN2 / s2>},\n                                                   'worst_fractional_diff': {'index': (2492,\n                                                                                       1865),\n                                                                             'value': <Quantity 7.453108e+11>}},\n                     \"root['roman']['var_poisson']\": {'abs_diff': <Quantity 3126.605 DN2 / s2>,\n                                                      'n_diffs': 7,\n                                                      'worst_abs_diff': {'index': (2955,\n                                                                                   3321),\n                                                                         'value': <Quantity 675.62225 DN2 / s2>},\n                                                      'worst_fractional_diff': {'index': (1828,\n                                                                                          711),\n                                                                                'value': <Quantity inf>}},\n                     \"root['roman']['var_rnoise']\": {'abs_diff': <Quantity 12.500684 DN2 / s2>,\n                                                     'n_diffs': 7,\n                                                     'worst_abs_diff': {'index': (2952,\n                                                                                  3320),\n                                                                        'value': <Quantity 3.4215055 DN2 / s2>},\n                                                     'worst_fractional_diff': {'index': (1828,\n                                                                                         711),\n                                                                               'value': <Quantity inf>}}},\n   'values_changed': {\"root['roman']['meta']['wcs_fit_results']['<rot>']\": {'new_value': -8.284282814118433e-05,\n                                                                            'old_value': -5.9008763525942403e-05},\n                      \"root['roman']['meta']['wcs_fit_results']['center'][0]\": {'new_value': -249.45443937059298,\n                                                                                'old_value': -249.45421319021025},\n                      \"root['roman']['meta']['wcs_fit_results']['center'][1]\": {'new_value': 109.61109764361109,\n                                                                                'old_value': 109.61122052869052},\n                      \"root['roman']['meta']['wcs_fit_results']['mae']\": {'new_value': 0.003221932838851946,\n                                                                          'old_value': 0.002684014626406904},\n                      \"root['roman']['meta']['wcs_fit_results']['matrix'][0][1]\": {'new_value': -1.4458801127269767e-06,\n                                                                                   'old_value': -1.0298972110582511e-06},\n                      \"root['roman']['meta']['wcs_fit_results']['matrix'][1][0]\": {'new_value': 1.4458801127269767e-06,\n                                                                                   'old_value': 1.0298972110582511e-06},\n                      \"root['roman']['meta']['wcs_fit_results']['proper_rot']\": {'new_value': -8.284282814118433e-05,\n                                                                                 'old_value': -5.9008763525942403e-05},\n                      \"root['roman']['meta']['wcs_fit_results']['rmse']\": {'new_value': 0.004752892068723334,\n                                                                           'old_value': 0.003440309699826702},\n                      \"root['roman']['meta']['wcs_fit_results']['rot'][0]\": {'new_value': -8.284282814118433e-05,\n                                                                             'old_value': -5.9008763525942403e-05},\n                      \"root['roman']['meta']['wcs_fit_results']['rot'][1]\": {'new_value': -8.284282814118433e-05,\n                                                                             'old_value': -5.9008763525942403e-05},\n                      \"root['roman']['meta']['wcs_fit_results']['shift'][0]\": {'new_value': -0.00849888422641429,\n                                                                               'old_value': -0.008499128453755975},\n                      \"root['roman']['meta']['wcs_fit_results']['shift'][1]\": {'new_value': 0.014497927842124192,\n                                                                               'old_value': 0.014101158752967921}}}\nassert False\n +  where False = <romancal.regtest.regtestdata.DiffResult object at 0x7f37e715d310>.identical",
+          "text": "rtdata = {'input': '/runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/r0000101001001001001_01101_00...nt.asdf',\n 'truth_remote': 'roman-pipeline/dev/truth/WFI/image/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf'}\nignore_asdf_paths = {'ignore': ['asdf_library', 'history', 'roman.meta.ref_file.crds.sw_version', 'roman.meta.calibration_software_version', 'roman.cal_logs', 'roman.meta.date', ...]}\n\n    @pytest.mark.bigdata\n    @pytest.mark.soctests\n    def test_level2_image_processing_pipeline(rtdata, ignore_asdf_paths):\n        \"\"\"Tests for flat field imaging processing requirements DMS86 & DMS 87\"\"\"\n        input_data = \"r0000101001001001001_01101_0001_WFI01_uncal.asdf\"\n        rtdata.get_data(f\"WFI/image/{input_data}\")\n        rtdata.input = input_data\n    \n        # Test Pipeline\n        output = \"r0000101001001001001_01101_0001_WFI01_cal.asdf\"\n        rtdata.output = output\n        args = [\n            \"roman_elp\",\n            rtdata.input,\n        ]\n        ExposurePipeline.from_cmdline(args)\n        rtdata.get_truth(f\"truth/WFI/image/{output}\")\n        diff = compare_asdf(rtdata.output, rtdata.truth, **ignore_asdf_paths)\n        assert diff.identical, diff.report()\n    \n        # Perform DMS tests\n        # Initial prep\n        model = rdm.open(rtdata.output)\n        pipeline = ExposurePipeline()\n    \n        # DMS280 result is an ImageModel\n        pipeline.log.info(\n            \"DMS280 MSG: Testing that result is a Level 2 model.......\"\n            + passfail(isinstance(model, rdm.datamodels.ImageModel))\n        )\n    \n        # DMS86 instrument artifact correction tests\n        pipeline.log.info(\n            \"Status of the step:             assign_wcs    \"\n            + str(model.meta.cal_step.assign_wcs)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of wcs assignment inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.assign_wcs == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.assign_wcs == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             flat_field    \"\n            + str(model.meta.cal_step.flat_field)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of flat fielding inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.flat_field == \"PASS\")\n        )\n        assert model.meta.cal_step.flat_field == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             dark          \" + str(model.meta.cal_step.dark)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of dark correction inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.dark == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.dark == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             dq_init       \"\n            + str(model.meta.cal_step.dq_init)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of data quality correction in Level 2 image\"\n            \" output.......\" + passfail(model.meta.cal_step.dq_init == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.dq_init == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             jump          \" + str(model.meta.cal_step.jump)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of jump detection inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.jump == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.jump == \"COMPLETE\"\n        uneven = len({len(x) for x in model.meta.exposure.read_pattern}) > 1\n        pipeline.log.info(\n            \"DMS361: Testing that jump detection detected jumps in uneven ramp in \"\n            \"Level 2 image output.......\"\n            + passfail(uneven & np.any(model.dq & pixel.JUMP_DET))\n        )\n        assert uneven & np.any(model.dq & pixel.JUMP_DET)\n        pipeline.log.info(\n            \"Status of the step:             linearity     \"\n            + str(model.meta.cal_step.linearity)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of linearity correction in Level 2 image\"\n            \" output.......\" + passfail(model.meta.cal_step.linearity == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.linearity == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             ramp_fit      \"\n            + str(model.meta.cal_step.ramp_fit)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of ramp fitting inLevel 2 image output.......\"\n            + passfail(model.meta.cal_step.ramp_fit == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.ramp_fit == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             saturation    \"\n            + str(model.meta.cal_step.saturation)\n        )\n        pipeline.log.info(\n            \"DMS86 MSG: Testing completion of saturation detection in Level 2 image\"\n            \" output.......\" + passfail(model.meta.cal_step.saturation == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.saturation == \"COMPLETE\"\n    \n        # DMS-129 tests\n        # check if assign_wcs step is complete\n        pipeline.log.info(\n            \"DMS-129 MSG: Status of the step:             assign_wcs    \"\n            + str(model.meta.cal_step.assign_wcs)\n        )\n        pipeline.log.info(\n            \"DMS-129 MSG: Testing completion of WCS assignment inLevel 2 image\"\n            \" output.......\" + passfail(model.meta.cal_step.assign_wcs == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.assign_wcs == \"COMPLETE\"\n        # check if WCS exists\n        pipeline.log.info(\"DMS-129 MSG: Testing that a WCS object exists    \")\n        pipeline.log.info(\n            \"DMS-129 MSG: Testing that WCS exists inLevel 2 image output.......\"\n            + passfail(model.meta.wcs is not None)\n        )\n        assert model.meta.wcs is not None\n        pipeline.log.info(\n            \"DMS-129 MSG: Testing that geometric distortion information is available\"\n            \" inLevel 2 image output.......\"\n            + passfail(\"v2v3\" in model.meta.wcs.available_frames)\n        )\n        assert \"v2v3\" in model.meta.wcs.available_frames\n        # compare coordinates before and after distortion correction has been applied\n        # 1 - get new image array based on the model\n        x0, y0 = grid_from_bounding_box(model.meta.wcs.bounding_box)\n        # 2 - apply the distortion-corrected WCS solution to new image array\n        corrected_coords = model.meta.wcs(x0, y0)\n        # 3 - apply the transformation from 'v2v3' to 'world' without distortion correction\n        original_coords = model.meta.wcs.get_transform(\"v2v3\", \"world\")(x0, y0)\n        # compare both results to make sure they don't match\n        # (which means the distortion correction was actually applied to the model)\n        pipeline.log.info(\n            \"DMS-129 MSG: Testing that distortion correction was applied toLevel 2 image\"\n            \" output.......\"\n            + passfail(\n                (corrected_coords[0] != original_coords[0]).all()\n                & (corrected_coords[1] != original_coords[1]).all()\n            )\n        )\n        assert (corrected_coords[0] != original_coords[0]).all()\n        assert (corrected_coords[1] != original_coords[1]).all()\n    \n        # DMS87 data quality tests\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of data quality array (dq) in Level 2 image\"\n            \" output.......\" + passfail(\"dq\" in model.keys())\n        )\n        assert \"dq\" in model.keys()\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of general error array (err) in Level 2 image\"\n            \" output.......\" + passfail(\"err\" in model.keys())\n        )\n        assert \"err\" in model.keys()\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of Poisson noise variancearray (var_poisson) in\"\n            \" Level 2 image output.......\" + passfail(\"var_poisson\" in model.keys())\n        )\n        assert \"var_poisson\" in model.keys()\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of read noise variance array (var_rnoise) in\"\n            \" level 2 image output.......\" + passfail(\"var_rnoise\" in model.keys())\n        )\n        assert \"var_rnoise\" in model.keys()\n        pipeline.log.info(\n            \"DMS87 MSG: Testing existence of flatfield uncertainty variance array\"\n            \" (var_flat) in Level 2 image output....\" + passfail(\"var_flat\" in model.keys())\n        )\n        assert \"var_flat\" in model.keys()\n    \n        # DMS88 total exposure time test\n        pipeline.log.info(\n            \"DMS88 MSG: Testing existence of total exposure time (exposure_time) in Level 2\"\n            \" image output.......\" + passfail(\"exposure_time\" in model.meta.exposure)\n        )\n        assert \"exposure_time\" in model.meta.exposure\n    \n        # DMS-136 PSF tests\n        pipeline.log.info(\n            \"DMS-136 MSG: Testing existence of  detector and \"\n            \"optical element (detector & optical_element) in Level 2 \"\n            \"image output.......\" + passfail(\"exposure_time\" in model.meta.exposure)\n        )\n        assert \"detector\" in model.meta.instrument\n        assert \"optical_element\" in model.meta.instrument\n    \n        # DMS89 WCS tests\n        pipeline.log.info(\n            \"DMS89 MSG: Testing that the wcs boundingbox was generated.......\"\n            + passfail(len(model.meta.wcs.bounding_box) == 2)\n        )\n        assert len(model.meta.wcs.bounding_box) == 2\n    \n        # Save original wcs information\n        orig_wcs = copy.deepcopy(model.meta.wcs)\n        del model.meta[\"wcs\"]\n    \n        # Create new pointing for the model\n        # RA & Dec are each shifted + 10 degrees, unless they are near\n        # the upper limit, in which case they are shifted -10 degrees.\n        delta = [10.0, 10.0]\n        if model.meta.wcsinfo.ra_ref >= 350.0:\n            delta[0] *= -1.0\n    \n        if model.meta.wcsinfo.dec_ref >= 80.0:\n            delta[1] *= -1.0\n    \n        model.meta.wcsinfo.ra_ref += delta[0]\n        model.meta.wcsinfo.dec_ref += delta[1]\n    \n        # Create new wcs object for the new pointing\n        model = AssignWcsStep.call(model)\n    \n        rtdata.output = output.rsplit(\".\", 1)[0] + \"_repoint.asdf\"\n        model.to_asdf(rtdata.output)\n    \n        # Test that repointed file matches truth\n        rtdata.get_truth(\"truth/WFI/image/\" + output.rsplit(\".\", 1)[0] + \"_repoint.asdf\")\n        diff = compare_asdf(rtdata.output, rtdata.truth, **ignore_asdf_paths)\n>       assert diff.identical, diff.report()\nE       AssertionError: \nE         Diff report for:\nE             result file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf\nE                 model type: ImageModel\nE             truth file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_image_processing_p0/truth/r0000101001001001001_01101_0001_WFI01_cal_repoint.asdf\nE                 model type: ImageModel\nE         \nE         {'arrays_differ': {\"root['roman']['data']\": {'abs_diff': <Quantity 32778.504 DN / s>,\nE                                                      'n_diffs': 471,\nE                                                      'worst_abs_diff': {'index': (2955,\nE                                                                                   3321),\nE                                                                         'value': <Quantity 7411.377 DN / s>},\nE                                                      'worst_fractional_diff': {'index': (2492,\nE                                                                                          1865),\nE                                                                                'value': <Quantity 863315.94>}},\nE                            \"root['roman']['dq']\": {'abs_diff': 12884901877,\nE                                                    'n_diffs': 4,\nE                                                    'worst_abs_diff': {'index': (2951,\nE                                                                                 3317),\nE                                                                       'value': 4294967292},\nE                                                    'worst_fractional_diff': {'index': (2952,\nE                                                                                        3320),\nE                                                                              'value': inf}},\nE                            \"root['roman']['err']\": {'abs_diff': <Quantity 1347.6384 DN / s>,\nE                                                     'n_diffs': 7,\nE                                                     'worst_abs_diff': {'index': (2952,\nE                                                                                  3320),\nE                                                                        'value': <Quantity 577.6964 DN / s>},\nE                                                     'worst_fractional_diff': {'index': (2492,\nE                                                                                         1865),\nE                                                                               'value': <Quantity 947606.2>}},\nE                            \"root['roman']['var_flat']\": {'abs_diff': <Quantity 494019.94 DN2 / s2>,\nE                                                          'n_diffs': 7,\nE                                                          'worst_abs_diff': {'index': (2952,\nE                                                                                       3320),\nE                                                                             'value': <Quantity 333064.88 DN2 / s2>},\nE                                                          'worst_fractional_diff': {'index': (2492,\nE                                                                                              1865),\nE                                                                                    'value': <Quantity 7.453108e+11>}},\nE                            \"root['roman']['var_poisson']\": {'abs_diff': <Quantity 3126.605 DN2 / s2>,\nE                                                             'n_diffs': 7,\nE                                                             'worst_abs_diff': {'index': (2955,\nE                                                                                          3321),\nE                                                                                'value': <Quantity 675.62225 DN2 / s2>},\nE                                                             'worst_fractional_diff': {'index': (1828,\nE                                                                                                 711),\nE                                                                                       'value': <Quantity inf>}},\nE                            \"root['roman']['var_rnoise']\": {'abs_diff': <Quantity 12.500684 DN2 / s2>,\nE                                                            'n_diffs': 7,\nE                                                            'worst_abs_diff': {'index': (2952,\nE                                                                                         3320),\nE                                                                               'value': <Quantity 3.4215055 DN2 / s2>},\nE                                                            'worst_fractional_diff': {'index': (1828,\nE                                                                                                711),\nE                                                                                      'value': <Quantity inf>}}},\nE          'values_changed': {\"root['roman']['meta']['wcs_fit_results']['<rot>']\": {'new_value': -8.284282814118433e-05,\nE                                                                                   'old_value': -5.9008763525942403e-05},\nE                             \"root['roman']['meta']['wcs_fit_results']['center'][0]\": {'new_value': -249.45443937059298,\nE                                                                                       'old_value': -249.45421319021025},\nE                             \"root['roman']['meta']['wcs_fit_results']['center'][1]\": {'new_value': 109.61109764361109,\nE                                                                                       'old_value': 109.61122052869052},\nE                             \"root['roman']['meta']['wcs_fit_results']['mae']\": {'new_value': 0.003221932838851946,\nE                                                                                 'old_value': 0.002684014626406904},\nE                             \"root['roman']['meta']['wcs_fit_results']['matrix'][0][1]\": {'new_value': -1.4458801127269767e-06,\nE                                                                                          'old_value': -1.0298972110582511e-06},\nE                             \"root['roman']['meta']['wcs_fit_results']['matrix'][1][0]\": {'new_value': 1.4458801127269767e-06,\nE                                                                                          'old_value': 1.0298972110582511e-06},\nE                             \"root['roman']['meta']['wcs_fit_results']['proper_rot']\": {'new_value': -8.284282814118433e-05,\nE                                                                                        'old_value': -5.9008763525942403e-05},\nE                             \"root['roman']['meta']['wcs_fit_results']['rmse']\": {'new_value': 0.004752892068723334,\nE                                                                                  'old_value': 0.003440309699826702},\nE                             \"root['roman']['meta']['wcs_fit_results']['rot'][0]\": {'new_value': -8.284282814118433e-05,\nE                                                                                    'old_value': -5.9008763525942403e-05},\nE                             \"root['roman']['meta']['wcs_fit_results']['rot'][1]\": {'new_value': -8.284282814118433e-05,\nE                                                                                    'old_value': -5.9008763525942403e-05},\nE                             \"root['roman']['meta']['wcs_fit_results']['shift'][0]\": {'new_value': -0.00849888422641429,\nE                                                                                      'old_value': -0.008499128453755975},\nE                             \"root['roman']['meta']['wcs_fit_results']['shift'][1]\": {'new_value': 0.014497927842124192,\nE                                                                                      'old_value': 0.014101158752967921}}}\nE       assert False\nE        +  where False = <romancal.regtest.regtestdata.DiffResult object at 0x7f37e715d310>.identical\n\n/runner/_work/RegressionTests/RegressionTests/romancal/regtest/test_wfi_pipeline.py:256: AssertionError"
+        }
+      }
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10-10-0.1-GAIADR1]": {
+    "time": [
+      0.106,
+      0.274
+    ]
+  },
+  "romancal.regtest.test_resample::test_resample_single_file": {
+    "time": [
+      219.842,
+      254.279
+    ]
+  },
+  "romancal.regtest.test_wfi_pipeline::test_level2_grism_processing_pipeline": {
+    "status": [
+      "Success",
+      {
+        "Failure": {
+          "failure_type": "",
+          "message": "AssertionError: \n  Diff report for:\n      result file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_grism_processing_p0/r0000201001001001001_01101_0001_WFI01_cal_repoint.asdf\n          model type: ImageModel\n      truth file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_grism_processing_p0/truth/r0000201001001001001_01101_0001_WFI01_cal_repoint.asdf\n          model type: ImageModel\n  \n  {'arrays_differ': {\"root['roman']['data']\": {'abs_diff': <Quantity 32694.467 DN / s>,\n                                               'n_diffs': 7,\n                                               'worst_abs_diff': {'index': (2955,\n                                                                            3321),\n                                                                  'value': <Quantity 7344.989 DN / s>},\n                                               'worst_fractional_diff': {'index': (2492,\n                                                                                   1865),\n                                                                         'value': <Quantity 1534202.2>}},\n                     \"root['roman']['dq']\": {'abs_diff': 12884901877,\n                                             'n_diffs': 4,\n                                             'worst_abs_diff': {'index': (2951,\n                                                                          3317),\n                                                                'value': 4294967292},\n                                             'worst_fractional_diff': {'index': (2952,\n                                                                                 3320),\n                                                                       'value': inf}},\n                     \"root['roman']['err']\": {'abs_diff': <Quantity 137.45984 DN / s>,\n                                              'n_diffs': 7,\n                                              'worst_abs_diff': {'index': (2955,\n                                                                           3321),\n                                                                 'value': <Quantity 25.843216 DN / s>},\n                                              'worst_fractional_diff': {'index': (1828,\n                                                                                  711),\n                                                                        'value': <Quantity inf>}},\n                     \"root['roman']['var_poisson']\": {'abs_diff': <Quantity 3116.3271 DN2 / s2>,\n                                                      'n_diffs': 7,\n                                                      'worst_abs_diff': {'index': (2955,\n                                                                                   3321),\n                                                                         'value': <Quantity 666.07654 DN2 / s2>},\n                                                      'worst_fractional_diff': {'index': (1828,\n                                                                                          711),\n                                                                                'value': <Quantity inf>}},\n                     \"root['roman']['var_rnoise']\": {'abs_diff': <Quantity 11.796576 DN2 / s2>,\n                                                     'n_diffs': 7,\n                                                     'worst_abs_diff': {'index': (2492,\n                                                                                  1865),\n                                                                        'value': <Quantity 3.1492276 DN2 / s2>},\n                                                     'worst_fractional_diff': {'index': (1828,\n                                                                                         711),\n                                                                               'value': <Quantity inf>}}}}\nassert False\n +  where False = <romancal.regtest.regtestdata.DiffResult object at 0x7f37e6214310>.identical",
+          "text": "rtdata = {'input': '/runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_grism_processing_p0/r0000201001001001001_01101_00...nt.asdf',\n 'truth_remote': 'roman-pipeline/dev/truth/WFI/grism/r0000201001001001001_01101_0001_WFI01_cal_repoint.asdf'}\nignore_asdf_paths = {'ignore': ['asdf_library', 'history', 'roman.meta.ref_file.crds.sw_version', 'roman.meta.calibration_software_version', 'roman.cal_logs', 'roman.meta.date', ...]}\n\n    @pytest.mark.bigdata\n    @pytest.mark.soctests\n    def test_level2_grism_processing_pipeline(rtdata, ignore_asdf_paths):\n        \"\"\"Tests for flat field grism processing requirements DMS90, DMS91 and DMS 278\"\"\"\n        input_data = \"r0000201001001001001_01101_0001_WFI01_uncal.asdf\"\n        rtdata.get_data(f\"WFI/grism/{input_data}\")\n        rtdata.input = input_data\n    \n        # Test Pipeline\n        output = \"r0000201001001001001_01101_0001_WFI01_cal.asdf\"\n        rtdata.output = output\n        args = [\n            \"roman_elp\",\n            rtdata.input,\n        ]\n        ExposurePipeline.from_cmdline(args)\n        rtdata.get_truth(f\"truth/WFI/grism/{output}\")\n        diff = compare_asdf(rtdata.output, rtdata.truth, **ignore_asdf_paths)\n        assert diff.identical, diff.report()\n    \n        # Perform DMS tests\n        # Initial prep\n        model = rdm.open(rtdata.output)\n        pipeline = ExposurePipeline()\n    \n        # DMS90 instrument artifact correction tests\n        pipeline.log.info(\n            \"Status of the step:             assign_wcs    \"\n            + str(model.meta.cal_step.assign_wcs)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing completion of wcs assignment in Level 2 spectroscopic\"\n            \" output.......\" + passfail(model.meta.cal_step.assign_wcs == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.assign_wcs == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             flat_field    \"\n            + str(model.meta.cal_step.flat_field)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing expected skip of flat fielding in Level 2 spectroscopic\"\n            \" output.......\" + passfail(model.meta.cal_step.flat_field == \"SKIPPED\")\n        )\n        assert model.meta.cal_step.flat_field == \"SKIPPED\"\n        pipeline.log.info(\n            \"Status of the step:             dark          \" + str(model.meta.cal_step.dark)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing completion of dark correction in Level 2 spectroscopic\"\n            \" output.......\" + passfail(model.meta.cal_step.dark == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.dark == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             dq_init       \"\n            + str(model.meta.cal_step.dq_init)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing completion of data quality correction in Level 2\"\n            \" spectroscopic output.......\"\n            + passfail(model.meta.cal_step.dq_init == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.dq_init == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             jump          \" + str(model.meta.cal_step.jump)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing completion of jump detection in Level 2 spectroscopic\"\n            \" output.......\" + passfail(model.meta.cal_step.jump == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.jump == \"COMPLETE\"\n        uneven = len({len(x) for x in model.meta.exposure.read_pattern}) > 1\n        pipeline.log.info(\n            \"DMS365: Testing that jump detection detected jumps in uneven ramp in \"\n            \"Level 2 image output.......\"\n            + passfail(uneven & np.any(model.dq & pixel.JUMP_DET))\n        )\n        assert uneven & np.any(model.dq & pixel.JUMP_DET)\n        pipeline.log.info(\n            \"Status of the step:             linearity     \"\n            + str(model.meta.cal_step.assign_wcs)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing completion of linearity correction in Level 2 spectroscopic\"\n            \" output.......\" + passfail(model.meta.cal_step.linearity == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.linearity == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             ramp_fit      \"\n            + str(model.meta.cal_step.ramp_fit)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing completion of ramp fitting in Level 2 spectroscopic\"\n            \" output.......\" + passfail(model.meta.cal_step.ramp_fit == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.ramp_fit == \"COMPLETE\"\n        pipeline.log.info(\n            \"Status of the step:             saturation    \"\n            + str(model.meta.cal_step.saturation)\n        )\n        pipeline.log.info(\n            \"DMS90 MSG: Testing completion of saturation detection in Level 2 spectroscopic\"\n            \" output.......\" + passfail(model.meta.cal_step.saturation == \"COMPLETE\")\n        )\n        assert model.meta.cal_step.saturation == \"COMPLETE\"\n    \n        pipeline.log.info(\n            \"DMS278 MSG: Testing WFI Level 2 Data Generation - Spectroscopy in Level 2 spectroscopic\"\n            \" output.......\"\n            + passfail(model.meta.cal_step.dq_init == \"COMPLETE\")\n            + passfail(model.meta.cal_step.saturation == \"COMPLETE\")\n            + passfail(model.meta.cal_step.refpix == \"COMPLETE\")\n            + passfail(model.meta.cal_step.linearity == \"COMPLETE\")\n            + passfail(model.meta.cal_step.jump == \"COMPLETE\")\n            + passfail(model.meta.cal_step.ramp_fit == \"COMPLETE\")\n            + passfail(model.meta.cal_step.assign_wcs == \"COMPLETE\")\n            + passfail(model.meta.cal_step.flat_field == \"SKIPPED\")\n            + passfail(model.meta.cal_step.photom == \"SKIPPED\")\n            + passfail(model.meta.cal_step.source_detection == \"SKIPPED\")\n            + passfail(model.meta.cal_step.tweakreg == \"SKIPPED\")\n        )\n        assert model.meta.cal_step.dq_init == \"COMPLETE\"\n        assert model.meta.cal_step.saturation == \"COMPLETE\"\n        assert model.meta.cal_step.refpix == \"COMPLETE\"\n        assert model.meta.cal_step.linearity == \"COMPLETE\"\n        assert model.meta.cal_step.jump == \"COMPLETE\"\n        assert model.meta.cal_step.ramp_fit == \"COMPLETE\"\n        assert model.meta.cal_step.assign_wcs == \"COMPLETE\"\n        assert model.meta.cal_step.flat_field == \"SKIPPED\"\n        assert model.meta.cal_step.photom == \"SKIPPED\"\n        assert model.meta.cal_step.source_detection == \"SKIPPED\"\n        assert model.meta.cal_step.tweakreg == \"SKIPPED\"\n    \n        # DMS91 data quality tests\n        pipeline.log.info(\n            \"DMS91 MSG: Testing existence of data quality array (dq) in Level 2\"\n            \" spectroscopic output.......\" + passfail(\"dq\" in model.keys())\n        )\n        assert \"dq\" in model.keys()\n        pipeline.log.info(\n            \"DMS91 MSG: Testing existence of general error array (err) in Level 2\"\n            \" spectroscopic output.......\" + passfail(\"err\" in model.keys())\n        )\n        assert \"err\" in model.keys()\n        pipeline.log.info(\n            \"DMS91 MSG: Testing existence of Poisson noise variance array (var_poisson) in\"\n            \" Level 2 spectroscopic output..\" + passfail(\"var_poisson\" in model.keys())\n        )\n        assert \"var_poisson\" in model.keys()\n        pipeline.log.info(\n            \"DMS91 MSG: Testing existence of read noise variance array (var_rnoise) in\"\n            \" Level 2 spectroscopic output...\" + passfail(\"var_rnoise\" in model.keys())\n        )\n        assert \"var_rnoise\" in model.keys()\n    \n        # DMS88 total exposure time test\n        pipeline.log.info(\n            \"DMS88 MSG: Testing existence of total exposure time (exposure_time) in Level 2\"\n            \" spectroscopic output.\" + passfail(\"exposure_time\" in model.meta.exposure)\n        )\n        assert \"exposure_time\" in model.meta.exposure\n    \n        # DMS93 WCS tests\n        pipeline.log.info(\n            \"DMS93 MSG: Testing that the wcs boundingbox was generated.......\"\n            + passfail(len(model.meta.wcs.bounding_box) == 2)\n        )\n        assert len(model.meta.wcs.bounding_box) == 2\n    \n        # Save original wcs information\n        orig_wcs = copy.deepcopy(model.meta.wcs)\n        del model.meta[\"wcs\"]\n    \n        # Create new pointing for the model\n        # RA & Dec are each shifted + 10 degrees, unless they are near\n        # the upper limit, in which case they are shifted -10 degrees.\n        delta = [10.0, 10.0]\n        if model.meta.wcsinfo.ra_ref >= 350.0:\n            delta[0] *= -1.0\n    \n        if model.meta.wcsinfo.dec_ref >= 80.0:\n            delta[1] *= -1.0\n    \n        model.meta.wcsinfo.ra_ref += delta[0]\n        model.meta.wcsinfo.dec_ref += delta[1]\n    \n        # Create new wcs object for the new pointing\n        model = AssignWcsStep.call(model)\n    \n        rtdata.output = output.rsplit(\".\", 1)[0] + \"_repoint.asdf\"\n        model.to_asdf(rtdata.output)\n    \n        # Test that repointed file matches truth\n        rtdata.get_truth(\"truth/WFI/grism/\" + output.rsplit(\".\", 1)[0] + \"_repoint.asdf\")\n        diff = compare_asdf(rtdata.output, rtdata.truth, **ignore_asdf_paths)\n>       assert diff.identical, diff.report()\nE       AssertionError: \nE         Diff report for:\nE             result file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_grism_processing_p0/r0000201001001001001_01101_0001_WFI01_cal_repoint.asdf\nE                 model type: ImageModel\nE             truth file: /runner/_work/_temp/pytest_basetemp/popen-gw1/test_level2_grism_processing_p0/truth/r0000201001001001001_01101_0001_WFI01_cal_repoint.asdf\nE                 model type: ImageModel\nE         \nE         {'arrays_differ': {\"root['roman']['data']\": {'abs_diff': <Quantity 32694.467 DN / s>,\nE                                                      'n_diffs': 7,\nE                                                      'worst_abs_diff': {'index': (2955,\nE                                                                                   3321),\nE                                                                         'value': <Quantity 7344.989 DN / s>},\nE                                                      'worst_fractional_diff': {'index': (2492,\nE                                                                                          1865),\nE                                                                                'value': <Quantity 1534202.2>}},\nE                            \"root['roman']['dq']\": {'abs_diff': 12884901877,\nE                                                    'n_diffs': 4,\nE                                                    'worst_abs_diff': {'index': (2951,\nE                                                                                 3317),\nE                                                                       'value': 4294967292},\nE                                                    'worst_fractional_diff': {'index': (2952,\nE                                                                                        3320),\nE                                                                              'value': inf}},\nE                            \"root['roman']['err']\": {'abs_diff': <Quantity 137.45984 DN / s>,\nE                                                     'n_diffs': 7,\nE                                                     'worst_abs_diff': {'index': (2955,\nE                                                                                  3321),\nE                                                                        'value': <Quantity 25.843216 DN / s>},\nE                                                     'worst_fractional_diff': {'index': (1828,\nE                                                                                         711),\nE                                                                               'value': <Quantity inf>}},\nE                            \"root['roman']['var_poisson']\": {'abs_diff': <Quantity 3116.3271 DN2 / s2>,\nE                                                             'n_diffs': 7,\nE                                                             'worst_abs_diff': {'index': (2955,\nE                                                                                          3321),\nE                                                                                'value': <Quantity 666.07654 DN2 / s2>},\nE                                                             'worst_fractional_diff': {'index': (1828,\nE                                                                                                 711),\nE                                                                                       'value': <Quantity inf>}},\nE                            \"root['roman']['var_rnoise']\": {'abs_diff': <Quantity 11.796576 DN2 / s2>,\nE                                                            'n_diffs': 7,\nE                                                            'worst_abs_diff': {'index': (2492,\nE                                                                                         1865),\nE                                                                               'value': <Quantity 3.1492276 DN2 / s2>},\nE                                                            'worst_fractional_diff': {'index': (1828,\nE                                                                                                711),\nE                                                                                      'value': <Quantity inf>}}}}\nE       assert False\nE        +  where False = <romancal.regtest.regtestdata.DiffResult object at 0x7f37e6214310>.identical\n\n/runner/_work/RegressionTests/RegressionTests/romancal/regtest/test_wfi_pipeline.py:466: AssertionError"
+        }
+      }
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l3_input_model_unchanged": {
+    "time": [
+      55.569,
+      62.074
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_parse_catfile_valid_catalog": {
+    "time": [
+      1.396,
+      1.758
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_returns_modellibrary_on_modellibrary_as_input": {
+    "time": [
+      1.795,
+      0.924
+    ]
+  },
+  "romancal.regtest.test_wfi_saturation::test_saturation_grism_step": {
+    "time": [
+      49.77,
+      58.844
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_using_epoch[GAIADR1-2000.0]": {
+    "time": [
+      0.677,
+      0.367
+    ]
+  },
+  "romancal.resample.tests.test_resample::test_populate_mosaic_basic_single_exposure": {
+    "time": [
+      0.61,
+      0.815
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog_keywords[20-10-5-False-False-SourceCatalogModel-expected_outputs3]": {
+    "time": [
+      53.216,
+      72.878
+    ]
+  },
+  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_skips_step_on_exposure_type_different_from_wfi_image": {
+    "time": [
+      0.753,
+      0.446
+    ]
+  },
+  "romancal.regtest.test_wfi_dq_init::test_dq_init_image_step": {
+    "time": [
+      35.718,
+      45.641
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_using_epoch[GAIADR3-J2000]": {
+    "time": [
+      0.956,
+      0.439
+    ]
+  },
+  "romancal.regtest.test_wfi_photom::test_absolute_photometric_calibration": {
+    "time": [
+      31.936,
+      38.637
+    ]
+  },
+  "romancal.skymatch.tests.test_skymatch::test_skymatch_overlap[global-True-mean]": {
+    "time": [
+      1.297,
+      0.916
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_returns_modellibrary_on_list_of_asdf_file_as_input": {
+    "time": [
+      2.994,
+      2.432
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_save_valid_abs_refcat[GAIADR2]": {
+    "time": [
+      1.5,
+      0.888
+    ]
+  },
+  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_init_default_parameters[pars0]": {
+    "time": [
+      0.252,
+      0.122
+    ]
+  },
+  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.4589931219679968-0.34124882938726064-10000.0]": {
+    "time": [
+      70.494,
+      59.22
+    ]
+  },
+  "romancal.ramp_fitting.tests.test_ramp_fit_cas22::test_bad_readpattern": {
+    "time": [
+      0.733,
+      0.547
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_returns_modellibrary_on_roman_datamodel_as_input": {
+    "time": [
+      1.829,
+      1.159
+    ]
+  },
+  "romancal.resample.tests.test_resample_step::test_build_driz_weight_multiple_good_bits[~513-dq_array1-expected_output1]": {
+    "time": [
+      0.241,
+      0.124
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[0-0-0.01-GAIADR1]": {
+    "time": [
+      0.558,
+      0.166
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog_keywords[3-50-5-True-False-SourceCatalogModel-expected_outputs1]": {
+    "time": [
+      52.865,
+      67.501
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10--10-0.1-GAIADR1]": {
+    "time": [
+      0.119,
+      0.337
+    ]
+  },
+  "romancal.regtest.test_wfi_flat_field::test_flat_field_grism_step": {
+    "time": [
+      13.683,
+      16.979
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[10-10-2030]": {
+    "time": [
+      0.752,
+      0.252
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_write_results_to_disk": {
+    "time": [
+      14.998,
+      8.158
+    ]
+  },
+  "romancal.jump.tests.test_jump_step::test_two_group_integration[quarter]": {
+    "time": [
+      0.424,
+      0.265
+    ]
+  },
+  "docs.roman.datamodels.models.rst::models.rst": {
+    "time": [
+      2.293,
+      2.95
+    ]
+  },
+  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_valid_input_modelcontainer": {
+    "time": [
+      0.752,
+      0.456
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l2_input_model_unchanged": {
+    "time": [
+      59.16,
+      66.251
+    ]
+  },
+  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.21327155153435973--0.7514334470008721-7196.856730011521]": {
+    "time": [
+      67.266,
+      56.208
+    ]
+  },
+  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-True-midpt-True]": {
+    "time": [
+      1.04,
+      1.33
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10-10-0.1-GAIADR2]": {
+    "time": [
+      0.141,
+      0.346
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_variable_num_sources[GAIADR2-10]": {
+    "time": [
+      0.949,
+      0.607
+    ]
+  },
+  "romancal.regtest.test_dark_current::test_dark_current_outfile_suffix": {
+    "time": [
+      43.615,
+      49.0
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog[10-10-7-False]": {
+    "time": [
+      70.568,
+      57.451
+    ]
+  },
+  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.2739233746429086--0.648688758794882-1000.0]": {
+    "time": [
+      73.671,
+      66.65
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_returns_modellibrary_on_association_file_as_input": {
+    "time": [
+      3.211,
+      2.745
+    ]
+  },
+  "romancal.jump.tests.test_jump_step::test_two_CRs[half]": {
+    "time": [
+      4.43,
+      3.134
+    ]
+  },
+  "romancal.regtest.test_ramp_fitting::test_rampfit_step[spec_full]": {
+    "time": [
+      42.548,
+      48.934
+    ]
+  },
+  "romancal.refpix.tests.test_refpix::test_run_steps_regression": {
+    "time": [
+      0.54,
+      0.38
+    ]
+  },
+  "romancal.skymatch.tests.test_skymatch::test_skymatch_2x[match-False]": {
+    "time": [
+      2.147,
+      1.45
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_save_valid_abs_refcat[GAIADR3]": {
+    "time": [
+      1.199,
+      0.943
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_variable_num_sources[GAIADR1-5]": {
+    "time": [
+      0.504,
+      0.79
+    ]
+  },
+  "romancal.assign_wcs.tests.test_wcs::test_wcs[load_wcs_step-distortion0]": {
+    "time": [
+      6.354,
+      5.287
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog[20-10-5-False]": {
+    "time": [
+      57.562,
+      67.556
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10-10-0.1-GAIADR3]": {
+    "time": [
+      0.613,
+      0.236
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_create_astrometric_catalog_variable_num_sources[GAIADR3-15]": {
+    "time": [
+      1.078,
+      0.435
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_fit_results_in_meta": {
+    "time": [
+      1.225,
+      0.978
+    ]
+  },
+  "romancal.lib.tests.test_psf.TestPSFFitting::test_psf_fit[0.08724998293084574-0.2943790231485002-13894.95494373136]": {
+    "time": [
+      59.597,
+      69.274
+    ]
+  },
+  "romancal.outlier_detection.tests.test_outlier_detection::test_outlier_detection_always_returns_modelcontainer_with_updated_datamodels[ASNFile]": {
+    "time": [
+      2.866,
+      2.491
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_updates_group_id": {
+    "time": [
+      1.431,
+      0.94
+    ]
+  },
+  "romancal.assign_wcs.tests.test_wcs::test_wcs[assign_wcs_step-distortion0]": {
+    "time": [
+      7.009,
+      5.59
+    ]
+  },
+  "romancal.flux.tests.test_flux_step::test_attributes[input_modellibrary-data-1]": {
+    "time": [
+      1.091,
+      0.737
+    ]
+  },
+  "romancal.assign_wcs.tests.test_wcs::test_wcs[load_wcs_step-distortion1]": {
+    "time": [
+      6.89,
+      5.409
+    ]
+  },
+  "romancal.resample.tests.test_resample::test_populate_mosaic_basic_different_observations[input_models_data5-expected_output5]": {
+    "time": [
+      1.837,
+      2.181
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[0-0-2000]": {
+    "time": [
+      0.593,
+      0.288
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_raises_error_on_invalid_abs_refcat": {
+    "time": [
+      0.769,
+      0.593
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog[3-50-5-False]": {
+    "time": [
+      60.066,
+      52.802
+    ]
+  },
+  "romancal.regtest.test_wfi_dq_init::test_dq_init_grism_step": {
+    "time": [
+      34.845,
+      43.486
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l2_source_catalog_keywords[10-10-7-False-True-ImageModel-expected_outputs2]": {
+    "time": [
+      52.423,
+      62.989
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_defaults_to_valid_abs_refcat[]": {
+    "time": [
+      1.291,
+      0.957
+    ]
+  },
+  "romancal.regtest.test_regtestdata::test_compare_asdf[None]": {
+    "time": [
+      1.344,
+      1.047
+    ]
+  },
+  "romancal.skymatch.tests.test_skymatch::test_skymatch[global+match-True-mode-True]": {
+    "time": [
+      2.065,
+      1.74
+    ]
+  },
+  "romancal.tweakreg.tests.test_tweakreg::test_tweakreg_defaults_to_valid_abs_refcat[None]": {
+    "time": [
+      1.638,
+      0.944
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[10--10-2000]": {
+    "time": [
+      0.686,
+      0.25
+    ]
+  },
+  "romancal.regtest.test_ramp_fitting::test_rampfit_step[image_trunc]": {
+    "time": [
+      41.982,
+      50.938
+    ]
+  },
+  "romancal.resample.tests.test_resample::test_custom_wcs_input_small_overlap_no_rotation": {
+    "time": [
+      1.089,
+      0.884
+    ]
+  },
+  "romancal.outlier_detection.tests.test_outlier_detection::test_find_outliers": {
+    "time": [
+      5.187,
+      3.327
+    ]
+  },
+  "romancal.source_catalog.tests.test_source_catalog::test_l3_source_catalog[3-50-5-False]": {
+    "time": [
+      62.664,
+      53.992
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_epoch[10-10-2000]": {
+    "time": [
+      0.666,
+      0.258
+    ]
+  },
+  "romancal.tweakreg.tests.test_astrometric_utils::test_get_catalog_using_valid_parameters[10--10-0.1-GAIADR2]": {
+    "time": [
+      0.143,
+      0.281
+    ]
+  }
+}
