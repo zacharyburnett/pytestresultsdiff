@@ -8,18 +8,18 @@ struct PytestResultsDiffCommand {
     /// filenames of `results.xml` to compare
     results_xmls: Vec<std::path::PathBuf>,
     /// fractional tolerance for time deviation
-    #[clap(long, short = 't', default_value_t = 0.1)]
+    #[clap(long, short = 't', default_value_t = 0.0)]
     time_relative_tolerance: f64,
     /// absolute tolerance (in seconds) for time deviation
     #[clap(long, short = 'T', default_value_t = 0.1)]
     time_absolute_tolerance: f64,
     /// fractional tolerance for peakmem deviation
     #[cfg(feature = "extra-properties")]
-    #[clap(long, short = 'm', default_value_t = 0.1)]
+    #[clap(long, short = 'm', default_value_t = 0.0)]
     peakmem_relative_tolerance: f64,
     /// absolute tolerance (in MB) for peakmem deviation
     #[cfg(feature = "extra-properties")]
-    #[clap(long, short = 'M', default_value_t = 0.1)]
+    #[clap(long, short = 'M', default_value_t = 1.0)]
     peakmem_absolute_tolerance: f64,
 }
 

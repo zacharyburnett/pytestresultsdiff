@@ -9,21 +9,21 @@ inputs:
     description: "space-separated filenames of `results.xml` to compare"
     required: true
   time-relative-tolerance:
-    description: "fractional tolerance for time deviation [default: 0.1]" 
+    description: "fractional tolerance for time deviation [default: 0.0]" 
     required: false
-    default: "0.1"
+    default: "0.0"
   time-absolute-tolerance:
     description: "absolute tolerance (in seconds) for time deviation [default: 0.1]"
     required: false
     default: "0.1"
   peakmem-relative-tolerance:
-    description: "fractional tolerance for peakmem deviation [default: 0.1]" 
+    description: "fractional tolerance for peakmem deviation [default: 0.0]" 
     required: false
-    default: "0.1"
+    default: "0.0"
   peakmem-absolute-tolerance:
-    description: "absolute tolerance (in MB) for peakmem deviation [default: 0.1]"
+    description: "absolute tolerance (in MB) for peakmem deviation [default: 1.0]"
     required: false
-    default: "1"
+    default: "1.0"
   features:
     description: "comma-separated list of crate features: `extra-properties,url,system-err,system-out`"
     required: false
