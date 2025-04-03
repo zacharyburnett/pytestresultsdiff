@@ -460,5 +460,11 @@
       0.143,
       0.281
     ]
+  },
+  "this_test_shouldnt_be_displayed": {
+    "time": [
+      0.143,
+      0.144
+    ]
   }
 }

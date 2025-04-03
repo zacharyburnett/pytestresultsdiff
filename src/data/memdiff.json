@@ -5,4 +5,10 @@
       2721952705.0
     ]
   }
+  "this_test_shouldnt_be_displayed": {
+    "peakmem": [
+      1721952705.0,
+      1721952710.0,
+    ]
+  }
 }
