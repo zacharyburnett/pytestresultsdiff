@@ -7,7 +7,7 @@ def generate_markdown_table(
     results_diff_json: Path,
     property_names: list[str],
     run_names: list[str] | None = None,
-) -> str:
+) -> str | None:
     if run_names is None:
         run_names = ["A", "B"]
 
@@ -31,8 +31,7 @@ def generate_markdown_table(
         row = {
             header[0]: test_case,
             **{
-                property: properties[property]
-                if property in properties else None
+                property: properties[property] if property in properties else None
                 for property in property_names
             },
         }
@@ -47,18 +46,25 @@ def generate_markdown_table(
             if entry is None:
                 row_strings.extend("" for _ in run_names)
             elif isinstance(entry, list):
-                for value in entry:
-                    if isinstance(value, dict):
-                        value = data_to_details(value)
-                    elif "peakmem" in property:
-                        # peakmem comes in bytes
-                        value = f"`{float(value) / 1000000:.0f}MB`"
-                    elif "time" in property:
-                        # time comes in seconds
-                        value = f"`{float(value):.1f}s`"
-                    else:
-                        value = f"{value}"
-                    row_strings.append(value)
+                if "peakmem" in property:
+                    # peakmem comes in bytes
+                    entry = [
+                        round(float(value) / 1000000, ndigits=1) for value in entry
+                    ]
+                    if any(entry[index] != entry[0] for index in range(1, len(entry))):
+                        row_strings.extend(f"`{value:.1f}MB`" for value in entry)
+                elif "time" in property:
+                    # time comes in seconds
+                    entry = [round(float(value), ndigits=1) for value in entry]
+                    if any(entry[index] != entry[0] for index in range(1, len(entry))):
+                        row_strings.extend(f"`{value:.1f}s`" for value in entry)
+                else:
+                    row_strings.extend(
+                        data_to_details(value)
+                        if isinstance(value, dict)
+                        else f"{value}"
+                        for value in entry
+                    )
             else:
                 if "test case" in property:
                     # format test case name as inline code
@@ -67,7 +73,7 @@ def generate_markdown_table(
 
         markdown_table_lines.append(f"| {' | '.join(row_strings)} |")
 
-    return "\n".join(markdown_table_lines)
+    return "\n".join(markdown_table_lines) if len(markdown_table_lines) > 2 else None
 
 
 def data_to_details(data: dict) -> str:
@@ -105,4 +111,5 @@ if __name__ == "__main__":
         getattr(arguments, "results-diff-json"), arguments.properties, run_names
     )
 
-    print(markdown_table)
+    if markdown_table is not None:
+        print(markdown_table)
