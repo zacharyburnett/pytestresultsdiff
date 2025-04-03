@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="8" tests="917" time="2119.946" timestamp="2025-03-30T00:22:59.217114+00:00" hostname="hostymchostface">
-<testcase classname="romancal.regtest.test_catalog" name="test_log_tracked_resources[L3]" time="0.002"><properties><property name="tracked-peakmem" value="1721952705" /><property name="tracked-time" value="100.37806803395506" /></properties><system-err>--------------------------------- Captured Err ---------------------------------
-
-</system-err></testcase>
-</testsuite></testsuites>

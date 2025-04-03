@@ -10,11 +10,9 @@ version = "1.0.0"
 edition = "2021"
 
 [features]
-default = ["peakmem", "extra-properties"]
+default = ["extra-properties"]
 # retrieve XML from URL
 url = ["dep:reqwest", "dep:url"]
-# compare peakmem of test results
-peakmem = []
 # compare extra properties
 extra-properties = []
 # compare system-err of test results

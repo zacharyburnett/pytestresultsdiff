@@ -23,11 +23,11 @@ inputs:
   peakmem-absolute-tolerance:
     description: "absolute tolerance (in MB) for peakmem deviation [default: 0.1]"
     required: false
-    default: "0.1"
+    default: "1"
   features:
-    description: "comma-separated list of crate features: `peakmem,extra-properties,url,system-err,system-out`"
+    description: "comma-separated list of crate features: `extra-properties,url,system-err,system-out`"
     required: false
-    default: "peakmem,extra-properties"
+    default: "extra-properties"
   summary-table-properties:
     description: "space-separated list of properties with which to build a summary table"
     required: false

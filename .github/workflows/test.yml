@@ -36,15 +36,14 @@ jobs:
       - uses: ./
         with:
           results-xmls: >-
-            ./src/data/romancal_24Q4_B15.0.0_results-Linux-x64-py3.11.xml
-            ./src/data/romancal_nightly_results-Linux-x64-py3.11.xml
+            ./src/data/time/romancal_24Q4_B15.0.0_results-Linux-x64-py3.11.xml
+            ./src/data/time/romancal_nightly_results-Linux-x64-py3.11.xml
           time-relative-tolerance: 0.1
-          #time-absolute-tolerance: 0.1
           summary-table-properties: status time peakmem
           output-file: resultsdiff.json
       - run: cat resultsdiff.json
-  test-action-peakmem-differences:
-    name: test action (`peakmem` differences)
+  test-action-tracked-differences:
+    name: test action (tracked differences)
     strategy:
       matrix:
         runs-on:
@@ -55,10 +54,10 @@ jobs:
       - uses: ./
         with:
           results-xmls: >-
-            ./src/data/main.xml
-            ./src/data/pr.xml
-          peakmem-relative-tolerance: 0.1
-          #peakmem-absolute-tolerance: 0.1
+            ./src/data/peakmem/main.xml
+            ./src/data/peakmem/pr.xml
+          time-absolute-tolerance: 0.1
+          peakmem-absolute-tolerance: 1
           summary-table-properties: status time peakmem
           output-file: resultsdiff.json
       - run: cat resultsdiff.json
@@ -74,11 +73,11 @@ jobs:
       - uses: ./
         with:
           results-xmls: >-
-            ./src/data/main.xml
-            ./src/data/main.xml
+            ./src/data/peakmem/main.xml
+            ./src/data/peakmem/main.xml
           time-relative-tolerance: 0.1
           # time-absolute-tolerance: 0.1
-          peakmem-relative-tolerance: 0.1
+          peakmem-relative-tolerance: 1
           # peakmem-absolute-tolerance: 0.1
           summary-table-properties: status time peakmem
           output-file: resultsdiff.json

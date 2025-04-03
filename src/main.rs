@@ -14,11 +14,11 @@ struct PytestResultsDiffCommand {
     #[clap(long, short = 'T', default_value_t = 0.1)]
     time_absolute_tolerance: f64,
     /// fractional tolerance for peakmem deviation
-    #[cfg(feature = "peakmem")]
+    #[cfg(feature = "extra-properties")]
     #[clap(long, short = 'm', default_value_t = 0.1)]
     peakmem_relative_tolerance: f64,
     /// absolute tolerance (in MB) for peakmem deviation
-    #[cfg(feature = "peakmem")]
+    #[cfg(feature = "extra-properties")]
     #[clap(long, short = 'M', default_value_t = 0.1)]
     peakmem_absolute_tolerance: f64,
 }
@@ -29,9 +29,9 @@ fn main() {
         arguments.results_xmls,
         arguments.time_relative_tolerance,
         arguments.time_absolute_tolerance,
-        #[cfg(feature = "peakmem")]
+        #[cfg(feature = "extra-properties")]
         arguments.peakmem_relative_tolerance,
-        #[cfg(feature = "peakmem")]
+        #[cfg(feature = "extra-properties")]
         arguments.peakmem_absolute_tolerance,
     )
     .unwrap();
