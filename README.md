@@ -1,4 +1,7 @@
 # pytestresultsdiff
+[![build](https://github.com/zacharyburnett/pytestresultsdiff/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/zacharyburnett/pytestresultsdiff/actions/workflows/build.yml)
+[![test](https://github.com/zacharyburnett/pytestresultsdiff/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/zacharyburnett/pytestresultsdiff/actions/workflows/test.yml)
+
 compare properties of Pytest results
 
 ## GitHub Actions workflow
