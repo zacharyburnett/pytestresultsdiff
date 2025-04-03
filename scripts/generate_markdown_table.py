@@ -50,11 +50,11 @@ def generate_markdown_table(
                     # only append value if there are differences greater than the displayed number of digits
                     entry = [
                         # peakmem comes in bytes
-                        round(float(value) / 1000000, ndigits=1)
+                        round(float(value) / 1000000)
                         for value in entry
                     ]
                     if any(entry[index] != entry[0] for index in range(1, len(entry))):
-                        row_strings.extend(f"`{value:.1f}MB`" for value in entry)
+                        row_strings.extend(f"`{value:.0f}MB`" for value in entry)
                 elif "time" in property:
                     # only append value if there are differences greater than the displayed number of digits
                     entry = [round(float(value), ndigits=1) for value in entry]
