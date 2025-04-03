@@ -30,8 +30,6 @@ jobs:
       matrix:
         runs-on:
           - ubuntu-latest
-          - macos-13
-          - macos-latest
     runs-on: ${{ matrix.runs-on }}
     steps:
       - uses: actions/checkout@v4
@@ -51,8 +49,6 @@ jobs:
       matrix:
         runs-on:
           - ubuntu-latest
-          - macos-13
-          - macos-latest
     runs-on: ${{ matrix.runs-on }}
     steps:
       - uses: actions/checkout@v4
@@ -72,8 +68,6 @@ jobs:
       matrix:
         runs-on:
           - ubuntu-latest
-          - macos-13
-          - macos-latest
     runs-on: ${{ matrix.runs-on }}
     steps:
       - uses: actions/checkout@v4
