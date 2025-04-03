@@ -47,16 +47,19 @@ def generate_markdown_table(
                 row_strings.extend("" for _ in run_names)
             elif isinstance(entry, list):
                 if "peakmem" in property:
-                    # peakmem comes in bytes
+                    # only append value if there are differences greater than the displayed number of digits
                     entry = [
-                        round(float(value) / 1000000, ndigits=1) for value in entry
+                        # peakmem comes in bytes
+                        round(float(value) / 1000000, ndigits=1)
+                        for value in entry
                     ]
                     if any(entry[index] != entry[0] for index in range(1, len(entry))):
                         row_strings.extend(f"`{value:.1f}MB`" for value in entry)
                 elif "time" in property:
-                    # time comes in seconds
+                    # only append value if there are differences greater than the displayed number of digits
                     entry = [round(float(value), ndigits=1) for value in entry]
                     if any(entry[index] != entry[0] for index in range(1, len(entry))):
+                        # time comes in seconds
                         row_strings.extend(f"`{value:.1f}s`" for value in entry)
                 else:
                     row_strings.extend(
@@ -71,7 +74,8 @@ def generate_markdown_table(
                     entry = f"`{entry}`"
                 row_strings.append(entry)
 
-        markdown_table_lines.append(f"| {' | '.join(row_strings)} |")
+        if any(value != "" for value in row_strings[1:]):
+            markdown_table_lines.append(f"| {' | '.join(row_strings)} |")
 
     return "\n".join(markdown_table_lines) if len(markdown_table_lines) > 2 else None
 
