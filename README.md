@@ -65,9 +65,28 @@ Options:
           Print version
 ```
 
-### example
 ```console
-pytestresultsdiff src/data/romancal_24Q4_B15.0.0_results-Linux-x64-py3.11.xml src/data/romancal_nightly_results-Linux-x64-py3.11.xml
+python scripts/generate_markdown_table.py --help
+```
+```
+usage: generate_markdown_table [-h] [--run-names RUN_NAMES] results-diff-json properties [properties ...]
+
+reads pytestresultsdiff JSON and creates a comparison table for the specified properties
+
+positional arguments:
+  results-diff-json     filename of pytestresultsdiff JSON, or - to read from stdin
+  properties            properties to compare
+
+options:
+  -h, --help            show this help message and exit
+  --run-names RUN_NAMES
+                        comma-separated list of run names
+```
+
+### examples
+
+```shell
+pytestresultsdiff src/data/time/romancal_24Q4_B15.0.0_results-Linux-x64-py3.11.xml src/data/time/romancal_nightly_results-Linux-x64-py3.11.xml
 ```
 ```json
 {
@@ -103,4 +122,29 @@ pytestresultsdiff src/data/romancal_24Q4_B15.0.0_results-Linux-x64-py3.11.xml sr
     ]
   }
 }
+```
+
+#### creating a markdown table of differences
+
+```shell
+pytestresultsdiff src/data/peakmem/main.xml src/data/peakmem/pr.xml | python scripts/generate_markdown_table.py - status peakmem
+```
+```json
+{
+  'romancal.regtest.test_catalog::test_log_tracked_resources[L3]': {
+    'peakmem': [
+      1721952705.0,
+      2721952705.0
+    ],
+    'time': [
+      100.37806803395506,
+      101.37806803395506
+    ]
+  }
+}
+```
+```markdown
+| test case | A status | B status | A peakmem | B peakmem |
+| --- | --- | --- | --- | --- |
+| `romancal.regtest.test_catalog::test_log_tracked_resources[L3]` |  |  | `1722MB` | `2722MB` |
 ```

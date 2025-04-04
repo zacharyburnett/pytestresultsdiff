@@ -1,18 +1,22 @@
 import argparse
-from pathlib import Path
+import os
 import json
+import sys
 
 
 def generate_markdown_table(
-    results_diff_json: Path,
+    results_diff_json: os.PathLike | dict,
     property_names: list[str],
     run_names: list[str] | None = None,
 ) -> str | None:
     if run_names is None:
         run_names = ["A", "B"]
 
-    with open(results_diff_json) as results_diff_file:
-        results_diff = json.load(results_diff_file)
+    if not isinstance(results_diff_json, dict):
+        with open(results_diff_json) as results_diff_file:
+            results_diff = json.load(results_diff_file)
+    else:
+        results_diff = results_diff_json
 
     header = ["test case"]
     header.extend(
@@ -102,17 +106,23 @@ if __name__ == "__main__":
         description="reads pytestresultsdiff JSON and creates a comparison table for the specified properties",
     )
 
-    parser.add_argument("results-diff-json", help="filename of pytestresultsdiff JSON")
+    parser.add_argument("results-diff-json", help="filename of pytestresultsdiff JSON, or - to read from stdin")
     parser.add_argument("properties", nargs="+", help="properties to compare")
     parser.add_argument("--run-names", help="comma-separated list of run names")
 
     arguments = parser.parse_args()
+    
+    results_diff_json = getattr(arguments, "results-diff-json")
+    if results_diff_json == '-':
+        results_diff_json = json.loads(sys.stdin.read())
+        print(results_diff_json)
+
     run_names = (
         arguments.run_names.split(",") if arguments.run_names is not None else None
     )
 
     markdown_table = generate_markdown_table(
-        getattr(arguments, "results-diff-json"), arguments.properties, run_names
+        results_diff_json, arguments.properties, run_names
     )
 
     if markdown_table is not None:
