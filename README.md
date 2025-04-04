@@ -4,21 +4,22 @@
 
 compare properties of Pytest results
 
-## GitHub Actions workflow
+## `zacharyburnett/pytestresultsdiff` GitHub Actions workflow
 
 ```yaml
       - run: pytest --junitxml=${{ runner.temp }}/currentresults.xml
       - id: pytestresultsdiff
-        uses: zacharyburnett/pytestresultsdiff@1.1.0
+        uses: zacharyburnett/pytestresultsdiff@1.1.1
         with:
           results-xmls: >-
-            ${{ runner.temp }}/currentresults.xml
             oldresults.xml
-          time-relative-tolerance: 0.1
-          #time-absolute-tolerance: 0.1
-          peakmem-relative-tolerance: 0.1
-          #peakmem-absolute-tolerance: 0.1
+            ${{ runner.temp }}/currentresults.xml
+          #time-relative-tolerance: 0.0
+          time-absolute-tolerance: 0.1 # seconds
+          #peakmem-relative-tolerance: 0.0
+          peakmem-absolute-tolerance: 1.0 # megabytes
           summary-table-properties: status time peakmem
+          summary-table-run-names: old,current
           output-file: ${{ runner.temp }}/resultsdiff.json
           #features: extra-properties,url,system-err,system-out
       - run: echo ${{ steps.pytestresultsdiff.outputs.diff }}
@@ -31,17 +32,47 @@ compare properties of Pytest results
 > [!TIP]
 > `results-xmls` also accepts URLs to XML files with the `url` feature.
 
-## console executable
-
-### build
-```console
-cargo build --release
+```yaml
+inputs:
+  results-xmls:
+    description: "space-separated filenames of `results.xml` to compare"
+    required: true
+  time-relative-tolerance:
+    description: "fractional tolerance for time deviation [default: 0.0]" 
+    required: false
+    default: "0.0"
+  time-absolute-tolerance:
+    description: "absolute tolerance (in seconds) for time deviation [default: 0.1]"
+    required: false
+    default: "0.1"
+  peakmem-relative-tolerance:
+    description: "fractional tolerance for peakmem deviation [default: 0.0]" 
+    required: false
+    default: "0.0"
+  peakmem-absolute-tolerance:
+    description: "absolute tolerance (in MB) for peakmem deviation [default: 1.0]"
+    required: false
+    default: "1.0"
+  features:
+    description: "comma-separated list of crate features: `extra-properties,url,system-err,system-out`"
+    required: false
+    default: "extra-properties"
+  summary-table-properties:
+    description: "space-separated list of properties with which to build a summary table"
+    required: false
+    default: ""
+  summary-table-run-names:
+    description: "comma-separated list of run names for the summary table header"
+    required: false
+    default: "A,B"
+  output-file:
+    description: "filename of JSON to write to"
+    required: false
+    default: ""
 ```
 
-### usage
-```console
-pytestresultsdiff --help
-```
+## `pytestresultsdiff` console executable
+
 ```
 compare properties of Pytest results
 
@@ -52,38 +83,18 @@ Arguments:
 
 Options:
   -t, --time-relative-tolerance <TIME_RELATIVE_TOLERANCE>
-          fractional tolerance for time deviation [default: 0.1]
+          fractional tolerance for time deviation [default: 0]
   -T, --time-absolute-tolerance <TIME_ABSOLUTE_TOLERANCE>
           absolute tolerance (in seconds) for time deviation [default: 0.1]
   -m, --peakmem-relative-tolerance <PEAKMEM_RELATIVE_TOLERANCE>
-          fractional tolerance for peakmem deviation [default: 0.1]
+          fractional tolerance for peakmem deviation [default: 0]
   -M, --peakmem-absolute-tolerance <PEAKMEM_ABSOLUTE_TOLERANCE>
-          absolute tolerance (in MB) for peakmem deviation [default: 0.1]
+          absolute tolerance (in MB) for peakmem deviation [default: 1]
   -h, --help
           Print help
   -V, --version
           Print version
 ```
-
-```console
-python scripts/generate_markdown_table.py --help
-```
-```
-usage: generate_markdown_table [-h] [--run-names RUN_NAMES] results-diff-json properties [properties ...]
-
-reads pytestresultsdiff JSON and creates a comparison table for the specified properties
-
-positional arguments:
-  results-diff-json     filename of pytestresultsdiff JSON, or - to read from stdin
-  properties            properties to compare
-
-options:
-  -h, --help            show this help message and exit
-  --run-names RUN_NAMES
-                        comma-separated list of run names
-```
-
-### examples
 
 ```shell
 pytestresultsdiff src/data/time/romancal_24Q4_B15.0.0_results-Linux-x64-py3.11.xml src/data/time/romancal_nightly_results-Linux-x64-py3.11.xml
@@ -124,10 +135,9 @@ pytestresultsdiff src/data/time/romancal_24Q4_B15.0.0_results-Linux-x64-py3.11.x
 }
 ```
 
-#### creating a markdown table of differences
-
 ```shell
-pytestresultsdiff src/data/peakmem/main.xml src/data/peakmem/pr.xml | python scripts/generate_markdown_table.py - status peakmem
+pytestresultsdiff src/data/peakmem/main.xml src/data/peakmem/pr.xml > examplediff.json
+cat examplediff.json
 ```
 ```json
 {
@@ -143,8 +153,27 @@ pytestresultsdiff src/data/peakmem/main.xml src/data/peakmem/pr.xml | python scr
   }
 }
 ```
-```markdown
-| test case | A status | B status | A peakmem | B peakmem |
-| --- | --- | --- | --- | --- |
-| `romancal.regtest.test_catalog::test_log_tracked_resources[L3]` |  |  | `1722MB` | `2722MB` |
+
+## `scripts/generate_markdown_table.py` Python script
+
 ```
+usage: generate_markdown_table [-h] [--run-names RUN_NAMES] results-diff-json properties [properties ...]
+
+reads pytestresultsdiff JSON and creates a comparison table for the specified properties
+
+positional arguments:
+  results-diff-json     filename of pytestresultsdiff JSON, or - to read from stdin
+  properties            properties to compare
+
+options:
+  -h, --help            show this help message and exit
+  --run-names RUN_NAMES
+                        comma-separated list of run names
+```
+
+```shell
+python scripts/generate_markdown_table.py examplediff.json status time peakmem --run-names main,pr
+```
+| test case | main status | pr status | main time | pr time | main peakmem | pr peakmem |
+| --- | --- | --- | --- | --- | --- | --- |
+| `romancal.regtest.test_catalog::test_log_tracked_resources[L3]` |  |  | `100.4s` | `101.4s` | `1722MB` | `2722MB` |
