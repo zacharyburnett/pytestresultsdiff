@@ -9,7 +9,7 @@ compare properties of Pytest results
 ```yaml
       - run: pytest --junitxml=${{ runner.temp }}/currentresults.xml
       - id: pytestresultsdiff
-        uses: zacharyburnett/pytestresultsdiff@1.0.0
+        uses: zacharyburnett/pytestresultsdiff@1.1.0
         with:
           results-xmls: >-
             ${{ runner.temp }}/currentresults.xml
