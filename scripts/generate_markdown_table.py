@@ -111,14 +111,17 @@ if __name__ == "__main__":
         description="reads pytestresultsdiff JSON and creates a comparison table for the specified properties",
     )
 
-    parser.add_argument("results-diff-json", help="filename of pytestresultsdiff JSON, or - to read from stdin")
+    parser.add_argument(
+        "results-diff-json",
+        help="filename of pytestresultsdiff JSON, or - to read from stdin",
+    )
     parser.add_argument("properties", nargs="+", help="properties to compare")
     parser.add_argument("--run-names", help="comma-separated list of run names")
 
     arguments = parser.parse_args()
-    
+
     results_diff_json = getattr(arguments, "results-diff-json")
-    if results_diff_json == '-':
+    if results_diff_json == "-":
         results_diff_json = json.loads(sys.stdin.read())
         print(results_diff_json)
 
