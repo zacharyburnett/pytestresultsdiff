@@ -83,7 +83,7 @@ def generate_markdown_table(
 
     if len(markdown_table_lines) <= 2:
         markdown_table_lines.append(
-            f"| **no differences from previous run (within tolerances)** | {' | '.join('' for _ in header[1:])} |"
+            f"| _no change_ | {' | '.join('' for _ in header[1:])} |"
         )
 
     return "\n".join(markdown_table_lines)
