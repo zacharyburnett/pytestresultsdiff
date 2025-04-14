@@ -81,7 +81,12 @@ def generate_markdown_table(
         if any(value != "" for value in row_strings[1:]):
             markdown_table_lines.append(f"| {' | '.join(row_strings)} |")
 
-    return "\n".join(markdown_table_lines) if len(markdown_table_lines) > 2 else None
+    if len(markdown_table_lines) <= 2:
+        markdown_table_lines.append(
+            f"| **no differences from previous run (within tolerances)** | {' | '.join('' for _ in header[1:])} |"
+        )
+
+    return "\n".join(markdown_table_lines)
 
 
 def data_to_details(data: dict) -> str:
