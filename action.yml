@@ -64,7 +64,7 @@ runs:
         python-version: "3"
     - if: inputs.summary-table-properties != ''
       shell: bash
-      run: python ./_pytestresultsdiff/scripts/generate_markdown_table.py ${{ steps.filename.outputs.filename }} ${{ inputs.summary-table-properties }} ${{ inputs.summary-table-run-names }} >> $GITHUB_STEP_SUMMARY
+      run: python ./_pytestresultsdiff/scripts/generate_markdown_table.py --run-names=${{ inputs.summary-table-run-names }} ${{ steps.filename.outputs.filename }} ${{ inputs.summary-table-properties }} >> $GITHUB_STEP_SUMMARY
     - id: output
       shell: bash
       run: echo output=$(cat ${{ steps.filename.outputs.filename }}) >> $GITHUB_OUTPUT
