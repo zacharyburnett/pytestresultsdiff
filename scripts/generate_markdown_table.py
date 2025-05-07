@@ -67,7 +67,9 @@ def generate_markdown_table(
                         row_strings.extend(f"`{value:.1f}s`" for value in entry)
                 elif "status" in property:
                     row_strings.extend(
-                        list(value.keys())[0] if isinstance(value, dict) else f"{value}"
+                        " ".join(value.keys())
+                        if isinstance(value, dict)
+                        else f"{value}"
                         for value in entry
                     )
                 else:
