@@ -65,6 +65,11 @@ def generate_markdown_table(
                     if any(entry[index] != entry[0] for index in range(1, len(entry))):
                         # time comes in seconds
                         row_strings.extend(f"`{value:.1f}s`" for value in entry)
+                elif "status" in property:
+                    row_strings.extend(
+                        list(value.keys())[0] if isinstance(value, dict) else f"{value}"
+                        for value in entry
+                    )
                 else:
                     row_strings.extend(
                         data_to_details(value)
