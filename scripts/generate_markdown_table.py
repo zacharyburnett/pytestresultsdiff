@@ -4,6 +4,38 @@ import json
 import sys
 
 
+KNOWN_NUMERICAL_PROPERTIES = [
+    "time",
+    "peakmem",
+]
+
+
+def sort_table_differences(
+    rows: list[dict[str, str | list[str | float | int]]],
+) -> list[dict[str, str | list[str | float | int]]]:
+    test_cases = [
+        [row[property] for property in KNOWN_NUMERICAL_PROPERTIES if property in row]
+        for row in rows
+    ]
+    differences = []
+    for test_case in test_cases:
+        test_case_differences = []
+        for property_values in test_case:
+            if property_values is None:
+                property_difference is None
+            else:
+                property_values = [
+                    value for value in property_values if value is not None
+                ]
+                if len(property_values) > 0:
+                    property_difference = property_values[0]
+                    for index in range(1, len(property_values)):
+                        property_difference -= property_values[index]
+            test_case_differences.append(property_difference)
+        differences.append(tuple(test_case_differences))
+    return [rows[differences.index(difference)] for difference in sorted(differences)]
+
+
 def generate_markdown_table(
     results_diff_json: os.PathLike | dict,
     property_names: list[str],
@@ -44,11 +76,16 @@ def generate_markdown_table(
         if not all(entry is None for entry in list(row.values())[1:]):
             rows.append(row)
 
+    # sort rows by difference
+    rows = sort_table_differences(
+        rows,
+    )
+
     for row in rows:
-        row_strings: list[str] = []
+        row_as_strings: list[str] = []
         for property, entry in row.items():
             if entry is None:
-                row_strings.extend("" for _ in run_names)
+                row_as_strings.extend("" for _ in run_names)
             elif isinstance(entry, list):
                 if "peakmem" in property:
                     # only append value if there are differences greater than the displayed number of digits
@@ -58,35 +95,35 @@ def generate_markdown_table(
                         for value in entry
                     ]
                     if any(entry[index] != entry[0] for index in range(1, len(entry))):
-                        row_strings.extend(f"`{value:.0f}MB`" for value in entry)
+                        row_as_strings.extend(f"`{value:.0f}MB`" for value in entry)
                 elif "time" in property:
                     # only append value if there are differences greater than the displayed number of digits
                     entry = [round(float(value), ndigits=1) for value in entry]
                     if any(entry[index] != entry[0] for index in range(1, len(entry))):
                         # time comes in seconds
-                        row_strings.extend(f"`{value:.1f}s`" for value in entry)
+                        row_as_strings.extend(f"`{value:.1f}s`" for value in entry)
                 elif "status" in property:
-                    row_strings.extend(
+                    row_as_strings.extend(
                         " ".join(value.keys())
                         if isinstance(value, dict)
                         else f"{value}"
                         for value in entry
                     )
                 else:
-                    row_strings.extend(
+                    row_as_strings.extend(
                         data_to_details(value)
                         if isinstance(value, dict)
                         else f"{value}"
                         for value in entry
                     )
             else:
-                if "test case" in property:
+                if property == "test case":
                     # format test case name as inline code
                     entry = f"`{entry}`"
-                row_strings.append(entry)
+                row_as_strings.append(entry)
 
-        if any(value != "" for value in row_strings[1:]):
-            markdown_table_lines.append(f"| {' | '.join(row_strings)} |")
+        if any(value != "" for value in row_as_strings[1:]):
+            markdown_table_lines.append(f"| {' | '.join(row_as_strings)} |")
 
     if len(markdown_table_lines) <= 2:
         markdown_table_lines.append(
