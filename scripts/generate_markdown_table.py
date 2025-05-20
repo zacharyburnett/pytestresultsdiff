@@ -22,7 +22,7 @@ def sort_table_differences(
         test_case_differences = []
         for property_values in test_case:
             if property_values is None:
-                property_difference is None
+                property_difference = None
             else:
                 property_values = [
                     value for value in property_values if value is not None
