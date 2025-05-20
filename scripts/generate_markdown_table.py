@@ -22,10 +22,10 @@ def sort_table_differences(
         test_case_differences = []
         for property_values in test_case:
             if property_values is None:
-                property_difference = None
+                property_difference = 0.0
             else:
                 property_values = [
-                    value for value in property_values if value is not None
+                    value for value in property_values if isinstance(value, float)
                 ]
                 if len(property_values) > 0:
                     property_difference = property_values[0]
@@ -33,7 +33,8 @@ def sort_table_differences(
                         property_difference -= property_values[index]
             test_case_differences.append(property_difference)
         differences.append(tuple(test_case_differences))
-    return [rows[differences.index(difference)] for difference in sorted(differences)]
+    differences.sort()
+    return [rows[differences.index(difference)] for difference in differences]
 
 
 def generate_markdown_table(
