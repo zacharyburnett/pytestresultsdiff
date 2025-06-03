@@ -78,10 +78,9 @@ def generate_markdown_table(
             rows.append(row)
 
     # sort rows by difference
-    rows = sort_table_differences(
-        rows,
-    )
+    rows = sort_table_differences(rows)
 
+    row_dict = {}
     for row in rows:
         row_as_strings: list[str] = []
         for property, entry in row.items():
@@ -123,6 +122,10 @@ def generate_markdown_table(
                     entry = f"`{entry}`"
                 row_as_strings.append(entry)
 
+        # remove duplicate test case names
+        row_dict[row["test case"]] = row_as_strings
+
+    for row_as_strings in row_dict.values():
         if any(value != "" for value in row_as_strings[1:]):
             markdown_table_lines.append(f"| {' | '.join(row_as_strings)} |")
 
