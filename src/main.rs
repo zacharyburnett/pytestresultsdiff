@@ -25,6 +25,26 @@ struct PytestResultsDiffCommand {
 
 fn main() {
     let arguments = PytestResultsDiffCommand::parse();
+
+    let missing = arguments
+        .results_xmls
+        .iter()
+        .filter_map(|filename| {
+            if !filename.exists() {
+                Some(String::from(filename.to_str().unwrap()))
+            } else {
+                None
+            }
+        })
+        .collect::<Vec<String>>();
+    if !missing.is_empty() {
+        panic!(
+            "could not find {} files [{}]",
+            missing.len(),
+            missing.join(" ")
+        )
+    }
+
     let test_case_differences = crate::diff::diff_results(
         arguments.results_xmls,
         arguments.time_relative_tolerance,
