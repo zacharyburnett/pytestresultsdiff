@@ -44,16 +44,20 @@ inputs:
 runs:
   using: composite
   steps:
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      with:
+        repository: zacharyburnett/pytestresultsdiff
+        path: ./_pytestresultsdiff/
     - uses: actions-rust-lang/setup-rust-toolchain@v1
       with:
-        components: cargo
+        cache-workspaces: ./_pytestresultsdiff/ -> ~/.cargo/bin/
     - id: cache-binary
       uses: actions/cache@v5
       with:
         path: ~/.cargo/bin/pytestresultsdiff
         key: pytestresultsdiff
     - if: steps.cache-binary.outputs.cache-hit != 'true'
-      run: cargo install --git=https://github.com/zacharyburnett/pytestresultsdiff --target-dir=~/.cargo/bin/ ${{ inputs.features != '' && format('--features {0}', inputs.features) || '' }}
+      run: cargo install --path=./_pytestresultsdiff/ --target-dir=~/.cargo/bin/ ${{ inputs.features != '' && format('--features {0}', inputs.features) || '' }}
       shell: bash
     - run: echo "~/.cargo/bin/" >> $GITHUB_PATH
       shell: bash
@@ -63,16 +67,13 @@ runs:
     - run: pytestresultsdiff ${{ inputs.results-xmls }} -m ${{ inputs.peakmem-relative-tolerance }} -M ${{ inputs.peakmem-absolute-tolerance }} -t ${{ inputs.time-relative-tolerance }} -T ${{ inputs.time-absolute-tolerance }} > ${{ steps.filename.outputs.filename }}
       shell: bash
     - if: inputs.summary-table-properties != ''
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      with:
-        repository: zacharyburnett/pytestresultsdiff
-        path: ./_pytestresultsdiff/
-    - if: inputs.summary-table-properties != ''
       uses: actions/setup-python@v5
+      with:
+        python-version: 3
     - if: inputs.summary-table-properties != ''
-      run: |
-        python ./_pytestresultsdiff/scripts/generate_markdown_table.py --run-names=${{ inputs.summary-table-run-names }} ${{ steps.filename.outputs.filename }} ${{ inputs.summary-table-properties }} >> $GITHUB_STEP_SUMMARY
-        rm -rf ./_pytestresultsdiff/
+      run: python ./_pytestresultsdiff/scripts/generate_markdown_table.py --run-names=${{ inputs.summary-table-run-names }} ${{ steps.filename.outputs.filename }} ${{ inputs.summary-table-properties }} >> $GITHUB_STEP_SUMMARY
+      shell: bash
+    - run: rm -rf ./_pytestresultsdiff/
       shell: bash
     - id: output
       run: echo output=$(cat ${{ steps.filename.outputs.filename }}) >> $GITHUB_OUTPUT
