@@ -68,6 +68,8 @@ runs:
         repository: zacharyburnett/pytestresultsdiff
         path: ./_pytestresultsdiff/
     - if: inputs.summary-table-properties != ''
+      uses: actions/setup-python@v5
+    - if: inputs.summary-table-properties != ''
       run: |
         python ./_pytestresultsdiff/scripts/generate_markdown_table.py --run-names=${{ inputs.summary-table-run-names }} ${{ steps.filename.outputs.filename }} ${{ inputs.summary-table-properties }} >> $GITHUB_STEP_SUMMARY
         rm -rf ./_pytestresultsdiff/
